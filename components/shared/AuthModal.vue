@@ -1,18 +1,17 @@
 <template lang="pug">
-BaseModal(:show="show" :class='"max-w-[343px] bg-white rounded-lg"' @mask-click='closeModal')
-  HTabGroup(:selectedIndex='tabIndex' @change='changeTab' :defaultIndex='0' as='div' class='px-5 py-6')
-    HTabList(class='flex items-center justify-center' style='')
-      HTab(as='div' v-slot='{selected}')
-        button.flex.justify-center.border-b-2(class='w-40 h-9' :class='["",{"border-emerald":selected}]')
-          span(:class='[{"text-gray":!selected},{"font-semibold text-emerald":selected}]') Login
-      HTab(as='div' v-slot='{selected}')
-        button.flex.justify-center.border-b-2(class='w-40 h-9' :class='["",{"border-emerald":selected}]')
-          span(:class='[{"text-gray":!selected},{"font-semibold text-emerald":selected}]') Signup
-    HTabPanels(class='mt-6' style='')
-      HTabPanel
+BaseModal(:show='show' @mask-click='closeModal')
+  .bg-white.w-500px.rounded-lg.px-5.py-6
+    .tabs-list.w-full.flex.items-center.justify-center
+      .tab-items.flex.items-center.justify-center.h-9.cursor-pointer(class='w-40' :class='{"shadow-[0px_2px_#FF9900]":tab==="login"}' @click='changeTab("login")')
+        span(:class='[{"font-semibold text-vivid":tab==="login"},{"text-gray":tab!=="login"}]') Login
+      .tab-items.flex.items-center.justify-center.h-9.cursor-pointer(class='w-40' :class='{"shadow-[0px_2px_#FF9900]":tab==="signup"}' @click='changeTab("signup")')
+        span(:class='[{"font-semibold text-vivid":tab==="signup"},{"text-gray":tab!=="signup"}]') Signup
+    .tab-panels.mt-2
+      .panel-item(v-show='tab==="login"' v-auto-animate)
         LoginForm
-      HTabPanel
+      .panel-item(v-show='tab==="signup"' v-auto-animate)
         SignupForm
+
 </template>
 
 <script setup lang="ts">
@@ -33,10 +32,10 @@ const closeModal = () => {
 }
 
 // Tab handler -> login or signup
-const tabIndex = ref<number>(0)
+const tab = ref<'login' | 'signup'>('login')
 
-const changeTab = (index: number) => {
-  tabIndex.value = index
+const changeTab = (tabValue: 'login' | 'signup') => {
+  tab.value = tabValue
 }
 
 

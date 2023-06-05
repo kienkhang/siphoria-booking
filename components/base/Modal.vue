@@ -1,28 +1,23 @@
 <template lang="pug">
-HDialog(:open='show' @close='closeModal' class="relative z-10")
-  //- div(class="fixed inset-0 overflow-y-auto" @click='$emit("mask-click")')
-  div(class="fixed inset-0 bg-black bg-opacity-25" @click='$emit("mask-click")')
-    div(class="flex min-h-full items-center justify-center")
-      HDialogPanel(:class='class')
+teleport(to='body')
+  div(v-auto-animate)
+    .modal-provider.fixed.inset-0.flex.items-center.justify-center(v-if="show" class='z-[9999]')
+      .absolute.inset-0(class='bg-black/50 backdrop-blur-1px mask-overlay dark:bg-white/50' @click='$emit("mask-click")')
+      .relative(class='z-50 body-modal')
         slot
 </template>
-
+  
 <script setup lang="ts">
-
-// Define Props
-const props = defineProps<{
-  show: boolean
-  class?: string
-}>()
-// Define Emits
-const emit = defineEmits<{
+// Props
+defineProps({
+  show: {
+    type: Boolean,
+    default: false,
+  },
+})
+// Emits
+defineEmits<{
   (e: 'update:show', value: boolean): void
   (e: 'mask-click'): void
 }>()
-
-const closeModal = () => {
-  emit('update:show', false)
-}
 </script>
-
-<style scoped></style>

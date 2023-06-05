@@ -1,5 +1,5 @@
 <template lang="pug">
-div(class='bg-green-500')
+div(class='bg-crayola')
   .max-w-7xl.mx-auto.px-4(class='sm:px-6 lg:px-8')
     .flex.justify-between.items-center(class='h-16')
       div(class='i-custom-logo-text-nocolor w-48 h-12 cursor-pointer')
