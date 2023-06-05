@@ -3,19 +3,26 @@ import { appDescription } from './constants/index'
 
 export default defineNuxtConfig({
   modules: [
+    // VueUse
     '@vueuse/nuxt',
+    // UnoCss
     '@unocss/nuxt',
+    '@nuxtjs/color-mode',
+    // Pinia
     '@pinia/nuxt',
-    // '@nuxtjs/color-mode',
+    // PWA
     '@vite-pwa/nuxt',
+    // NuxtLab UI
     '@nuxthq/ui',
-    'nuxt-headlessui'
+    // FormKit
+    '@formkit/nuxt'
   ],
 
 
-  headlessui: {
-    prefix: 'H'
+  // ----- FORMKIT CONFIG -------
+  formkit: {
   },
+  // ----- ************** -------
 
   experimental: {
     // when using generate, payload js assets included in sw precache manifest
