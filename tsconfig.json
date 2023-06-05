@@ -1,0 +1,6 @@
+{
+  "vueCompilerOptions": {
+    "plugins": ["@volar/vue-language-plugin-pug"]
+  },
+  "extends": "./.nuxt/tsconfig.json"
+}
