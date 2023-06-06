@@ -15,15 +15,18 @@ const useProvinces = () => {
 
   const selectProvince = () => {
     const usedGetProvince = provinceApi.getProvinces()
-    const { isFinished, data, execute } = usedGetProvince
+    const { isFinished, data, error, execute } = usedGetProvince
 
     until(isFinished)
       .toBeTruthy()
       .then(() => {
-        pOptions.value = data.value.map((p) => ({
-          value: p.code,
-          label: p.name
-        }))
+        if (!error.value && data.value) {
+          pOptions.value = data.value.map((p) => ({
+            value: p.code,
+            label: p.name
+          }))
+        }
+
       })
     return {
       ...usedGetProvince,
@@ -32,16 +35,19 @@ const useProvinces = () => {
   }
   const selectDistrict = (p: string | number) => {
     const usedGetDistrict = provinceApi.getDistricts(p)
-    const { isFinished, data, execute } = usedGetDistrict
+    const { isFinished, data, error, execute } = usedGetDistrict
 
     until(isFinished)
       .toBeTruthy()
       .then(() => {
-        const districts = data.value.districts
-        dOptions.value = districts.map((p) => ({
-          value: p.code,
-          label: p.name
-        }))
+        if (!error.value && data.value) {
+          const districts = data.value.districts
+          dOptions.value = districts.map((p) => ({
+            value: p.code,
+            label: p.name
+          }))
+        }
+
       })
     return {
       ...usedGetDistrict,
@@ -50,16 +56,19 @@ const useProvinces = () => {
   }
   const selectWard = (d: string | number) => {
     const usedGetWard = provinceApi.getWards(d)
-    const { isFinished, data, execute } = usedGetWard
+    const { isFinished, data, error, execute } = usedGetWard
 
     until(isFinished)
       .toBeTruthy()
       .then(() => {
-        const wards = data.value.wards
-        wOptions.value = wards.map((p) => ({
-          value: p.code,
-          label: p.name
-        }))
+        if (!error.value && data.value) {
+          const wards = data.value.wards
+          wOptions.value = wards.map((p) => ({
+            value: p.code,
+            label: p.name
+          }))
+        }
+
       })
     return {
       ...usedGetWard,
