@@ -1,5 +1,5 @@
 <template lang="pug">
-button.flex-inline.rounded-md.transition-all(class='active:focus:scale-95 hover:bg-opacity-90')
+button.flex-inline.items-center.rounded-lg.transition-all(class='active:focus:scale-95 hover:bg-opacity-90')
   slot
 </template>
 
