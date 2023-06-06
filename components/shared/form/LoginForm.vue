@@ -18,7 +18,7 @@ const loginData = reactive({
   password: ''
 })
 
-const doLogin = async () => {
+async function doLogin() {
   console.log('😃😦😧 ~ loginData:', { ...loginData })
 }
 </script>

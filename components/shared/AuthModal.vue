@@ -17,9 +17,9 @@ BaseModal(:show='show' @mask-click='closeModal')
 </template>
 
 <script setup lang="ts">
-import LoginSocial from './LoginSocial.vue';
-import LoginForm from './form/LoginForm.vue';
-import SignupForm from './form/SignupForm.vue';
+import LoginSocial from './LoginSocial.vue'
+import LoginForm from './form/LoginForm.vue'
+import SignupForm from './form/SignupForm.vue'
 
 // Define Props
 const props = defineProps<{
@@ -30,18 +30,16 @@ const emit = defineEmits<{
   (e: 'update:show', value: boolean): void
 }>()
 
-const closeModal = () => {
+function closeModal() {
   emit('update:show', false)
 }
 
 // Tab handler -> login or signup
 const tab = ref<'login' | 'signup'>('login')
 
-const changeTab = (tabValue: 'login' | 'signup') => {
+function changeTab(tabValue: 'login' | 'signup') {
   tab.value = tabValue
 }
-
-
 </script>
 
 <style scoped></style>

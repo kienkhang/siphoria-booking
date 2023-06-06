@@ -1,6 +1,6 @@
 // formkit.config.ts
 import { vi, en } from '@formkit/i18n'
-import { DefaultConfigOptions } from '@formkit/vue'
+import type { DefaultConfigOptions } from '@formkit/vue'
 import { generateClasses } from '@formkit/themes'
 
 // Custome theme element

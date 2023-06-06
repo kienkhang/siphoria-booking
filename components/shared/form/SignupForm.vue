@@ -21,7 +21,7 @@ const signupData = reactive({
   password: ''
 })
 
-const doSignup = async () => {
+function doSignup() {
   console.log('😃😦😧 ~ signupData:', { ...signupData })
 }
 </script>
