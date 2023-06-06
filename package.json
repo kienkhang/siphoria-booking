@@ -20,9 +20,8 @@
     "@nuxtjs/color-mode": "^3.2.0",
     "@pinia/nuxt": "^0.4.11",
     "@unocss/eslint-config": "^0.51.13",
-    "@unocss/extractor-pug": "^0.52.7",
+    "@unocss/extractor-pug": "^0.53.0",
     "@unocss/nuxt": "^0.51.13",
-    "@unocss/preset-rem-to-px": "^0.53.0",
     "@vite-pwa/nuxt": "^0.0.9",
     "@vueuse/nuxt": "^10.1.2",
     "consola": "^3.1.0",
@@ -37,6 +36,7 @@
     "@formkit/auto-animate": "1.0.0-beta.6",
     "@formkit/nuxt": "^0.17.2",
     "@iconify/utils": "^2.1.5",
+    "@unocss/reset": "^0.53.0",
     "@volar/vue-language-plugin-pug": "^1.6.5",
     "pug": "^3.0.2",
     "stylus": "^0.59.0"

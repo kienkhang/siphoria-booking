@@ -54,18 +54,19 @@ const theme = {
     selectIcon: 'flex box-content w-4 px-2 self-stretch grow-0 shrink-0',
   },
   'family:text': {
-    inner: 'flex items-center max-w-md ring-1 ring-gray-400 focus:outline-none focus-within:ring-crayola focus-within:ring-2 [&>label:first-child]:focus-within:text-crayola rounded-lg mb-1',
-    input: 'w-full px-3 py-2 border-none text-base text-gray-700 placeholder-gray-400',
+    label: 'font-semibold cursor-pointer select-none',
+    inner: 'flex items-center max-w-md rounded-lg mb-1',
+    input: 'w-full px-3 py-2 text-base text-gray-700 placeholder-x11',
   },
   'family:date': {
     inner: 'flex items-center max-w-md ring-1 ring-gray-400 focus-within:ring-crayola focus-within:ring-2 [&>label:first-child]:focus-within:text-crayola rounded-lg mb-1',
-    input: 'w-full px-3 py-2 border-none text-gray-700 placeholder-gray-400',
+    input: 'w-full px-3 py-2 border-0 text-gray-700 placeholder-gray-400',
   },
 
   // Specific styles apply only to a given input type
   color: {
     inner: 'flex max-w-[5.5em] w-full formkit-prefix-icon:max-w-[7.5em] formkit-suffix-icon:formkit-prefix-icon:max-w-[10em]',
-    input: '$reset appearance-none w-full cursor-pointer border-none rounded p-0 m-0 bg-transparent [&::-webkit-color-swatch-wrapper]:p-0 [&::-webkit-color-swatch]:border-none',
+    input: '$reset appearance-none w-full cursor-pointer border-0 rounded p-0 m-0 bg-transparent [&::-webkit-color-swatch-wrapper]:p-0 [&::-webkit-color-swatch]:border-0',
     suffixIcon: 'min-w-[2.5em] pr-0 pl-0 m-auto'
   },
   file: {
@@ -92,13 +93,13 @@ const theme = {
   },
   select: {
     inner: 'flex relative max-w-md items-center rounded mb-1 ring-1 ring-gray-400 focus-within:ring-blue-500 focus-within:ring-2 [&>span:first-child]:focus-within:text-blue-500',
-    input: 'w-full pl-3 pr-8 py-2 border-none text-base text-gray-700 placeholder-gray-400 formkit-multiple:p-0 data-[placeholder="true"]:text-gray-400 formkit-multiple:data-[placeholder="true"]:text-inherit',
+    input: 'w-full pl-3 pr-8 py-2 border-0 text-base text-gray-700 placeholder-gray-400 formkit-multiple:p-0 data-[placeholder="true"]:text-gray-400 formkit-multiple:data-[placeholder="true"]:text-inherit',
     selectIcon: 'flex p-[3px] shrink-0 w-5 mr-2 -ml-[1.5em] h-full pointer-events-none',
     option: 'formkit-multiple:p-3 formkit-multiple:text-sm text-gray-700'
   },
   textarea: {
     inner: 'flex max-w-md rounded mb-1 ring-1 ring-gray-400 focus-within:ring-blue-500 [&>label:first-child]:focus-within:text-blue-500',
-    input: 'block w-full h-32 px-3 py-3 border-none text-base text-gray-700 placeholder-gray-400 focus:shadow-outline',
+    input: 'block w-full h-32 px-3 py-3 border-0 text-base text-gray-700 placeholder-gray-400 focus:shadow-outline',
   },
 
   // PRO input styles
@@ -191,7 +192,7 @@ const theme = {
   slider: {
     outer: 'max-w-md',
     help: 'mt-0 mb-1',
-    sliderInner: 'flex items-center py-1 [&>.formkit-max-value]:mb-0 [&>.formkit-max-value]:ml-8 [&>.formkit-max-value]:shrink [&>.formkit-max-value]:grow-0 [&>.formkit-icon]:bg-none [&>.formkit-icon]:border-none [&>.formkit-icon]:p-0 [&>.formkit-icon]:w-4 [&>.formkit-prefix-icon]:mr-2 [&>.formkit-suffix-icon]:ml-2 [&[data-has-mark-labels="true"]_.formkit-track]:mb-4',
+    sliderInner: 'flex items-center py-1 [&>.formkit-max-value]:mb-0 [&>.formkit-max-value]:ml-8 [&>.formkit-max-value]:shrink [&>.formkit-max-value]:grow-0 [&>.formkit-icon]:bg-none [&>.formkit-icon]:border-0 [&>.formkit-icon]:p-0 [&>.formkit-icon]:w-4 [&>.formkit-prefix-icon]:mr-2 [&>.formkit-suffix-icon]:ml-2 [&[data-has-mark-labels="true"]_.formkit-track]:mb-4',
     track: 'grow relative z-[3] py-1',
     trackWrapper: 'px-[2px] rounded-full bg-gray-200',
     trackInner: 'h-[6px] mx-[2px] relative',
@@ -230,7 +231,7 @@ const theme = {
     outer: `
       [&_.dnd-placeholder]:bg-blue-500 [&_.dnd-placeholder]:text-white
       [&_.dnd-placeholder_svg]:text-white
-      [&_.dnd-children-hidden]:w-full [&_.dnd-children-hidden]:p-0 [&_.dnd-children-hidden]:flex [&_.dnd-children-hidden]:flex-col [&_.dnd-children-hidden]:border-none
+      [&_.dnd-children-hidden]:w-full [&_.dnd-children-hidden]:p-0 [&_.dnd-children-hidden]:flex [&_.dnd-children-hidden]:flex-col [&_.dnd-children-hidden]:border-0
       [&_.dnd-children-hidden_span]:hidden
       [&_.dnd-children-hidden_.formkit-transferlist-option]:hidden
       [&_.dnd-multiple-selections_span]:inline-block
@@ -246,14 +247,14 @@ const theme = {
     transferlistListItem: 'pl-8 relative aria-selected:bg-crayola aria-selected:data-[is-active=true]:bg-crayola aria-selected:text-white aria-selected:data-[is-active=true]:text-white first:-mt-px first:border-t py-2 px-3 flex relative border-b bg-white data-[is-active=true]:text-blue-500 data-[is-active=true]:bg-gray-100 cursor-pointer group-data-[is-max=true]:cursor-not-allowed items-center',
     transferlistOption: 'text-sm',
     transferControls: 'flex sm:flex-col justify-center mx-auto my-2 sm:mx-2 sm:my-auto border rounded',
-    transferlistButton: 'text-sm disabled:cursor-not-allowed disabled:bg-gray-200 disabled:opacity-50 first:rounded-l last:rounded-r sm:first:rounded-t sm:last:rounded-b appearance-none p-2 m-0 cursor-pointer h-10 border-none rounded-none bg-gray-50 hover:outline disabled:hover:outline-none hover:outline-1 hover:outline-black hover:text-blue-500 disabled:hover:text-current hover:z-10',
-    sourceEmptyMessage: 'appearance-none border-none w-full p-0 m-0 text-center text-gray-500 italic',
+    transferlistButton: 'text-sm disabled:cursor-not-allowed disabled:bg-gray-200 disabled:opacity-50 first:rounded-l last:rounded-r sm:first:rounded-t sm:last:rounded-b appearance-none p-2 m-0 cursor-pointer h-10 border-0 rounded-none bg-gray-50 hover:outline disabled:hover:outline-none hover:outline-1 hover:outline-black hover:text-blue-500 disabled:hover:text-current hover:z-10',
+    sourceEmptyMessage: 'appearance-none border-0 w-full p-0 m-0 text-center text-gray-500 italic',
     sourceListItems: 'group-data-[is-max=true]:opacity-50',
-    targetEmptyMessage: 'appearance-none border-none w-full p-0 m-0 text-center text-gray-500 italic',
+    targetEmptyMessage: 'appearance-none border-0 w-full p-0 m-0 text-center text-gray-500 italic',
     emptyMessageInner: 'flex items-center justify-center p-2 text-sm',
     transferlistControls: 'bg-white px-3 py-2 border-b',
     transferlistSearch: 'flex border rounded items-center',
-    transferlistSearchInput: 'border-none p-1 w-full bg-transparent outline-none text-sm',
+    transferlistSearchInput: 'border-0 p-1 w-full bg-transparent outline-none text-sm',
     controlLabel: 'hidden',
     selectedIcon: 'w-3 absolute left-3 select-none',
     fastForwardIcon: 'w-10 flex select-none [&>svg]:m-auto [&>svg]:w-full [&>svg]:max-w-[1rem] [&>svg]:max-h-[1rem] rotate-90 sm:rotate-0',
