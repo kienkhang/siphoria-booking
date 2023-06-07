@@ -16,6 +16,7 @@
   "dependencies": {
     "@formkit/auto-animate": "1.0.0-beta.6",
     "@formkit/nuxt": "^0.17.2",
+    "@iconify-json/mdi": "^1.1.52",
     "@iconify/utils": "^2.1.5",
     "@unocss/reset": "^0.53.0",
     "@volar/vue-language-plugin-pug": "^1.6.5",
