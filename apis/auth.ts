@@ -23,7 +23,7 @@ class Auth {
   loginGG = () => {
     const url = path + 'gg'
     return usePost({
-      url, params: {
+      url, data: {
         callBackUri: import.meta.env.VITE_GG_REDIRECT_URL
       }
     })
@@ -31,7 +31,7 @@ class Auth {
   loginFB = () => {
     const url = path + 'fb'
     return usePost({
-      url, params: {
+      url, data: {
         callBackUri: import.meta.env.VITE_FB_REDIRECT_URL
       }
     })
