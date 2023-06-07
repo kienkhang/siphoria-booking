@@ -15,7 +15,11 @@ export default defineNuxtConfig({
     // NuxtLab UI
     '@nuxthq/ui',
     // FormKit
-    '@formkit/nuxt'
+    '@formkit/nuxt',
+    // I18N
+    '@nuxtjs/i18n',
+    // Icon
+    'nuxt-icon'
   ],
 
 
@@ -24,8 +28,18 @@ export default defineNuxtConfig({
   },
   // ----- ************** -------
 
-  // ----- ENVIROMENT CONFIG -------
-
+  // ----- I18N CONFIG -------
+  i18n: {
+    locales: ['vi', 'en'],
+    strategy: 'prefix_except_default',
+    defaultLocale: 'vi',
+    vueI18n: './i18n.config.ts',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n',
+      alwaysRedirect: true
+    }
+  },
   // ----- ************** -------
 
 
