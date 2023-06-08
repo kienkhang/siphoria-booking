@@ -1,13 +1,13 @@
 <template lang="pug">
 FormKit(type='form' v-model:model-value='signupData' name='signup_form' id='signup_form' @submit="doSignup()" :actions='false' style='width: 100%; padding: 16px;')
   .flex.flex-col.gap-2
-    FormKit(type='text' label='Email' name="email" placeholder='Nhập email của bạn' validation="required|email" input-class='transition-all border rounded-lg border-x11 focus:border-crayola focus:border-2 focus:shadow-input placeholder-x11')
-    FormKit(type='text' label='Họ' name="first_name" placeholder='Nhập họ của bạn' validation="required" input-class='transition-all border rounded-lg border-x11 focus:border-crayola focus:border-2 focus:shadow-input placeholder-x11')
-    FormKit(type='text' label='Tên' name="last_name" placeholder='Nhập tên của bạn' validation="required" input-class='transition-all border rounded-lg border-x11 focus:border-crayola focus:border-2 focus:shadow-input placeholder-x11')
-    FormKit(type="password" label='Mật khẩu' name='password' placeholder='Nhập mật khẩu của bạn' validation="required|length:6" input-class='transition-all border rounded-lg border-x11 focus:border-crayola focus:border-2 focus:shadow-input placeholder-x11')
+    FormKit(type='text' label='Email' name="email" :placeholder='$t("form.signup_form.email_placeholder")' validation="required|email")
+    FormKit(type='text' :label='$t("form.signup_form.first_name")' name="first_name" :placeholder='$t("form.signup_form.first_name_placeholder")' validation="required")
+    FormKit(type='text' :label='$t("form.signup_form.last_name")' name="last_name" :placeholder='$t("form.signup_form.last_name_placeholder")' validation="required")
+    FormKit(type="password" :label='$t("form.signup_form.password")' name='password' :placeholder='$t("form.signup_form.password_placeholder")' validation="required|length:6")
       //- Confirm rule: ``name = [field_name]_confirm & validation: confirm
-    FormKit(type="password" label='Xác nhận mật khẩu' name='password_confirm' placeholder='Nhập lại mật khẩu của bạn' validation="required|confirm" input-class='transition-all border rounded-lg border-x11 focus:border-crayola focus:border-2 focus:shadow-input placeholder-x11')
-    FormKit(type="submit" name='Signup' input-class='w-full') Signup
+    FormKit(type="password" :label='$t("form.signup_form.confirm_password")' name='password_confirm' :placeholder='$t("form.signup_form.confirm_password_placeholder")' validation="required|confirm")
+    FormKit(type="submit" name='Signup' input-class='w-full') {{$t("form.signup_form.signup")}}
 
 </template>
 
