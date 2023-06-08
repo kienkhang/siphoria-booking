@@ -2,7 +2,7 @@
 import { appName } from '~/constants'
 
 useHead({
-  title: appName,
+  title: appName
 })
 </script>
 
@@ -20,7 +20,6 @@ body,
   height: 100vh;
   margin: 0;
   padding: 0;
-  font-size: 14px;
 }
 
 html.dark {
