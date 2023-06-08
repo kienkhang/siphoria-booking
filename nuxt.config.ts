@@ -25,6 +25,7 @@ export default defineNuxtConfig({
 
   // ----- FORMKIT CONFIG -------
   formkit: {
+    configFile: './formkit.config.ts'
   },
   // ----- ************** -------
 
