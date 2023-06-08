@@ -1,5 +1,5 @@
 <template lang="pug">
-div(class='flex-shrink-0 w-8 h-8 cursor-pointer select-none i-mdi:cart-outline')
+div(class='flex-shrink-0 w-4 h-4 cursor-pointer select-none i-mdi:cart-outline')
 
 </template>
 
