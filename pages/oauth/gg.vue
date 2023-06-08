@@ -8,4 +8,10 @@ definePageMeta({
   layout: 'empty',
   title: 'Google Callback'
 })
+
+const route = useRoute()
+
+onMounted(() => {
+  console.log(route.query)
+})
 </script>
