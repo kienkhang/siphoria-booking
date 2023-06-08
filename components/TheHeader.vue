@@ -4,7 +4,7 @@ div(class='bg-crayola')
     .flex.justify-between.items-center(class='h-16')
       div(class='w-48 h-12 cursor-pointer i-custom-logo-text-nocolor')
       .flex.items-center.gap-4
-        Icon.cursor-pointer(name='mdi:cart-outline' color='white' size='32')
+        Icon.cursor-pointer(name='mdi:cart-outline' color='white' size='24')
         //- div(class='flex-shrink-0 w-8 h-8 text-white cursor-pointer select-none i-mdi:cart-outline')
         SharedLanguageSelect
         AuthButton
