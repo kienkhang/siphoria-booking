@@ -2,14 +2,14 @@
 import { vi, en } from '@formkit/i18n'
 import type { DefaultConfigOptions } from '@formkit/vue'
 import { generateClasses } from '@formkit/themes'
-
+import { useCookies } from '@vueuse/integrations/useCookies'
 // Custome theme element
 const theme = {
   global: {
     fieldset: 'max-w-md border border-gray-400 rounded px-2 pb-1',
     help: 'text-xs text-gray-500',
     inner: 'formkit-disabled:bg-gray-200 formkit-disabled:cursor-not-allowed formkit-disabled:pointer-events-none',
-    input: 'appearance-none bg-transparent focus:outline-none focus:ring-0 focus:shadow-none',
+    input: 'appearance-none bg-transparent focus:outline-none focus:ring-0',
     label: 'block mb-1 font-bold text-sm',
     legend: 'font-bold text-sm',
     loaderIcon: 'inline-flex items-center w-4 text-gray-600 animate-spin',
@@ -56,7 +56,7 @@ const theme = {
   'family:text': {
     label: 'font-semibold cursor-pointer select-none',
     inner: 'flex items-center max-w-md rounded-lg mb-1',
-    input: 'w-full px-3 py-2 transition-all border rounded-lg border-x11 focus:border-crayola focus:border-2 focus:shadow-input placeholder-x11',
+    input: 'w-full px-3 py-2 transition-all border rounded-lg border-x11 focus:border-crayola focus:border-2 focus:shadow-input placeholder-x11 text-sm',
   },
   'family:date': {
     inner: 'flex items-center max-w-md ring-1 ring-gray-400 focus-within:ring-crayola focus-within:ring-2 [&>label:first-child]:focus-within:text-crayola rounded-lg mb-1',
@@ -263,11 +263,13 @@ const theme = {
     rewindIcon: 'w-10 flex select-none [&>svg]:m-auto [&>svg]:w-full [&>svg]:max-w-[1rem] [&>svg]:max-h-[1rem] rotate-90 sm:rotate-0',
   }
 }
+
+const { get } = useCookies(['i18n'])
 // global formkit config
 const config: DefaultConfigOptions = {
 
   locales: { vi, en },
-  locale: 'en',
+  locale: get('i18n'),
   iconLoaderUrl: (iconName) => {
     return new URL(`/src/assets/form/${iconName}.svg`, import.meta.url).href
   },
