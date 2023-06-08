@@ -4,7 +4,7 @@ FormKit(type='form' v-model:model-value="loginData" name='login_form' id='login_
     FormKit(type='text' label='Email' name="email" :placeholder='$t("form.login_form.email_placeholder")' validation="required|email")
     FormKit(type="password" :label='$t("form.login_form.password")' name='password' :placeholder='$t("form.login_form.password_placeholder")' validation="required|length:6")
     .flex(class='flex-row-reverse')
-      .forgot-pass.font-medium.capitalize.cursor-pointer.select-none.text-crayola(class='hover:opacity-90') {{$t('form.login_form.forgot')}}
+      .forgot-pass.font-medium.capitalize.cursor-pointer.select-none.text-crayola.text-sm(class='hover:opacity-90') {{$t('form.login_form.forgot')}}
     FormKit(type="submit" name='login' input-class='w-full') {{$t('form.login_form.login')}}
 
 
