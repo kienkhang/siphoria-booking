@@ -16,6 +16,12 @@ UPopover(mode='click' class='w-10')
 <script setup lang="ts">
 // Destruct locale
 const { setLocale, setLocaleCookie, locale } = useI18n()
+// Inject Formkit change locale
+interface FormKitLanguage {
+  locale: string
+  [key: string]: any
+}
+const formKitLocale = inject<FormKitLanguage>(Symbol.for('FormKitConfig'))
 
 // is Viet Nam language
 const isVietNam = computed(() => locale.value === 'vi')
@@ -26,6 +32,10 @@ function switchLang(lang: string) {
   setLocaleCookie(lang)
   // Update I18 lang
   setLocale(lang)
+  // Update FormKit lang
+  if (formKitLocale) {
+    formKitLocale.locale = lang
+  }
 }
 </script>
 
