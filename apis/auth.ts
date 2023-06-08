@@ -20,19 +20,21 @@ class Auth {
     const url = path + 'reset'
     return usePost({ url, data })
   }
-  loginGG = () => {
+  loginGG = (code: string) => {
     const url = path + 'gg'
     return usePost({
-      url, data: {
-        callBackUri: import.meta.env.VITE_GG_REDIRECT_URL
+      url,
+      data: {
+        code
       }
     })
   }
-  loginFB = () => {
+  loginFB = (code: string) => {
     const url = path + 'fb'
     return usePost({
-      url, data: {
-        callBackUri: import.meta.env.VITE_FB_REDIRECT_URL
+      url,
+      data: {
+        code
       }
     })
   }

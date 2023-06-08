@@ -7,10 +7,7 @@ export const redirectGoogleUrl = () => {
     access_type: 'offline',
     response_type: 'code',
     prompt: 'consent',
-    scope: [
-      'https://www.googleapis.com/auth/userinfo.profile',
-      'https://www.googleapis.com/auth/userinfo.email'
-    ].join(' '),
+    scope: 'email openid profile',
     state: 'gacondangyeu'
   }
 

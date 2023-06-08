@@ -74,6 +74,7 @@ const useAuth = () => {
     until(isFinished)
       .toBeTruthy()
       .then(() => {
+        console.log('😃😦😧 ~ getMe ~ data:', data.value)
         accountStore().setAccount(data.value)
       })
     return {
@@ -86,6 +87,40 @@ const useAuth = () => {
       resolve(removeToken())
     })
   }
+  const loginGG = (code: Ref<string>) => {
+    const usedLoginGG = authApi.loginGG(code.value)
+    const { isFinished, execute, data, error } = usedLoginGG
+    until(isFinished)
+      .toBeTruthy()
+      .then(() => {
+        if (!error.value) {
+          setToken(data.value.access_token)
+          setRToken(data.value.refresh_token)
+          console.log('😃😦😧 ~ loginGG ~ data:', data.value)
+        }
+      })
+    return {
+      ...usedLoginGG,
+      executeApi: () => execute({ data: { code: code.value } })
+    }
+  }
+  const loginFB = (code: Ref<string>) => {
+    const usedLoginFB = authApi.loginFB(code.value)
+    const { isFinished, execute, data, error } = usedLoginFB
+    until(isFinished)
+      .toBeTruthy()
+      .then(() => {
+        if (!error.value) {
+          setToken(data.value.access_token)
+          setRToken(data.value.refresh_token)
+          console.log('😃😦😧 ~ loginFB ~ data:', data.value)
+        }
+      })
+    return {
+      ...usedLoginFB,
+      executeApi: () => execute({ data: { code: code.value } })
+    }
+  }
 
   return {
     login,
@@ -93,7 +128,9 @@ const useAuth = () => {
     refresh,
     reset,
     getMe,
-    logout
+    logout,
+    loginGG,
+    loginFB
   }
 }
 
