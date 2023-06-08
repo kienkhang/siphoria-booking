@@ -56,7 +56,7 @@ const theme = {
   'family:text': {
     label: 'font-semibold cursor-pointer select-none',
     inner: 'flex items-center max-w-md rounded-lg mb-1',
-    input: 'w-full px-3 py-2 text-base text-gray-700 placeholder-x11',
+    input: 'w-full px-3 py-2 transition-all border rounded-lg border-x11 focus:border-crayola focus:border-2 focus:shadow-input placeholder-x11',
   },
   'family:date': {
     inner: 'flex items-center max-w-md ring-1 ring-gray-400 focus-within:ring-crayola focus-within:ring-2 [&>label:first-child]:focus-within:text-crayola rounded-lg mb-1',
