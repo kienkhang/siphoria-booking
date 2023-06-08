@@ -1,23 +1,15 @@
 <template lang="pug">
 .grid.grid-cols-2.gap-2.px-4
-  BaseButton.justify-center.border.border-gray-400.py-2(@click='redirectGoogleUrl()')
+  BaseButton.justify-center.border.border-gray-400.py-2(@click='loginGG()')
     .i-custom-google.w-4.h-4.mr-2.flex-shrink-0
-    span.font-medium.text-gray-600 Google
-  BaseButton.justify-center.border.border-gray-400.py-2(@click='callFb()')
+    span.font-medium.text-gray-600.text-sm Google
+  BaseButton.justify-center.border.border-gray-400.py-2(@click='loginFB()')
     .i-custom-facebook.w-4.h-4.mr-2.flex-shrink-0
-    span.font-medium.text-gray-600 Facebook
+    span.font-medium.text-gray-600.text-sm Facebook
 </template>
 
 <script setup lang="ts">
-import { authApi } from '~/apis/auth'
-import { redirectGoogleUrl } from '@/utils/redirectGoogle'
-const { execute: callGg, data: ggData } = authApi.loginGG()
-const { execute: callFb, data: fbData } = authApi.loginFB()
-
-watch([ggData, fbData], () => {
-  console.log('😃😦😧 ~ watch ~ fbData:', fbData.value)
-  console.log('😃😦😧 ~ watch ~ ggData:', ggData.value)
-})
+import { redirectGoogleUrl as loginGG, redirectFacebookUrl as loginFB } from '@/utils'
 </script>
 
 <style scoped></style>
