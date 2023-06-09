@@ -1,9 +1,10 @@
 import { authApi } from '@/apis/auth'
 import { usersApi } from '@/apis/users'
-import accountStore from '@/stores/account'
+import { useAccountStore } from '@/stores/account'
 
 const useAuth = () => {
   const { setToken, setRToken, removeToken } = useAuthStorage()
+  const { setAccount } = useAccountStore()
   const login = (form: { email: string; password: string }) => {
     const usedLogin = authApi.login({})
     const { execute, isFinished, data } = usedLogin
@@ -75,7 +76,7 @@ const useAuth = () => {
       .toBeTruthy()
       .then(() => {
         console.log('😃😦😧 ~ getMe ~ data:', data.value)
-        accountStore().setAccount(data.value)
+        setAccount(data.value)
       })
     return {
       ...usedDetails,
@@ -90,15 +91,13 @@ const useAuth = () => {
   const loginGG = (code: Ref<string>) => {
     const usedLoginGG = authApi.loginGG(code.value)
     const { isFinished, execute, data, error } = usedLoginGG
-    until(isFinished)
-      .toBeTruthy()
-      .then(() => {
-        if (!error.value) {
-          setToken(data.value.access_token)
-          setRToken(data.value.refresh_token)
-          console.log('😃😦😧 ~ loginGG ~ data:', data.value)
-        }
-      })
+    whenever(isFinished, () => {
+      if (!error.value) {
+        setToken(data.value.access_token)
+        setRToken(data.value.refresh_token)
+        console.log('😃😦😧 ~ loginGG ~ data:', data.value)
+      }
+    })
     return {
       ...usedLoginGG,
       executeApi: () => execute({ data: { code: code.value } })
@@ -107,15 +106,15 @@ const useAuth = () => {
   const loginFB = (code: Ref<string>) => {
     const usedLoginFB = authApi.loginFB(code.value)
     const { isFinished, execute, data, error } = usedLoginFB
-    until(isFinished)
-      .toBeTruthy()
-      .then(() => {
-        if (!error.value) {
-          setToken(data.value.access_token)
-          setRToken(data.value.refresh_token)
-          console.log('😃😦😧 ~ loginFB ~ data:', data.value)
-        }
-      })
+
+    whenever(isFinished, () => {
+      if (!error.value) {
+        setToken(data.value.access_token)
+        setRToken(data.value.refresh_token)
+        console.log('😃😦😧 ~ loginFB ~ data:', data.value)
+      }
+    })
+
     return {
       ...usedLoginFB,
       executeApi: () => execute({ data: { code: code.value } })
