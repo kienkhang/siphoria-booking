@@ -1,11 +1,11 @@
 <template lang="pug">
-div Facebook
-
+NuxtPage
 </template>
 
 <script setup lang="ts">
 definePageMeta({
-  // layout: 'empty',
-  title: 'Facebook Callback'
+  layout: 'home'
 })
 </script>
+
+<style scoped></style>

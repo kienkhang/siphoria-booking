@@ -5,7 +5,7 @@ div Google
 
 <script setup lang="ts">
 definePageMeta({
-  layout: 'empty',
+  // layout: 'empty',
   title: 'Google Callback'
 })
 
