@@ -15,30 +15,22 @@ UPopover(mode='click' class='w-8 h-8')
 
 <script setup lang="ts">
 // Destruct locale
-const { setLocale, setLocaleCookie, locale } = useI18n()
-// Inject Formkit change locale
-interface FormKitLanguage {
-  locale: string
-  [key: string]: any
-}
-const formKitLocale = inject<FormKitLanguage>(Symbol.for('FormKitConfig'))
+const { language, selectLanguage } = useLanguageStorage()
 
 // is Viet Nam language
-const isVietNam = computed(() => locale.value === 'vi')
+const isVietNam = computed(() => language.value === 'vi')
 
 // Switch language function
 function switchLang(lang: string, close: () => void) {
-  // Update Cookies lang
-  setLocaleCookie(lang)
-  // Update I18 lang
-  setLocale(lang)
-  // Update FormKit lang
-  if (formKitLocale) {
-    formKitLocale.locale = lang
-  }
+  // Select language
+  selectLanguage(lang)
   // close popover
   close()
 }
+
+onMounted(() => {
+  console.log('😃😦😧 ~ locale:', language.value)
+})
 </script>
 
 <style scoped></style>

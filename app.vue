@@ -4,6 +4,7 @@ import { appName } from '~/constants'
 useHead({
   title: appName
 })
+useLanguageStorage()
 </script>
 
 <template>
