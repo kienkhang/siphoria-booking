@@ -1,11 +1,11 @@
 import { provinceApi } from '@/apis/province'
 
-type SelectOptions = {
+interface SelectOptions {
   value: number
   label: string
 }
 
-const useProvinces = () => {
+function useProvinces() {
   const province = ref<number>()
   const district = ref<number>()
   const ward = ref<number>()
@@ -26,7 +26,6 @@ const useProvinces = () => {
             label: p.name
           }))
         }
-
       })
     return {
       ...usedGetProvince,
@@ -47,7 +46,6 @@ const useProvinces = () => {
             label: p.name
           }))
         }
-
       })
     return {
       ...usedGetDistrict,
@@ -68,7 +66,6 @@ const useProvinces = () => {
             label: p.name
           }))
         }
-
       })
     return {
       ...usedGetWard,

@@ -4,7 +4,7 @@ const instance = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_URI,
   headers: {
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Origin': '*'
   }
 })
 
@@ -22,7 +22,8 @@ instance.interceptors.response.use(
     // Get status code
     const status = error?.response?.status
     // Get message jwt
-    const message = error?.response?.data.message //invalid or expired jwt
+    // invalid or expired jwt
+    const message = error?.response?.data.message
     // Get preConfig
     const preConfig = error?.config
     // Check status and custom properties is "sent" meaning request is sended ?

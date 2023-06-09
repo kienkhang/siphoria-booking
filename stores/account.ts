@@ -36,8 +36,6 @@ const useAccountStore = defineStore('account_store', () => {
   }
 })
 
-if (import.meta.hot) {
-  import.meta.hot.accept(acceptHMRUpdate(useAccountStore, import.meta.hot))
-}
+if (import.meta.hot) import.meta.hot.accept(acceptHMRUpdate(useAccountStore, import.meta.hot))
 
 export { useAccountStore }

@@ -1,4 +1,4 @@
-const useLanguageStorage = () => {
+function useLanguageStorage() {
   // Destruct locale from i18n
   const { locale: language, getLocaleCookie, setLocaleCookie, setLocale } = useI18n()
   // Cookie locale value
@@ -17,16 +17,12 @@ const useLanguageStorage = () => {
     // Switch cookie locale
     setLocaleCookie(lang)
     // Switch formkit locale
-    if (formKitLanguage) {
-      formKitLanguage.locale = lang
-    }
+    if (formKitLanguage) formKitLanguage.locale = lang
   }
 
   // If website not having locale in cookie -> set default to VietNam
   onMounted(() => {
-    if (!cookieLanguage) {
-      selectLanguage('vi')
-    }
+    if (!cookieLanguage) selectLanguage('vi')
   })
 
   return {

@@ -3,6 +3,7 @@ import { IRoom } from './room'
 import { IUser, IAddUser, IUpdateUser } from './user'
 import { IFormKitFile, IDateCell, IRoomNightCell, IRatePackageCell } from './shared'
 import { IRatePlan, IRatePlanAdd, IRatePlanUpdate, IRatePlanDelete } from './rateplan'
+
 export {
   IHotel,
   IHotelAdd,

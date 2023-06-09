@@ -1,27 +1,29 @@
-const path = 'auth/'
+const path = 'auth'
 class Auth {
   login = (data: any | {}) => {
-    const url = path + 'login/general'
+    const url = `${path}/login/general`
 
     return usePost({ url, data })
   }
 
   signup = (data: any | {}) => {
-    const url = path + 'signup'
+    const url = `${path}/signup`
 
     return usePost({ url, data })
   }
+
   refresh = (data: any | {}) => {
-    const url = path + 'refresh-token'
+    const url = `${path}/refresh-token`
     return usePost({ url, data, requiredToken: true })
   }
 
   reset = (data: any | {}) => {
-    const url = path + 'reset'
+    const url = `${path}/reset`
     return usePost({ url, data })
   }
+
   loginGG = (code: string) => {
-    const url = path + 'gg'
+    const url = `${path}/gg`
     return usePost({
       url,
       data: {
@@ -29,8 +31,9 @@ class Auth {
       }
     })
   }
+
   loginFB = (code: string) => {
-    const url = path + 'fb'
+    const url = `${path}/fb`
     return usePost({
       url,
       data: {

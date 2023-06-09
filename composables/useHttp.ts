@@ -4,14 +4,14 @@ import instance from '@/apis/instance'
 
 const { getToken } = useAuthStorage()
 
-const useGet = ({
+function useGet({
   url = '',
   data = {},
   params = {},
   headers = {},
   requiredToken = false,
   instanceC = instance
-}) => {
+}) {
   const fullHeaders: any = { ...headers }
 
   requiredToken && (fullHeaders['Authorization'] = `Bearer ${getToken()}`)
@@ -21,14 +21,14 @@ const useGet = ({
   })
   return usedGet
 }
-const usePost = ({
+function usePost({
   url = '',
   data = {},
   params = {},
   headers = {},
   requiredToken = false,
   instanceC = instance
-}) => {
+}) {
   const fullHeaders: any = { ...headers }
 
   requiredToken && (fullHeaders['Authorization'] = `Bearer ${getToken()}`)
@@ -43,14 +43,14 @@ const usePost = ({
   )
   return usedPost
 }
-const useDelete = ({
+function useDelete({
   url = '',
   data = {},
   params = {},
   headers = {},
   requiredToken = false,
   instanceC = instance
-}) => {
+}) {
   const fullHeaders: any = { ...headers }
 
   requiredToken && (fullHeaders['Authorization'] = `Bearer ${getToken()}`)
@@ -65,14 +65,14 @@ const useDelete = ({
   )
   return usedDelete
 }
-const usePut = ({
+function usePut({
   url = '',
   data = {},
   params = {},
   headers = {},
   requiredToken = false,
   instanceC = instance
-}) => {
+}) {
   const fullHeaders: any = { ...headers }
 
   requiredToken && (fullHeaders['Authorization'] = `Bearer ${getToken()}`)
@@ -82,14 +82,14 @@ const usePut = ({
   })
   return usedPut
 }
-const usePatch = ({
+function usePatch({
   url = '',
   data = {},
   params = {},
   headers = {},
   requiredToken = false,
   instanceC = instance
-}) => {
+}) {
   const fullHeaders: any = { ...headers }
 
   requiredToken && (fullHeaders['Authorization'] = `Bearer ${getToken()}`)

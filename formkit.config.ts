@@ -3,6 +3,7 @@ import { vi, en } from '@formkit/i18n'
 import type { DefaultConfigOptions } from '@formkit/vue'
 import { generateClasses } from '@formkit/themes'
 import { useCookies } from '@vueuse/integrations/useCookies'
+
 // Custome theme element
 const theme = {
   global: {

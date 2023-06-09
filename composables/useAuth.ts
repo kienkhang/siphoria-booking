@@ -2,7 +2,7 @@ import { authApi } from '@/apis/auth'
 import { usersApi } from '@/apis/users'
 import { useAccountStore } from '@/stores/account'
 
-const useAuth = () => {
+function useAuth() {
   const { setToken, setRToken, removeToken } = useAuthStorage()
   const { setAccount } = useAccountStore()
   const login = (form: { email: string; password: string }) => {

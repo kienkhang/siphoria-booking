@@ -1,4 +1,4 @@
-export const redirectGoogleUrl = () => {
+export function redirectGoogleUrl() {
   const rootUrl = `https://accounts.google.com/o/oauth2/v2/auth`
 
   const options = {

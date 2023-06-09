@@ -3,7 +3,7 @@ import { useCookies } from '@vueuse/integrations/useCookies'
 const token = 'acc.token'
 const refresh = 'acc.rtoken'
 
-const useAuthStorage = () => {
+function useAuthStorage() {
   const { get, set, remove } = useCookies([token], { doNotParse: false })
 
   const getToken = (): string => get(token)

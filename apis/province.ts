@@ -1,5 +1,6 @@
 import { useAxios } from '@vueuse/integrations/useAxios'
 import axios from 'axios'
+
 const provinceInstance = axios.create({
   baseURL: import.meta.env.VITE_APP_PROVINCE_API,
   headers: {
@@ -38,6 +39,7 @@ class ProvincesAPI {
     const url = 'p/'
     return useAxios<Province[]>(url, { method: 'get' }, provinceInstance, { immediate: false })
   }
+
   getDistricts = (p: string | number) => {
     const url = `p/${p}`
 
@@ -45,6 +47,7 @@ class ProvincesAPI {
       immediate: false
     })
   }
+
   getWards = (d: string | number) => {
     const url = `d/${d}`
     return useAxios<District>(url, { method: 'get', params: { depth: 2 } }, provinceInstance, {

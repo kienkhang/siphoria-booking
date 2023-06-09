@@ -1,4 +1,4 @@
-export const redirectFacebookUrl = () => {
+export function redirectFacebookUrl() {
   // https://developers.facebook.com/docs/facebook-login/guides/advanced/manual-flow
   const rootUrl = `https://www.facebook.com/v17.0/dialog/oauth`
   const options = {

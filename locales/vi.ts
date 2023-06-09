@@ -5,7 +5,7 @@ export default {
       email_placeholder: 'Nhập email của bạn',
       password: 'Mật khẩu',
       password_placeholder: 'Nhập mật khẩu của bạn',
-      forgot: 'Quên mật khẩu ?',
+      forgot: 'Quên mật khẩu ?'
     },
     signup_form: {
       signup: 'Đăng ký',

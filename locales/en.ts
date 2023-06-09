@@ -5,7 +5,7 @@ export default {
       email_placeholder: 'Enter your email',
       password: 'Password',
       password_placeholder: 'Enter your password',
-      forgot: 'Forget Password ?',
+      forgot: 'Forget Password ?'
     },
     signup_form: {
       signup: 'Signup',
