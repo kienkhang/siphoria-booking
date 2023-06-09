@@ -2,7 +2,7 @@
 UPopover(mode='click' class='w-8 h-8')
   .h-9.w-9
     .i-custom-vietnam.h-full.w-full(v-if='isVietNam')
-    .i-custom-united-kingdom.h-full.w-full(v-else)
+    .i-custom-united-kingdom.h-full.w-full(v-else-if='isEn')
   template(#panel='{ close }')
       .flex.items-center.gap-3.py-2.px-4(class='cursor-pointer hover:bg-gray-300' @click='switchLang("vi",close)')
         .i-custom-vietnam.flex-shrink-0.w-7.h-7
@@ -19,6 +19,7 @@ const { language, selectLanguage } = useLanguageStorage()
 
 // is Viet Nam language
 const isVietNam = computed(() => language.value === 'vi')
+const isEn = computed(() => language.value === 'en')
 
 // Switch language function
 function switchLang(lang: string, close: () => void) {
