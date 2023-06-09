@@ -22,7 +22,11 @@ function useLanguageStorage() {
 
   // If website not having locale in cookie -> set default to VietNam
   onMounted(() => {
-    if (!cookieLanguage) selectLanguage('vi')
+    if (cookieLanguage) {
+      selectLanguage(cookieLanguage)
+      return
+    }
+    selectLanguage('vi')
   })
 
   return {
