@@ -25,8 +25,12 @@ function switchLang(lang: string, close: () => void) {
   close()
 }
 
+onMounted(() => {
+  console.log('😃😦😧 ~ Mounted:', language.value)
+})
+
 watch([language], () => {
-  console.log('😃😦😧 ~ locale:', language.value)
+  console.log('😃😦😧 ~ Watch:', language.value)
 })
 </script>
 
