@@ -1,7 +1,6 @@
-import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { IUser } from '@/dtos/user'
 
-const accountStore = () => {
+const useAccountStore = defineStore('account_store', () => {
   const account = ref<IUser>()
 
   const role = computed(() => {
@@ -35,6 +34,10 @@ const accountStore = () => {
     isManager,
     setAccount
   }
+})
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useAccountStore, import.meta.hot))
 }
 
-export default defineStore('account_store', accountStore)
+export { useAccountStore }
