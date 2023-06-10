@@ -19,7 +19,7 @@ until(code)
   .toBeTruthy()
   .then(async () => {
     await executeApi()
-    // router.push('/')
+    router.push('/')
   })
 
 onMounted(() => {
