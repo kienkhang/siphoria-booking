@@ -11,6 +11,9 @@ dependencies:
   '@formkit/nuxt':
     specifier: ^0.17.2
     version: 0.17.2(rollup@2.79.1)(tailwindcss@3.3.2)(vue@3.3.4)
+  '@iconify-json/eos-icons':
+    specifier: ^1.1.6
+    version: 1.1.6
   '@iconify-json/mdi':
     specifier: ^1.1.52
     version: 1.1.52
@@ -1933,6 +1936,12 @@ packages:
     dependencies:
       '@iconify/types': 2.0.0
     dev: true
+
+  /@iconify-json/eos-icons@1.1.6:
+    resolution: {integrity: sha512-A1kUcVbgrdlBBacFcs+srwnfSH9htQvlgbi0u6Jf38lp4PZAK3InXVbVySrJKx//FJtSMdnpZh0b89yjcAIIBg==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: false
 
   /@iconify-json/heroicons@1.1.11:
     resolution: {integrity: sha512-Autw98FvUTmBCgb4CuKZ7iQQ2633YBCmcCbAbVNU9hAo6vms9uVcbtrAQt/qlB+qzNi52PV3DWDiRtJgmPeZIw==}
