@@ -21,40 +21,31 @@ export default defineConfig({
       cultured: '#F3F5F6'
     },
     boxShadow: {
-      'input': '0px 4px 4px rgba(0, 0, 0, 0.25)',
-    },
+      input: '0px 4px 4px rgba(0, 0, 0, 0.25)'
+    }
   },
 
   presets: [
-
     presetUno(),
     presetIcons({
       scale: 1.2,
       autoInstall: false,
       mode: 'background-img',
       collections: {
-        'custom': FileSystemIconLoader(
-          './assets/icons',
-          (svg) =>
-            svg.replace(/^<svg /, '<svg fill="currentColor" ')
-        ),
+        custom: FileSystemIconLoader('./assets/icons', (svg) =>
+          svg.replace(/^<svg /, '<svg fill="currentColor" ')
+        )
       }
     }),
     presetTypography(),
     presetWebFonts({
+      provider: 'fontshare',
       fonts: {
-        sans: 'DM Sans',
-        serif: 'DM Serif Display',
-        mono: 'DM Mono',
-      },
-    }),
+        sans: 'Manrope:400,500,600,700'
+      }
+    })
   ],
-  transformers: [
-    transformerDirectives(),
-    transformerVariantGroup(),
-  ],
+  transformers: [transformerDirectives(), transformerVariantGroup()],
 
-  extractors: [
-    extractorPug(),
-  ],
+  extractors: [extractorPug()]
 })

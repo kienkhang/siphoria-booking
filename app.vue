@@ -18,6 +18,7 @@ useLanguageStorage()
 html,
 body,
 #__nuxt {
+  font-family: 'Manrope', sans-serif;
   height: 100vh;
   margin: 0;
   padding: 0;
