@@ -1,5 +1,6 @@
 <template lang="pug">
 TheHeader
+HomeBackgroundSlider
 </template>
 
 <script setup lang="ts">

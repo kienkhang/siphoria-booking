@@ -19,8 +19,23 @@ export default defineNuxtConfig({
     // I18N
     '@nuxtjs/i18n',
     // Icon
-    'nuxt-icon'
+    'nuxt-icon',
+    // Nuxt Image
+    '@nuxt/image',
+    // Swipper
+    'nuxt-swiper'
   ],
+
+  image: {
+    dir: 'assets/images'
+  },
+
+  // ----- PINIA CONFIG -------
+  swiper: {
+    styleLang: 'css',
+    modules: ['autoplay', 'pagination', 'navigation']
+  },
+  // ----- ************** -------
 
   // ----- PINIA CONFIG -------
   pinia: {
