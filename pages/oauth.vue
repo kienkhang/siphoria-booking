@@ -4,7 +4,7 @@ NuxtPage
 
 <script setup lang="ts">
 definePageMeta({
-  layout: 'home'
+  layout: 'empty'
 })
 </script>
 

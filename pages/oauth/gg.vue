@@ -1,6 +1,5 @@
 <template lang="pug">
-div Google
-
+AuthRedirect
 </template>
 
 <script setup lang="ts">
@@ -20,7 +19,7 @@ until(code)
   .toBeTruthy()
   .then(async () => {
     await executeApi()
-    router.push('/')
+    // router.push('/')
   })
 
 onMounted(() => {

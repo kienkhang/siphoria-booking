@@ -1,11 +1,10 @@
 <template lang="pug">
-div Facebook
-
+AuthRedirect
 </template>
 
 <script setup lang="ts">
 definePageMeta({
-  // layout: 'empty',
+  layout: 'empty',
   title: 'Facebook Callback'
 })
 </script>

@@ -103,6 +103,7 @@ export default defineNuxtConfig({
   },
   routeRules: {
     '/': { ssr: true },
-    '/account/**': { ssr: false }
+    '/account/**': { ssr: false },
+    '/oauth/**': { prerender: true }
   }
 })
