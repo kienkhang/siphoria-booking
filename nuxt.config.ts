@@ -100,5 +100,9 @@ export default defineNuxtConfig({
 
   devServer: {
     port: 3098
+  },
+  routeRules: {
+    '/': { ssr: true },
+    '/account/**': { ssr: false }
   }
 })
