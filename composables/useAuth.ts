@@ -84,9 +84,8 @@ function useAuth() {
     }
   }
   const logout = () => {
-    return new Promise((resolve) => {
-      resolve(removeToken())
-    })
+    removeToken()
+    setAccount(undefined)
   }
   const loginGG = (code: Ref<string>) => {
     const usedLoginGG = authApi.loginGG(code.value)
