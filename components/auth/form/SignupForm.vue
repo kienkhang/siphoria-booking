@@ -12,6 +12,10 @@ FormKit(type='form' v-model:model-value='signupData' name='signup_form' id='sign
 </template>
 
 <script setup lang="ts">
+const emit = defineEmits<{
+  (e: 'closeModal'): void
+}>()
+
 const signupData = reactive({
   email: '',
   first_name: '',
@@ -19,8 +23,12 @@ const signupData = reactive({
   password: ''
 })
 
-function doSignup() {
-  console.log('😃😦😧 ~ signupData:', { ...signupData })
+const { signup } = useAuth()
+const { executeAPI } = signup(signupData)
+
+async function doSignup() {
+  await executeAPI()
+  emit('closeModal')
 }
 </script>
 

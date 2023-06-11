@@ -10,9 +10,9 @@ BaseModal(:show='show' @mask-click='closeModal')
     .tab-panels.mt-4(v-auto-animate)
       LoginSocial
       .panel-item(v-if='tab==="login"')
-        LoginForm
+        LoginForm(@close-modal='closeModal')
       .panel-item(v-else)
-        SignupForm
+        SignupForm(@close-modal='closeModal')
 
 </template>
 

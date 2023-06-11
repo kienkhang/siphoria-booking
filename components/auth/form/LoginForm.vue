@@ -11,13 +11,23 @@ FormKit(type='form' v-model:model-value="loginData" name='login_form' id='login_
 </template>
 
 <script setup lang="ts">
+// Define Emits
+const emit = defineEmits<{
+  (e: 'closeModal'): void
+}>()
+
 const loginData = reactive({
   email: '',
   password: ''
 })
 
+const { login, getMe } = useAuth()
+const { executeAPI: executeLogin } = login(loginData)
+const { executeAPI: fetchAccount } = getMe()
 async function doLogin() {
-  console.log('😃😦😧 ~ loginData:', { ...loginData })
+  await executeLogin()
+  await fetchAccount()
+  emit('closeModal')
 }
 </script>
 
