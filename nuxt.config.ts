@@ -23,8 +23,17 @@ export default defineNuxtConfig({
     // Nuxt Image
     '@nuxt/image',
     // Swipper
-    'nuxt-swiper'
+    'nuxt-swiper',
+    // naive ui
+    '@bg-dev/nuxt-naiveui'
   ],
+
+  // ----- NAIVE UI CONFIG -------
+  naiveui: {
+    colorModePreference: 'light',
+    themeConfig: {}
+  },
+  // ----- ************** -------
 
   image: {
     dir: 'assets/images'
