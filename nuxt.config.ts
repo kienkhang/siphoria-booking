@@ -37,6 +37,7 @@ export default defineNuxtConfig({
 
   image: {
     dir: 'assets/images'
+    // provider: 'vercel'
   },
 
   // ----- PINIA CONFIG -------

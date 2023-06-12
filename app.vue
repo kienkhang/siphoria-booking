@@ -30,4 +30,7 @@ html.dark {
   background: #222;
   color: white;
 }
+body {
+  background-color: #f7f9fb;
+}
 </style>
