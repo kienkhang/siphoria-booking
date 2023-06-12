@@ -7,54 +7,54 @@ Swiper(
   :modules="[SwiperAutoplay]"
 )
   SwiperSlide(class='w-full')
-    img(
+    nuxt-img(
       fit='cover' 
-      :src='saiGon' 
+      src='/saigon_resize.jpg' 
       loading='lazy' 
       preload
       class='w-full h-[644px]' 
       format='jpg'
       )
   SwiperSlide(class='w-full')
-    img(
+    nuxt-img(
       fit='cover' 
-      :src='haNoi' 
+      src='/hanoi_resize.jpg' 
       loading='lazy' 
       preload
       class='w-full h-[644px]' 
       format='jpg'
       )
   SwiperSlide(class='w-full')
-    img(
+    nuxt-img(
       fit='cover' 
-      :src='haGiang' 
+      src='/hagiang_resize.jpg' 
       loading='lazy' 
       preload
       class='w-full h-[644px]' 
       format='jpg'
       )
   SwiperSlide(class='w-full')
-    img(
+    nuxt-img(
       fit='cover' 
-      :src='nhaTrang' 
+      src='/nhatrang_resize.jpg' 
       loading='lazy' 
       preload
       class='w-full h-[644px]' 
       format='jpg'
       )
   SwiperSlide(class='w-full')
-    img(
+    nuxt-img(
       fit='cover' 
-      :src='vinhHaLong' 
+      src='/vinhhalong_resize.jpg' 
       loading='lazy' 
       preload
       class='w-full h-[644px]' 
       format='jpg'
       )
   SwiperSlide(class='w-full')
-    img(
+    nuxt-img(
       fit='cover' 
-      :src='phuQuoc' 
+      src='/phuquoc_resize.jpg' 
       loading='lazy' 
       preload
       class='w-full h-[644px]' 
@@ -65,13 +65,6 @@ Swiper(
       span.text-white.font-bold.text-3xl Nền tảng Giao dịch Dịch vụ Du lịch thế hệ mới
 </template>
 
-<script setup lang="ts">
-import phuQuoc from '@/assets/images/phuquoc_resize.jpg'
-import haNoi from '@/assets/images/hanoi_resize.jpg'
-import saiGon from '@/assets/images/saigon_resize.jpg'
-import vinhHaLong from '@/assets/images/vinhhalong_resize.jpg'
-import haGiang from '@/assets/images/hagiang_resize.jpg'
-import nhaTrang from '@/assets/images/nhatrang_resize.jpg'
-</script>
+<script setup lang="ts"></script>
 
 <style scoped></style>

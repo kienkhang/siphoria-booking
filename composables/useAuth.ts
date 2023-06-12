@@ -7,13 +7,15 @@ function useAuth() {
   const { setAccount } = useAccountStore()
   const login = (form: { email: string; password: string }) => {
     const usedLogin = authApi.login({})
-    const { execute, isFinished, data } = usedLogin
+    const { execute, isFinished, error, data } = usedLogin
 
     until(isFinished)
       .toBeTruthy()
       .then(() => {
-        setToken(data.value?.access_token)
-        setRToken(data.value?.refresh_token)
+        if (!error.value) {
+          setToken(data.value?.access_token)
+          setRToken(data.value?.refresh_token)
+        }
       })
 
     return { ...usedLogin, executeAPI: () => execute({ data: { ...form } }) }
@@ -25,13 +27,15 @@ function useAuth() {
     last_name: string
   }) => {
     const usedSignup = authApi.signup({})
-    const { execute, isFinished, data } = usedSignup
+    const { execute, isFinished, data, error } = usedSignup
 
     until(isFinished)
       .toBeTruthy()
       .then(() => {
-        setToken(data.value?.access_token)
-        setRToken(data.value?.refresh_token)
+        if (!error.value) {
+          setToken(data.value?.access_token)
+          setRToken(data.value?.refresh_token)
+        }
       })
 
     return {

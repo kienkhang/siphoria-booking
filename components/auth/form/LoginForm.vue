@@ -16,18 +16,35 @@ const emit = defineEmits<{
   (e: 'closeModal'): void
 }>()
 
+// TOAST HANDLER
+const toast = useMessage()
+// LOGIN HANDLER
+// Define login form
 const loginData = reactive({
   email: '',
   password: ''
 })
-
+// Destruct composable useAuth
 const { login, getMe } = useAuth()
+// Destruct api call function
 const { executeAPI: executeLogin } = login(loginData)
 const { executeAPI: fetchAccount } = getMe()
 async function doLogin() {
-  await executeLogin()
-  await fetchAccount()
-  emit('closeModal')
+  try {
+    // Call api login
+    await executeLogin()
+    // then fetch after
+    await fetchAccount()
+    // close modal
+    emit('closeModal')
+    // show notification
+    toast.success('Đăng nhập thành công')
+  } catch (error: any) {
+    // close modal
+    emit('closeModal')
+    // show notification
+    toast.error(error?.response?.data?.message)
+  }
 }
 </script>
 

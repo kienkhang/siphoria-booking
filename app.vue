@@ -7,11 +7,13 @@ useHead({
 useLanguageStorage()
 </script>
 
-<template>
-  <VitePwaManifest />
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
+<template lang="pug">
+div
+  VitePwaManifest
+  NMessageProvider(placement='bottom' container-style='borderRadius: 8px' :duration="90000")
+    NDialogProvider
+      NuxtLayout
+        NuxtPage
 </template>
 
 <style>
