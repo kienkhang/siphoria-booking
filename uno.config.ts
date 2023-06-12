@@ -21,16 +21,17 @@ export default defineConfig({
       cultured: '#F3F5F6'
     },
     boxShadow: {
-      input: '0px 4px 4px rgba(0, 0, 0, 0.25)'
+      input: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+      bar: '0px 0px 10px rgba(100, 124, 159, 0.25)'
     }
   },
 
   presets: [
     presetUno(),
     presetIcons({
-      scale: 1.2,
+      // scale: 1.2,
       autoInstall: false,
-      mode: 'background-img',
+      // mode: 'background-img',
       collections: {
         custom: FileSystemIconLoader('./assets/icons', (svg) =>
           svg.replace(/^<svg /, '<svg fill="currentColor" ')

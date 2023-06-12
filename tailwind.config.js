@@ -12,7 +12,8 @@ export default {
         cultured: '#F3F5F6'
       },
       boxShadow: {
-        input: '0px 4px 4px rgba(0, 0, 0, 0.25)'
+        input: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+        bar: '0px 0px 10px rgba(100, 124, 159, 0.25)'
       }
     }
   },
