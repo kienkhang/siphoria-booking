@@ -1,18 +1,18 @@
 <template lang="pug">
-.p-6.rounded-20px.flex.flex-col.bg-cover(class='min-h-240px' :style='platinumBg')
+.p-6.rounded-20px.flex.flex-col.bg-cover.select-none(class='min-h-240px' :style='platinumBg')
   .flex.justify-between.items-center
     div(class='i-custom-logo-text-nocolor?bg h-14 w-28')
     span.font-bold(:style='platinumText') PLATINUM
   .flex-1.flex.flex-col.justify-center.font-bold(:style='platinumText')
     span.uppercase Tran Kien Khang
     span 0912874491
-  .flex.items-center.gap-4(:style='platinumText')
+  .flex.items-center.gap-4
     .flex.flex-col.gap-2px 
-      span.uppercase MEMBER SINCE
-      span APR 05, 2022
+      span.uppercase.font-bold(:style='platinumText') MEMBER SINCE
+      span(:style='platinumText') APR 05, 2022
     .flex.flex-col.gap-2px 
-      span.uppercase valid thru
-      span APR 05, 2023
+      span.uppercase.font-bold(:style='platinumText') valid thru
+      span(:style='platinumText') APR 05, 2023
 
 
 </template>

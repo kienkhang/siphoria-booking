@@ -19,7 +19,8 @@ export default defineConfig({
       vivid: '#FF9900',
       x11: '#A9A9A9',
       cultured: '#F3F5F6',
-      platinum: '#E5E5E5'
+      platinum: '#E5E5E5',
+      'ghost-white': '#FBF9F7'
     },
     boxShadow: {
       input: '0px 4px 4px rgba(0, 0, 0, 0.25)',
