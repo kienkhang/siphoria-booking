@@ -30,7 +30,7 @@ NPopover.max-w-192px.w-max(
       img.rounded-full.w-6.h-6.border.border-white.bg-cover.flex-shrink-0(:src='account?.avatar' loading='lazy')
       .ml-2.text-white.overflow-hidden.text-ellipsis.font-semibold.w-max(class='max-w-[150px]') {{account?.full_name}}
   .w-full.select-none.flex.flex-col.rounded-10px.overflow-hidden(@click='updateShow(false)')  
-    .flex.items-center.gap-3.py-2.px-4(class='cursor-pointer hover:bg-gray-100')
+    nuxt-link.flex.items-center.gap-3.py-2.px-4(class='cursor-pointer hover:bg-gray-100' to='/account')
       Icon.flex-shrink-0(name='mdi:account' size='16')
       span Tài khoản của tôi
     .flex.items-center.gap-3.py-2.px-4(class='cursor-pointer hover:bg-gray-100')
