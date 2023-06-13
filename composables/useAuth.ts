@@ -5,7 +5,7 @@ import { useAccountStore } from '@/stores/account'
 function useAuth() {
   const { setToken, setRToken, removeToken } = useAuthStorage()
   const { setAccount } = useAccountStore()
-  const login = (form: { email: string; password: string }) => {
+  function login(form: { email: string; password: string }) {
     const usedLogin = authApi.login({})
     const { execute, isFinished, error, data } = usedLogin
 
@@ -15,17 +15,18 @@ function useAuth() {
         if (!error.value) {
           setToken(data.value?.access_token)
           setRToken(data.value?.refresh_token)
+          getMe().executeAPI()
         }
       })
 
     return { ...usedLogin, executeAPI: () => execute({ data: { ...form } }) }
   }
-  const signup = (form: {
+  function signup(form: {
     email: string
     password: string
     first_name: string
     last_name: string
-  }) => {
+  }) {
     const usedSignup = authApi.signup({})
     const { execute, isFinished, data, error } = usedSignup
 
@@ -43,7 +44,7 @@ function useAuth() {
       executeAPI: () => execute({ data: { ...form } })
     }
   }
-  const refresh = (form: { refresh_token: string }) => {
+  function refresh(form: { refresh_token: string }) {
     const usedRefresh = authApi.refresh({})
 
     const { isFinished, data, execute } = usedRefresh
@@ -62,7 +63,7 @@ function useAuth() {
     }
   }
 
-  const reset = (form: { new_password: string; token: string }) => {
+  function reset(form: { new_password: string; token: string }) {
     const usedRefresh = authApi.reset({})
 
     const { execute } = usedRefresh
@@ -72,14 +73,13 @@ function useAuth() {
       executeAPI: () => execute({ data: { ...form } })
     }
   }
-  const getMe = () => {
+  function getMe() {
     const usedDetails = usersApi.details()
     const { isFinished, data, execute } = usedDetails
 
     until(isFinished)
       .toBeTruthy()
       .then(() => {
-        console.log('😃😦😧 ~ getMe ~ data:', data.value)
         setAccount(data.value)
       })
     return {
@@ -87,11 +87,11 @@ function useAuth() {
       executeAPI: () => execute()
     }
   }
-  const logout = () => {
+  function logout() {
     removeToken()
     setAccount(undefined)
   }
-  const loginGG = (code: Ref<string>) => {
+  function loginGG(code: Ref<string>) {
     const usedLoginGG = authApi.loginGG(code.value)
     const { isFinished, execute, data, error } = usedLoginGG
     whenever(isFinished, () => {
@@ -106,7 +106,7 @@ function useAuth() {
       executeApi: () => execute({ data: { code: code.value } })
     }
   }
-  const loginFB = (code: Ref<string>) => {
+  function loginFB(code: Ref<string>) {
     const usedLoginFB = authApi.loginFB(code.value)
     const { isFinished, execute, data, error } = usedLoginFB
 

@@ -16,8 +16,7 @@ import { useAccountStore } from '~/stores/account'
 
 // Check account exist
 const { account } = storeToRefs(useAccountStore())
-const { isLoggedIn } = useAuthStorage()
-const isLogin = computed(() => isLoggedIn() && account.value)
+const isLogin = computed(() => !!account.value)
 </script>
 
 <style scoped></style>

@@ -16,6 +16,9 @@ const emit = defineEmits<{
   (e: 'closeModal'): void
 }>()
 
+// TOAST HANDLER
+const toast = useMessage()
+// Signup HANDLER
 const signupData = reactive({
   email: '',
   first_name: '',
@@ -27,8 +30,21 @@ const { signup } = useAuth()
 const { executeAPI } = signup(signupData)
 
 async function doSignup() {
-  await executeAPI()
-  emit('closeModal')
+  try {
+    // Call api signup
+    await executeAPI()
+    // close modal
+    emit('closeModal')
+    // toast message
+    toast.success('Đăng ký thành công, vui lòng kiểm tra email kích hoạt tài khoản')
+  } catch (error: any) {
+    // close modal
+    emit('closeModal')
+    // toast error
+    toast.error(error?.response?.data?.message)
+  }
+
+  // emit('closeModal')
 }
 </script>
 

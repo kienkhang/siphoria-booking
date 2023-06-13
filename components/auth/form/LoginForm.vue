@@ -28,13 +28,10 @@ const loginData = reactive({
 const { login, getMe } = useAuth()
 // Destruct api call function
 const { executeAPI: executeLogin } = login(loginData)
-const { executeAPI: fetchAccount } = getMe()
 async function doLogin() {
   try {
     // Call api login
     await executeLogin()
-    // then fetch after
-    await fetchAccount()
     // close modal
     emit('closeModal')
     // show notification
