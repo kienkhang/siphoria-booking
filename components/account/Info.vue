@@ -1,13 +1,6 @@
 <template lang="pug">
 .w-full
   .w-full.h-288px.relative(:style='{background: `url("${bgImg}") no-repeat center/cover`}')
-    //- nuxt-img(
-    //-   src='/saigon_resize.jpg' 
-    //-   loading='lazy' 
-    //-   preload
-    //-   class='w-full mx-auto overflow-hidden bg-cover h-288px' 
-    //-   format='jpg'
-    //- )
     .max-w-7xl.absolute(class='w-full -translate-x-1/2 -translate-y-1/2 left-1/2 -bottom-2/4')
       div(class='w-1/4')
         SharedAvatar.mx-auto
