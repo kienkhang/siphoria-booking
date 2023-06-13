@@ -4,19 +4,23 @@
   .grid.grid-cols-2.gap-8.mt-6
     //- Item 1 
     .flex.items-center.gap-3
-      .flex-shrink-0.bg-vivid.text-white.rounded-full(class='w-9 h-9 bg-vivid')
+      .flex.justify-center.items-center.flex-shrink-0.bg-vivid.text-white.rounded-full(class='w-9 h-9 bg-vivid')
+        .text-white(class='w-6 h-6 i-mdi:cash-sync')
       span 7% cashback on every purchase
     //- Item 1 
     .flex.items-center.gap-3
-      .flex-shrink-0.bg-vivid.text-white.rounded-full(class='w-9 h-9 bg-vivid')
+      .flex.justify-center.items-center.flex-shrink-0.bg-vivid.text-white.rounded-full(class='w-9 h-9 bg-vivid')
+        .text-white(class='w-6 h-6 i-mdi:gift-outline')
       span Member-only gifts
     //- Item 1 
     .flex.items-center.gap-3
-      .flex-shrink-0.bg-vivid.text-white.rounded-full(class='w-9 h-9 bg-vivid')
+      .flex.justify-center.items-center.flex-shrink-0.bg-vivid.text-white.rounded-full(class='w-9 h-9 bg-vivid')
+        .text-white(class='w-6 h-6 i-mdi:ticket-percent-outline')
       span 1 exclusive quarterly gift
     //- Item 1 
     .flex.items-center.gap-3
-      .flex-shrink-0.bg-vivid.text-white.rounded-full(class='w-9 h-9 bg-vivid')
+      .flex.justify-center.items-center.flex-shrink-0.bg-vivid.text-white.rounded-full(class='w-9 h-9 bg-vivid')
+        .text-white(class='w-6 h-6 i-mdi:star-outline')
       span Priority check-ins
 
 </template>
