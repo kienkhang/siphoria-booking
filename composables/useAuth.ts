@@ -40,7 +40,7 @@ function useAuth() {
 
     return {
       ...usedSignup,
-      executeAPI: () => execute({ data: { form } })
+      executeAPI: () => execute({ data: { ...form } })
     }
   }
   const refresh = (form: { refresh_token: string }) => {
