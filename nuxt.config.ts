@@ -36,8 +36,9 @@ export default defineNuxtConfig({
   // ----- ************** -------
 
   image: {
-    dir: 'assets/images'
-    // provider: 'vercel'
+    dir: 'assets/images',
+    // staticFilename:''
+    provider: 'vercel'
   },
 
   // ----- PINIA CONFIG -------
@@ -126,6 +127,7 @@ export default defineNuxtConfig({
   devServer: {
     port: 3098
   },
+
   routeRules: {
     '/': { ssr: true },
     '/account/**': { ssr: false },
