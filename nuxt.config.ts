@@ -36,9 +36,9 @@ export default defineNuxtConfig({
   // ----- ************** -------
 
   image: {
-    dir: 'assets/images'
+    dir: 'assets/images',
     // staticFilename:''
-    // provider: 'vercel'
+    provider: 'vercel'
   },
 
   // ----- PINIA CONFIG -------
@@ -96,10 +96,9 @@ export default defineNuxtConfig({
       }
     },
     prerender: {
-      crawlLinks: false,
-      routes: ['/'],
-      ignore: ['/hi']
+      crawlLinks: false
     }
+    // preset: 'vercel'
   },
 
   app: {

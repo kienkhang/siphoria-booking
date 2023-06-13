@@ -7,54 +7,54 @@ Swiper(
   :modules="[SwiperAutoplay]"
 )
   SwiperSlide(class='w-full')
-    nuxt-img(
+    img(
       fit='cover' 
-      src='/saigon_resize.jpg' 
+      src='/assets/images/saigon_resize.jpg' 
       loading='lazy' 
       preload
       class='w-full h-[644px]' 
       format='jpg'
       )
   SwiperSlide(class='w-full')
-    nuxt-img(
+    img(
       fit='cover' 
-      src='/hanoi_resize.jpg' 
+      src='/assets/images/hanoi_resize.jpg' 
       loading='lazy' 
       preload
       class='w-full h-[644px]' 
       format='jpg'
       )
   SwiperSlide(class='w-full')
-    nuxt-img(
+    img(
       fit='cover' 
-      src='/hagiang_resize.jpg' 
+      src='/assets/images/hagiang_resize.jpg' 
       loading='lazy' 
       preload
       class='w-full h-[644px]' 
       format='jpg'
       )
   SwiperSlide(class='w-full')
-    nuxt-img(
+    img(
       fit='cover' 
-      src='/nhatrang_resize.jpg' 
+      src='/assets/images/nhatrang_resize.jpg' 
       loading='lazy' 
       preload
       class='w-full h-[644px]' 
       format='jpg'
       )
   SwiperSlide(class='w-full')
-    nuxt-img(
+    img(
       fit='cover' 
-      src='/vinhhalong_resize.jpg' 
+      src='/assets/images/vinhhalong_resize.jpg' 
       loading='lazy' 
       preload
       class='w-full h-[644px]' 
       format='jpg'
       )
   SwiperSlide(class='w-full')
-    nuxt-img(
+    img(
       fit='cover' 
-      src='/phuquoc_resize.jpg' 
+      src='/assets/images/phuquoc_resize.jpg' 
       loading='lazy' 
       preload
       class='w-full h-[644px]' 
