@@ -5,6 +5,8 @@ import { useAccountStore } from '@/stores/account'
 function useAuth() {
   const { setToken, setRToken, removeToken } = useAuthStorage()
   const { setAccount } = useAccountStore()
+
+  // Login default
   function login(form: { email: string; password: string }) {
     const usedLogin = authApi.login({})
     const { execute, isFinished, error, data } = usedLogin
@@ -21,6 +23,7 @@ function useAuth() {
 
     return { ...usedLogin, executeAPI: () => execute({ data: { ...form } }) }
   }
+  // Sign up account
   function signup(form: {
     email: string
     password: string
@@ -44,6 +47,7 @@ function useAuth() {
       executeAPI: () => execute({ data: { ...form } })
     }
   }
+  // Refresh token
   function refresh(form: { refresh_token: string }) {
     const usedRefresh = authApi.refresh({})
 
@@ -62,7 +66,7 @@ function useAuth() {
       executeAPI: () => execute({ data: { ...form } })
     }
   }
-
+  // Reset password function
   function reset(form: { new_password: string; token: string }) {
     const usedRefresh = authApi.reset({})
 
@@ -73,6 +77,37 @@ function useAuth() {
       executeAPI: () => execute({ data: { ...form } })
     }
   }
+  // Change password function
+  function changePassword(form: { password: string; new_password: string }) {
+    const usedChangePwd = authApi.changePassword({})
+
+    const { execute } = usedChangePwd
+
+    return {
+      ...usedChangePwd,
+      executeAPI: () => execute({ data: { ...form } })
+    }
+  }
+  // update profile function
+  function updateProfile(form: { first_name: string; last_name: string; phone: string }) {
+    const usedUpdate = usersApi.updateProfile({})
+
+    const { execute, isFinished, data } = usedUpdate
+
+    until(isFinished)
+      .toBeTruthy()
+      .then(() => {
+        if (data.value) {
+          getMe().executeAPI()
+        }
+      })
+
+    return {
+      ...usedUpdate,
+      executeAPI: () => execute({ data: { ...form } })
+    }
+  }
+  // Get profile with token
   function getMe() {
     const usedDetails = usersApi.details()
     const { isFinished, data, execute } = usedDetails
@@ -87,10 +122,12 @@ function useAuth() {
       executeAPI: () => execute()
     }
   }
+  // Log out account
   function logout() {
     removeToken()
     setAccount(undefined)
   }
+  // Login with google
   function loginGG(code: Ref<string>) {
     const usedLoginGG = authApi.loginGG(code.value)
     const { isFinished, execute, data, error } = usedLoginGG
@@ -106,6 +143,7 @@ function useAuth() {
       executeApi: () => execute({ data: { code: code.value } })
     }
   }
+  // Login with facebook
   function loginFB(code: Ref<string>) {
     const usedLoginFB = authApi.loginFB(code.value)
     const { isFinished, execute, data, error } = usedLoginFB
@@ -129,6 +167,8 @@ function useAuth() {
     signup,
     refresh,
     reset,
+    changePassword,
+    updateProfile,
     getMe,
     logout,
     loginGG,

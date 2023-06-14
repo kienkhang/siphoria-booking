@@ -22,6 +22,11 @@ class Auth {
     return usePost({ url, data })
   }
 
+  changePassword = (data: any | {}) => {
+    const url = `${path}/change-pwd`
+    return usePost({ url, data })
+  }
+
   loginGG = (code: string) => {
     const url = `${path}/gg`
     return usePost({

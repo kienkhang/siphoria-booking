@@ -4,6 +4,10 @@ class User {
     const url = `${path}/details`
     return useGet({ url, requiredToken: true })
   }
+  updateProfile = (data: any | {}) => {
+    const url = `${path}/update-profile`
+    return usePatch({ url, data, requiredToken: true })
+  }
 }
 
 const usersApi = new User()
