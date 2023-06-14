@@ -11,7 +11,7 @@ NPopover.max-w-192px.w-max(
 )
   template(#trigger)
     .flex.items-center.rounded-2xl.py-1.pl-1.pr-4(class='border-2 border-white cursor-pointer select-none focus:outline-none')
-      img.rounded-full.w-6.h-6.border.border-white.bg-cover.flex-shrink-0(:src='account?.avatar' loading='lazy')
+      img.rounded-full.w-6.h-6.border.border-white.bg-cover.flex-shrink-0(:src='account?.avatar || appIcon' loading='lazy')
       .ml-2.text-white.overflow-hidden.text-ellipsis.font-semibold.w-max(class='max-w-[150px]') {{account?.first_name}} {{ account?.last_name }}
   .w-full.select-none.flex.flex-col.rounded-10px.overflow-hidden(@click='updateShow(false)')  
     nuxt-link.flex.items-center.gap-3.py-2.px-4(class='cursor-pointer hover:bg-gray-100' to='/account')
@@ -36,6 +36,8 @@ NPopover.max-w-192px.w-max(
 
 <script setup lang="ts">
 import type { IUser } from '~/dtos'
+
+import appIcon from '@/assets/images/logo-origin.jpg'
 
 // Define Props
 defineProps<{

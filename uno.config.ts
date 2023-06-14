@@ -24,7 +24,8 @@ export default defineConfig({
     },
     boxShadow: {
       input: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-      bar: '0px 0px 10px rgba(100, 124, 159, 0.25)'
+      bar: '0px 0px 10px rgba(100, 124, 159, 0.25)',
+      card: '0px 24px 34px rgba(80, 79, 89, 0.14)'
     }
   },
 

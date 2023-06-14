@@ -7,7 +7,7 @@
   .max-w-7xl.w-full.flex.justify-center.mx-auto
     div(class='w-1/4')
     .mt-5.mb-9(class='w-3/4')
-      span.text-4xl.font-bold Kiện Khang
+      span.text-4xl.font-bold {{account?.first_name}} {{account?.last_name}}
       .mt-2
         span.flex.items-center.select-none 
           span Hạng thành viên &nbsp

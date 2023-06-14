@@ -13,8 +13,20 @@
 
 
   .w-full.p-8.rounded-2xl.shadow-bar.bg-white.mt-4
+    //- Title & Update Infomation button
+    .flex.justify-between.items-center
+      span.text-4xl.font-bold Personal information
+      BaseButton.px-4.py-2.border.border-vivid.text-vivid(class='hover:bg-vivid hover:text-white' @click='showUpdate = true')
+        span.font-medium Update / Change Password
+      AccountUpdateModal(v-model:show='showUpdate')
+    //- Member information
+    .mt-6
+      AccountDetailInfo
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+// Update
+const showUpdate = ref(false)
+</script>
 
 <style scoped></style>
