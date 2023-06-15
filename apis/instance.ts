@@ -30,7 +30,9 @@ instance.interceptors.response.use(
     if (status === 401 && message === 'invalid or expired jwt' && !preConfig?._retry) {
       // each error with 401 expired jwt -> get refreshToken
       const refreshToken = getRToken()
+      // set retry = true
       preConfig._retry = true
+      // Destruct useAxios refresh token
       const { data, executeAPI } = refresh({ refresh_token: refreshToken })
 
       try {
