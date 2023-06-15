@@ -20,6 +20,7 @@
 import { useAccountStore } from '~/stores/account'
 
 import bgImg from '@/assets/images/saigon_resize.jpg'
+
 // destruct account store
 const { account } = storeToRefs(useAccountStore())
 </script>
