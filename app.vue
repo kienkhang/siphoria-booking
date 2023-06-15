@@ -8,12 +8,11 @@ useLanguageStorage()
 </script>
 
 <template lang="pug">
-div
-  VitePwaManifest
-  NMessageProvider(placement='bottom' container-style='borderRadius: 8px' :duration="3000")
-    NDialogProvider
-      NuxtLayout
-        NuxtPage
+VitePwaManifest
+NMessageProvider(placement='bottom' container-style='borderRadius: 8px' :duration="3000")
+  NDialogProvider
+    NuxtLayout
+      NuxtPage
 </template>
 
 <style>
