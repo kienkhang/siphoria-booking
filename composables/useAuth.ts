@@ -161,15 +161,15 @@ function useAuth() {
     }
   }
   // Change Avatar
-  function changeAvatar(form: {}) {
-    const usedChange = usersApi.changeAvatar(form)
+  function changeAvatar() {
+    const usedChange = usersApi.changeAvatar({})
     const { execute } = usedChange
 
     return {
       ...usedChange,
-      executeApi: async (f: FormData) => {
+      executeApi: async (form: { images: File }) => {
         try {
-          await execute({ data: { ...f } })
+          await execute({ data: { ...form } })
           getMe().executeAPI()
         } catch (e: any) {
           throw new Error(e)
