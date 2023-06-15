@@ -16,6 +16,7 @@ export default defineConfig({
   theme: {
     colors: {
       crayola: '#1BBA85',
+      'green-cyan': '#0D986A',
       vivid: '#FF9900',
       x11: '#A9A9A9',
       cultured: '#F3F5F6',
