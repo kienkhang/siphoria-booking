@@ -61,8 +61,8 @@ function useAuth() {
           setToken(data.value.access_token)
           setRToken(data.value.refresh_token)
           return data.value.access_token
-        } catch (e) {
-          throw e
+        } catch (e: any) {
+          throw new Error(e)
         }
       }
     }
@@ -98,9 +98,7 @@ function useAuth() {
     until(isFinished)
       .toBeTruthy()
       .then(() => {
-        if (data.value) {
-          getMe().executeAPI()
-        }
+        if (data.value) getMe().executeAPI()
       })
 
     return {
