@@ -9,7 +9,7 @@ useLanguageStorage()
 
 <template lang="pug">
 VitePwaManifest
-NMessageProvider(placement='bottom' container-style='borderRadius: 8px' :duration="3000")
+NMessageProvider(placement='bottom-right' container-style='borderRadius: 8px' :duration="3000")
   NDialogProvider
     NuxtLayout
       NuxtPage
