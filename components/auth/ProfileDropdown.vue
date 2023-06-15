@@ -17,15 +17,15 @@ NPopover.max-w-192px.w-max(
     nuxt-link.flex.items-center.gap-3.py-2.px-4(class='cursor-pointer hover:bg-gray-100' to='/account')
       Icon.flex-shrink-0(name='mdi:account' size='16')
       span Tài khoản của tôi
-    .flex.items-center.gap-3.py-2.px-4(class='cursor-pointer hover:bg-gray-100')
+    nuxt-link.flex.items-center.gap-3.py-2.px-4(class='cursor-pointer hover:bg-gray-100' to='/account/wallet')
+      Icon.flex-shrink-0(name='mdi:wallet-outline' size='16')
+      span Ví của tôi
+    nuxt-link.flex.items-center.gap-3.py-2.px-4(class='cursor-pointer hover:bg-gray-100' to='/account/booking')
       Icon.flex-shrink-0(name='mdi:calendar' size='16')
       span Đặt chỗ của tôi
-    .flex.items-center.gap-3.py-2.px-4(class='cursor-pointer hover:bg-gray-100')
+    nuxt-link.flex.items-center.gap-3.py-2.px-4(class='cursor-pointer hover:bg-gray-100' to='/account/history')
       Icon.flex-shrink-0(name='mdi:calendar-outline' size='16')
       span Lịch sử đặt phòng
-    .flex.items-center.gap-3.py-2.px-4(class='cursor-pointer hover:bg-gray-100')
-      Icon.flex-shrink-0(name='mdi:shield-key-outline' size='16')
-      span Đổi mật khẩu
     hr
     .flex.items-center.gap-3.py-2.px-4.text-red-500(class='cursor-pointer hover:bg-gray-100' @click='logout')
       Icon.flex-shrink-0(name='mdi:logout' size='16')

@@ -1,6 +1,6 @@
 <template lang="pug">
 .w-full.flex.flex-col.px-8.shadow-bar.rounded-2xl.select-none.bg-white
-  .flex.items-center.gap-4.py-8(v-for='nav in navbars' :class='["cursor-pointer border-b border-platinum last:border-0",{"text-vivid":nav.pathName === currentPath},{"text-x11":nav.pathName !== currentPath}]' )
+  nuxt-link.flex.items-center.gap-4.py-8(v-for='nav in navbars' :class='["cursor-pointer border-b border-platinum last:border-0",{"text-vivid":nav.pathName === currentPath},{"text-x11":nav.pathName !== currentPath}]' :to='nav.pathName')
     .nav-icon(:class='[nav.iconClass]')
     span.font-semibold.text-lg {{ nav.title }}
 
