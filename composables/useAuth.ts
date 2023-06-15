@@ -160,6 +160,23 @@ function useAuth() {
       executeApi: () => execute({ data: { code: code.value } })
     }
   }
+  // Change Avatar
+  function changeAvatar(form: {}) {
+    const usedChange = usersApi.changeAvatar(form)
+    const { execute } = usedChange
+
+    return {
+      ...usedChange,
+      executeApi: async (f: FormData) => {
+        try {
+          await execute({ data: { ...f } })
+          getMe().executeAPI()
+        } catch (e: any) {
+          throw new Error(e)
+        }
+      }
+    }
+  }
 
   return {
     login,
@@ -168,6 +185,7 @@ function useAuth() {
     reset,
     changePassword,
     updateProfile,
+    changeAvatar,
     getMe,
     logout,
     loginGG,
