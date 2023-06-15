@@ -51,19 +51,20 @@ function useAuth() {
   function refresh(form: { refresh_token: string }) {
     const usedRefresh = authApi.refresh({})
 
-    const { isFinished, data, execute } = usedRefresh
+    const { data, execute } = usedRefresh
 
-    until(isFinished)
-      .toBeTruthy()
-      .then(() => {
-        if (data.value) {
-          setToken(data.value?.access_token)
-          setRToken(data.value?.refresh_token)
-        }
-      })
     return {
       ...usedRefresh,
-      executeAPI: () => execute({ data: { ...form } })
+      executeAPI: async () => {
+        try {
+          await execute({ data: { ...form } })
+          setToken(data.value.access_token)
+          setRToken(data.value.refresh_token)
+          return data.value.access_token
+        } catch (e) {
+          throw e
+        }
+      }
     }
   }
   // Reset password function
