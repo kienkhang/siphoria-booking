@@ -22,6 +22,11 @@ class Auth {
     return usePost({ url, data })
   }
 
+  verify = (token: string) => {
+    const url = `${path}/verify/${token}`
+    return useGet({ url })
+  }
+
   changePassword = (data: any | {}) => {
     const url = `${path}/change-pwd`
     return usePost({ url, data })
