@@ -13,6 +13,23 @@ interface IUser {
   created_at: string
   updated_at: string
   password?: string
+  user_rank: {
+    id: string
+    user_id: string
+    rank_id: string
+    rank: {
+      id: string
+      name: string
+      price: number
+      discount: number
+      created_at: string
+      updated_at: string
+    }
+    begin_at: string
+    created_at: string
+    updated_at: string
+    expired_at: string
+  }
 }
 
 type IAddUser = Pick<IUser, 'first_name' | 'last_name' | 'email' | 'role' | 'password'>

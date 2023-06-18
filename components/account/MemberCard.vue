@@ -4,15 +4,15 @@
     div(class='i-custom-logo-text-nocolor?bg h-14 w-28')
     span.font-bold.uppercase(:style='cardText') {{cardType}}
   .flex-1.flex.flex-col.justify-center.font-bold(:style='cardText')
-    span.uppercase Tran Kien Khang
-    span 0912874491
+    span.uppercase {{account?.full_name}}
+    span {{  account?.phone }}
   .flex.items-center.gap-4
     .flex.flex-col.gap-2px 
       span.uppercase.font-bold(:style='cardText') MEMBER SINCE
-      span(:style='cardText') APR 05, 2022
+      span(:style='cardText') {{beginAt}}
     .flex.flex-col.gap-2px 
       span.uppercase.font-bold(:style='cardText') valid thru
-      span(:style='cardText') APR 05, 2023
+      span(:style='cardText') {{expiredAt}}
 
 
 </template>
@@ -25,6 +25,7 @@ import platinumImg from '@/assets/images/card/platinum.png'
 import diamondImg from '@/assets/images/card/diamond.png'
 import goldImg from '@/assets/images/card/gold.png'
 import silverImg from '@/assets/images/card/silver.png'
+import { useAccountStore } from '~/stores/account'
 
 // Define 4 types background
 const platinumBg = {
@@ -103,6 +104,36 @@ const cardText = computed(() => {
     // default return normal text
     default:
       return normalText
+  }
+})
+
+// =================== GET RANK FROM ACCOUNT ==============
+// Handler dayjs
+const dayjs = useDayjs()
+const { account } = storeToRefs(useAccountStore())
+
+const userRank = computed(() => account.value?.user_rank)
+const beginAt = computed(() => dayjs(userRank.value?.begin_at).format('MMM DD, YYYY'))
+const expiredAt = computed(() => dayjs(userRank.value?.expired_at).format('MMM DD, YYYY'))
+
+watch(userRank, () => {
+  switch (userRank.value?.rank.id) {
+    case 'f4c363f1-a942-4f39-8f92-9ae93ed42966':
+      cardType.value = 'silver'
+      break
+    case 'e4aabc1c-dd29-47c3-84b9-f56d0cb72e66':
+      cardType.value = 'gold'
+      break
+    case 'e39df027-d9e9-49a8-aa4b-b7047266f02d':
+      cardType.value = 'platinum'
+      break
+    case 'f6bf35e5-73a7-45c9-8c61-ae6c6a40e912':
+      cardType.value = 'diamond'
+      break
+
+    default:
+      cardType.value = 'silver'
+      break
   }
 })
 </script>

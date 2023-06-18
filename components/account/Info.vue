@@ -11,7 +11,7 @@
       .mt-2
         span.flex.items-center.select-none 
           span Hạng thành viên &nbsp
-          span.text-vivid.font-bold.cursor-pointer  Bạch Kim
+          span.text-vivid.font-bold.cursor-pointer  {{rankName}}
     
   
 </template>
@@ -23,6 +23,7 @@ import bgImg from '@/assets/images/saigon_resize.jpg'
 
 // destruct account store
 const { account } = storeToRefs(useAccountStore())
+const rankName = computed(() => account.value?.user_rank.rank.name)
 </script>
 
 <style scoped></style>
