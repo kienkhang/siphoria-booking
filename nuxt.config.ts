@@ -25,7 +25,9 @@ export default defineNuxtConfig({
     // Swipper
     'nuxt-swiper',
     // naive ui
-    '@bg-dev/nuxt-naiveui'
+    '@bg-dev/nuxt-naiveui',
+    // dayjs
+    'dayjs-nuxt'
   ],
 
   // ----- NAIVE UI CONFIG -------
