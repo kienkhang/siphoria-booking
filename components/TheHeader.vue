@@ -7,6 +7,7 @@ div(class='bg-green-cyan')
         //- Icon.cursor-pointer(name='mdi:cart-outline' color='white' size='24')
         div(class='flex-shrink-0 w-8 h-8 text-white cursor-pointer select-none i-mdi:cart-outline?mask')
         SharedLanguageSelect
+        LazySharedPayment
         AuthButton(v-if='!isLogin')
         AuthProfileDropdown(:account='account' v-else)
 </template>
