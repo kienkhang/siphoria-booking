@@ -13,7 +13,8 @@ export default {
         cultured: '#F3F5F6',
         platinum: '#E5E5E5',
         'ghost-white': '#f7f9fb',
-        'eerie-black': '#1f1f1f'
+        'eerie-black': '#1f1f1f',
+        alabaster: '#efe8e8'
       },
       boxShadow: {
         input: '0px 4px 4px rgba(0, 0, 0, 0.25)',
