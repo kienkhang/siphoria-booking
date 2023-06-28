@@ -5,7 +5,7 @@ div.w-max.h-max
     SharedSearchLocation
     SharedSearchTime
     SharedSearchGuest
-    .w-10.h-10.rounded-full.flex.items-center.justify-center.flex-shrink-0.bg-blue-500.mr-1
+    .w-10.h-10.rounded-full.flex.items-center.justify-center.flex-shrink-0.bg-blue-500.mr-1(@click='doSearch')
       div(class='flex-shrink-0 w-6 h-6 text-white i-custom-search')
 teleport(to='body')
   .fixed.search-time-overlay.inset-0(class='z-10 bg-black/50' @click='focus=""' v-if='isFocus')
@@ -15,7 +15,18 @@ teleport(to='body')
 <script setup lang="ts">
 import { useSearchHotel } from '~/composables/home/useSearchHotel'
 
-const { isFocus, focus } = storeToRefs(useSearchHotel())
+// router hooks
+const router = useRouter()
+
+const { isFocus, focus, form } = storeToRefs(useSearchHotel())
+
+function doSearch() {
+  router.push({
+    path: '/search',
+    query: form.value
+  })
+  console.log('😃😦😧 ~ form:', form.value)
+}
 </script>
 
 <style></style>

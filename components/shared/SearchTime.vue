@@ -5,13 +5,14 @@
   .relative
     NDatePicker(
       type='daterange' 
-      v-model:value='stayTime' 
+      v-model:value='stayTime'
+      :default-value="[Date.now(),Date.now()+86400000]" 
       :show='isFocus' 
       placement='bottom'
-      :close-on-select='true'
-      :update-value-on-close='true'
       :clearable='true'
       class='absolute invisible -translate-x-1/2 left-1/2' 
+      @update-value="focus = ''"
+      :is-date-disabled='disablePreviousDate'
       )
 
 </template>
@@ -39,8 +40,13 @@ const stayTimeFormat = computed(() => {
       'DD MMM, YYYY'
     )}`
   }
-  return `${dayjs().format('DD MMM, YYYY')} - ${dayjs().format('DD MMM, YYYY')}`
+  return `${dayjs().format('DD MMM, YYYY')} - ${dayjs().add(1, 'day').format('DD MMM, YYYY')}`
 })
+
+// disable previous dates
+const disablePreviousDate = (ts: number) => {
+  return ts <= Date.now()
+}
 </script>
 
 <style scoped></style>

@@ -62,7 +62,19 @@ interface IHotel {
   }
 }
 
+interface IHotelSearch {
+  id: string
+  name: string
+  overview: string
+  rating_code: number
+  province_code: number
+  raw_address: string
+  hotel_photos: string
+  is_available: string
+  avg_price: string
+}
+
 type IHotelAdd = Omit<IHotel, 'id' | 'hotel_photos' | 'bussiness_license'>
 type IHotelUpdate = Omit<IHotel, 'id' | 'hotel_photos' | 'bussiness_license'>
 
-export { IHotel, IHotelAdd, IHotelUpdate }
+export { IHotel, IHotelAdd, IHotelUpdate, IHotelSearch }

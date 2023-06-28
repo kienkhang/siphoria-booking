@@ -1,9 +1,9 @@
 interface ISearchHotel {
   from: string
   to: string
-  n_o_a?: number
-  n_o_c?: number
-  n_o_r?: number
+  n_o_a: number
+  n_o_c: number
+  n_o_r: number
   city: number
 }
 const useSearchHotel = defineStore('home__useSeachHotel', () => {
