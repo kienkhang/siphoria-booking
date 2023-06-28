@@ -1,6 +1,6 @@
 <template lang="pug">
-.max-w-7xl.mx-auto
-  .flex.items-center.flex-wrap.gap-4
+.max-w-1440px.mx-auto
+  .flex.items-center.justify-between.flex-wrap.gap-y-12
     LazySharedHotelCard(v-for='hotel in data' :hotel='hotel' :key='hotel?.id')
   
 
