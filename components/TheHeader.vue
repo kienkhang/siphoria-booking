@@ -1,5 +1,5 @@
 <template lang="pug">
-div(class='fixed z-50 w-full')
+div(class='sticky z-50 w-full')
   .w-full.bg-green-cyan
     .max-w-7xl.mx-auto.px-4(class='sm:px-6 lg:px-8')
       .flex.items-center.justify-between(class='h-16')
