@@ -1,7 +1,11 @@
 <template lang="pug">
-.max-w-1440px.mx-auto
-  .flex.items-center.justify-between.flex-wrap.gap-y-12
-    LazySharedHotelCard(v-for='hotel in data' :hotel='hotel' :key='hotel?.id')
+.w-full.h-full
+  LazySearchHeader
+  .max-w-1440px.mx-auto
+    LazySearchFilter.mt-8
+    .w-full.mx-auto.mt-9
+      .grid.grid-cols-1.gap-12.justify-items-center(class='md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4')
+        LazySharedHotelCard(v-for='hotel in data' :hotel='hotel' :key='hotel?.id')
   
 
 </template>
@@ -18,15 +22,17 @@ const route = useRoute()
 // Get url string
 const query = computed(() => route.query)
 
-// search hotel when mOunted search page
+// search hotel with composable
 const { searchHotel } = useHotel()
 
 const { executeApi: callSearchApi, data } = searchHotel(query)
 
-whenever(data, () => {
-  console.log('😃😦😧 ~ data:', data.value)
-})
+// mounted and change query -> call api
 onMounted(() => {
+  callSearchApi()
+})
+
+watch(query, () => {
   callSearchApi()
 })
 </script>
