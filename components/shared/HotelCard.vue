@@ -1,5 +1,7 @@
 <template lang="pug">
-.w-320px.h-390px.p-5.rounded-lg.bg-white.shadow-card.overflow-hidden
+.w-320px.h-390px.p-5.rounded-lg.bg-white.shadow-card.overflow-hidden(
+  
+)
   .flex.flex-col.gap-4.w-full.h-full
     figure.h-44.w-full(class='overflow-hidden transition-all rounded-lg card-group')
       n-carousel(draggable autoplay show-arrow)
@@ -14,7 +16,9 @@
     .flex.flex-col.mt-2.flex-1 
       //- Hotel name
       .name-and-location
-        div.max-h-14.hotel-name.text-lg.font-bold.cursor-pointer.line-clamp-2(@click='gotoHotel()') {{ hotel.name }}
+        nuxt-link.h-14.hotel-name.text-lg.font-bold.cursor-pointer.line-clamp-2(
+          :to= '{ path: `/hotel/${hotel.id}`, query:query }'
+        ) {{ hotel.name }}
         .flex.items-center.gap-3.mt-2
           div(class='flex-shrink-0 w-5 h-5 i-custom-location')
           span.hotel-location.text-xs.text-x11.truncate {{ hotel.raw_address }}
@@ -37,12 +41,13 @@ const props = defineProps<{
   hotel: IHotelSearch
 }>()
 
+const route = useRoute()
+
+const query = computed(() => route.query)
+
 const hotelPhotos = computed(() => Image2Array(props.hotel.hotel_photos))
 
 const isSoldOut = computed(() => props.hotel.avg_price === 'sold_out')
-function gotoHotel() {
-  console.log('Goto')
-}
 </script>
 
 <style scoped></style>

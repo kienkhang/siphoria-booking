@@ -7,7 +7,10 @@ class Hotel {
   }
 
   // Get hotel details
-  details = () => {}
+  details = (params: any | {}, hotelId: string) => {
+    const url = `${path}/${hotelId}`
+    return useGet({ url, params })
+  }
 }
 
 const hotelApi = new Hotel()
