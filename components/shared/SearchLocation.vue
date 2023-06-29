@@ -34,13 +34,14 @@ const provinceOptions = provinces.map((p) => {
     value: p.code
   }
 })
-
+// search value
 const search = ref('')
+// auto focus input if mounted
 const searchRef = ref()
 whenever(searchRef, () => {
   searchRef.value?.focus()
 })
-
+// province after search
 const provincesFormated = computed(() => {
   if (search.value) {
     return provinceOptions.filter((province) => {
@@ -52,13 +53,15 @@ const provincesFormated = computed(() => {
   }
   return provinceOptions
 })
+// destruct useSearchHotel
 const { form, focus } = storeToRefs(useSearchHotel())
 // isFocus location tab
 const isFocus = computed(() => focus.value === 'location')
 const selectedProvince = ref<{
   label: string
   value: number
-}>()
+}>(provincesFormated.value[0])
+// select province function
 function doSelectProvince(province: { label: string; value: number }) {
   // Reset search
   search.value = ''
