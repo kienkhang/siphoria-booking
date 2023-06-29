@@ -3,19 +3,19 @@ NModal(
   v-model:show='show'
   :mask-closable='true'
 )
-  .flex.items-center.justify-between.w-full.relative
+  .flex.items-center.justify-between.w-full.relative.px-4
     //- Left arrow 
     .rounded-full.w-10.h-10.bg-white.flex.items-center.justify-center.flex-shrink-0.cursor-pointer.select-none(
-      class='hover:opacity-90'
-      @click='carouse?.prev()'
+      :class='["hover:opacity-90", {"cursor-not-allowed bg-x11":!isPrev}]'
+      @click='prev()'
     )
       .w-6.h-6(class='rotate-90 i-custom-chevron-down')
     //- Image
     div
       n-carousel.max-w-747px.w-max(
+        v-model:current-index='index'
         draggable 
         :show-dots='false'
-        ref='ca'
       )
         n-carousel-item(
           class='flex items-center'
@@ -31,8 +31,8 @@ NModal(
             )
     //- Right arrow
     .rounded-full.w-10.h-10.bg-white.flex.items-center.justify-center.flex-shrink-0.cursor-pointer.select-none(
-      class='hover:opacity-90'
-      @click='carouse?.next()'
+      :class='["hover:opacity-90", {"cursor-not-allowed bg-x11":!isNext}]'
+      @click='next()'
     )
       .w-6.h-6(class='-rotate-90 i-custom-chevron-down')
     teleport(to='body')
@@ -40,19 +40,29 @@ NModal(
 </template>
 
 <script setup lang="ts">
-import { type CarouselInst } from 'naive-ui'
 const props = defineProps<{
   photos: string[]
 }>()
 const show = defineModel<boolean>('show')
 
-const carouse = ref<CarouselInst>()
+const index = ref(0)
 
-const isNext = computed(() => carouse.value?.getCurrentIndex()! < props.photos.length)
-const isPrev = computed(() => carouse.value?.getCurrentIndex()! > 0)
-// watch(ca, () => {
-//   console.log('ca', { ...ca.value. })
-// })
+function update(currentIndex: number) {
+  index.value = currentIndex
+}
+
+const isNext = computed(() => index.value < props.photos.length)
+const isPrev = computed(() => index.value > 0)
+function next() {
+  if (isNext.value) {
+    index.value++
+  }
+}
+function prev() {
+  if (isPrev.value) {
+    index.value--
+  }
+}
 </script>
 
 <style scoped></style>
