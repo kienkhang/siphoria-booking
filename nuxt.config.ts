@@ -66,13 +66,22 @@ export default defineNuxtConfig({
   i18n: {
     locales: [{ code: 'vi' }, { code: 'en' }],
     defaultLocale: 'vi',
-    // strategy: 'no_prefix',
+    strategy: 'no_prefix',
     detectBrowserLanguage: {
       fallbackLocale: 'vi',
       cookieCrossOrigin: true,
       useCookie: true,
       cookieKey: 'i18n',
       alwaysRedirect: true
+    }
+  },
+  // ----- ************** -------
+  // ----- VITE CONFIG -------
+  vite: {
+    vue: {
+      script: {
+        defineModel: true
+      }
     }
   },
   // ----- ************** -------
