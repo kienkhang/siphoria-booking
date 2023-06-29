@@ -5,9 +5,8 @@
     LazySearchFilter.mt-8
     .w-full.mx-auto.mt-9
       .grid.grid-cols-1.gap-12.justify-items-center(class='md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4')
-        LazySharedHotelCard(v-for='hotel in data' :hotel='hotel' :key='hotel?.id')
+        LazySharedHotelCard(v-for='hotel in hotels' :hotel='hotel' :key='hotel?.id')
   
-
 </template>
 
 <script setup lang="ts">
@@ -23,9 +22,9 @@ const route = useRoute()
 const query = computed(() => route.query)
 
 // search hotel with composable
-const { searchHotel } = useHotel()
+const { searchHotel, hotels } = useHotel()
 
-const { executeApi: callSearchApi, data } = searchHotel(query)
+const { executeApi: callSearchApi } = searchHotel(query)
 
 // mounted and change query -> call api
 onMounted(() => {

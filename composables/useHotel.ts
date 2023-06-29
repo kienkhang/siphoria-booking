@@ -1,6 +1,8 @@
 import { hotelApi } from '~/apis/hotel'
+import { useHotelStore } from '~/stores/hotel'
 
 function useHotel() {
+  const { hotels } = storeToRefs(useHotelStore())
   // Get Hotel Details API
   function getDetails(params: Ref<{} | any>, hotelId: Ref<string>) {
     const usedGet = hotelApi.details(params.value, hotelId.value)
@@ -24,11 +26,12 @@ function useHotel() {
   function searchHotel(params: Ref<any | {}>) {
     const usedSearch = hotelApi.search(params.value)
     // destructuring search hotel
-    const { execute } = usedSearch
+    const { execute, data } = usedSearch
     // custom execute api
     const executeApi = async () => {
       try {
         await execute({ params: params.value })
+        hotels.value = data.value
       } catch (e: any) {
         throw new Error(e)
       }
@@ -40,6 +43,7 @@ function useHotel() {
   }
 
   return {
+    hotels,
     searchHotel,
     getDetails
   }

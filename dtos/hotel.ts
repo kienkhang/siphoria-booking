@@ -71,7 +71,7 @@ interface IHotelSearch {
   raw_address: string
   hotel_photos: string
   is_available: string
-  avg_price: string
+  avg_price: string | number
 }
 
 type IHotelAdd = Omit<IHotel, 'id' | 'hotel_photos' | 'bussiness_license'>
