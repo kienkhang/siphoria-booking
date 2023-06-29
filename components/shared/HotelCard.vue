@@ -16,7 +16,7 @@
     .flex.flex-col.mt-2.flex-1 
       //- Hotel name
       .name-and-location
-        nuxt-link.h-14.hotel-name.text-lg.font-bold.cursor-pointer.line-clamp-2(
+        nuxt-link.max-h-14.hotel-name.text-lg.font-bold.cursor-pointer.line-clamp-2(
           :to= '{ path: `/hotel/${hotel.id}`, query:query }'
         ) {{ hotel.name }}
         .flex.items-center.gap-3.mt-2
@@ -27,8 +27,9 @@
         .price.mt-2.select-none
           .rounded-md.p-2.px-3.w-max.border.border-red-400.bg-red-100(v-if='isSoldOut')
             span.font-bold.text-pink-600 Sold out
-          .p-3(v-else)
-            span.font-light.text-xl {{ hotel.avg_price }}
+          div(v-else)
+            span.font-semibold.text-xl {{ VND.format(+hotel.avg_price) }} &nbsp;
+            span.font-semibold.text-lg / night
       
     
 
@@ -36,7 +37,7 @@
 
 <script setup lang="ts">
 import type { IHotelSearch } from '@/dtos/hotel'
-import { Image2Array } from '@/utils/format'
+import { Image2Array, VND } from '@/utils/format'
 const props = defineProps<{
   hotel: IHotelSearch
 }>()
