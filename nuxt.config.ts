@@ -1,6 +1,5 @@
 import { pwa } from './config/pwa'
 import { appDescription } from './constants/index'
-
 export default defineNuxtConfig({
   modules: [
     // VueUse
@@ -94,7 +93,7 @@ export default defineNuxtConfig({
     renderJsonPayloads: true
   },
 
-  css: ['@unocss/reset/tailwind.css'],
+  css: ['@unocss/reset/tailwind-compat.css'],
 
   colorMode: {
     classSuffix: ''

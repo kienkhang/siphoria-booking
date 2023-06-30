@@ -9,15 +9,6 @@
   scrollbar-width: none; /* Firefox */
 }
 
-button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
-  -webkit-appearance: button; /* 1 */
-  /*background-color: transparent; !* 2 *!*/
-  background-image: none; /* 2 */
-}
-
 /* Using naive ui  */
 /* carousel naive UI */
 .n-carousel .n-carousel__slides {

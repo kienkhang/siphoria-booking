@@ -26,5 +26,8 @@ export default {
       }
     }
   },
-  plugins: [formKitTailwind]
+  plugins: [formKitTailwind],
+  corePlugins: {
+    prelight: false
+  }
 }
