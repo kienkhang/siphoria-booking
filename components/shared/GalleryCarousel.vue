@@ -35,7 +35,7 @@ NModal(
       @click='next()'
     )
       .w-6.h-6(class='-rotate-90 i-custom-chevron-down')
-    .absolute.top-6.right-5(@click='show = false')
+    .absolute.top-6.right-5(@click='close()')
       div(class='w-6 h-6 text-white cursor-pointer i-mdi:close hover:opacity-90')
     teleport(to='body')
       .fixed.inset-0(class='z-50 bg-black/25 backdrop-blur-1px mask-overlay dark:bg-white/50' v-if='show')
@@ -50,7 +50,7 @@ const show = defineModel<boolean>('show')
 // Handle click next and prev image
 const index = ref(0)
 
-const isNext = computed(() => index.value < props.photos.length)
+const isNext = computed(() => index.value < props.photos.length - 1)
 const isPrev = computed(() => index.value > 0)
 function next() {
   if (isNext.value) {
@@ -61,6 +61,13 @@ function prev() {
   if (isPrev.value) {
     index.value--
   }
+}
+
+function close() {
+  // reset index to 0
+  index.value = 0
+  // close modal
+  show.value = false
 }
 </script>
 
