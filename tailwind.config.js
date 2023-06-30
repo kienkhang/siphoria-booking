@@ -14,13 +14,15 @@ export default {
         platinum: '#E5E5E5',
         'ghost-white': '#f7f9fb',
         'eerie-black': '#1f1f1f',
-        alabaster: '#efe8e8'
+        alabaster: '#efe8e8',
+        metal: '#71787E'
       },
       boxShadow: {
         input: '0px 4px 4px rgba(0, 0, 0, 0.25)',
         bar: '0px 0px 10px rgba(100, 124, 159, 0.25)',
         card: '0px 24px 34px rgba(80, 79, 89, 0.14)',
-        search: '0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30)'
+        search: '0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30)',
+        room: '0px 1px 3px 0px rgba(0, 0, 0, 0.30), 0px 4px 8px 3px rgba(0, 0, 0, 0.15);'
       }
     }
   },
