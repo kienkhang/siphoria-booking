@@ -1,7 +1,9 @@
 <template lang="pug">
 .max-w-7xl.w-full.mx-auto
   HotelGallery.mt-6(:photos='images')
-
+  HotelInfo.mt-16
+  HotelFacilities.mt-16
+  HotelRoom.mt-16
 
 </template>
 
