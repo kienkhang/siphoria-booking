@@ -12,7 +12,12 @@
   .flex.flex-col.gap-3.max-w-375px.w-full
     //- Google map
     div(class='w-full overflow-hidden border border-metal h-180px rounded-xl')
-      iframe(class="w-full h-full border-0" frameborder="0" :src='embedUrl')
+      iframe(
+        class="w-full h-full border-0" 
+        style="border:0"
+        referrerpolicy="no-referrer-when-downgrade"
+        frameborder="0" 
+        :src='embedUrl')
     .address
       span.text-xs.font-medium {{ address }}
     .h-1px.w-full.bg-platinum
@@ -66,7 +71,7 @@ const embedUrl = computed(() => {
   if (address.value) {
     return `https://www.google.com/maps/embed/v1/place?q=${encodeURIComponent(
       address.value
-    )}&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8`
+    )}&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&zoom=18`
   }
 })
 const overview = computed(() => hotel.value?.overview)
