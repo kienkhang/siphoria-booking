@@ -28,7 +28,7 @@
           .rounded-md.p-2.px-3.w-max.border.border-red-400.bg-red-100(v-if='isSoldOut')
             span.font-bold.text-pink-600 Sold out
           div(v-else)
-            span.font-semibold.text-xl {{ VND.format(+hotel.avg_price) }} &nbsp;
+            span.font-semibold.text-xl {{ VND(hotel.avg_price+'') }} VND &nbsp;
             span.font-semibold.text-lg / night
       
     
