@@ -1,5 +1,5 @@
 <template lang="pug">
-.w-64.rounded-xl.bg-white.shadow-room.flex.flex-col.overflow-hidden
+.w-64.h-max.rounded-xl.bg-white.shadow-room.flex.flex-col.overflow-hidden
   //- Room Gallery
   HotelRoomCardGallery(:photos='room.photos')
   //- Room Info
@@ -12,15 +12,19 @@
       .h-10.flex.items-center.gap-2
         .i-custom-bed.w-5.h-5.flex-shrink-0
         span.flex-1 {{room.bed_nums}} bed
-        .i-custom-chevron-down.w-5.h-5.flex-shrink-0.cursor-pointer
+        .w-5.h-5.flex-shrink-0.cursor-pointer(class='i-material-symbols:pan-zoom-rounded')
       //- Bath
       .h-10.flex.items-center.gap-2
         .i-custom-bath-room.w-5.h-5.flex-shrink-0
         span.flex-1 {{room.bathroom_nums}} bath
+      //- Guest
+      .h-10.flex.items-center.gap-2
+        .w-5.h-5.flex-shrink-0(class='i-material-symbols:group-outline-rounded')
+        span.flex-1 {{adultLabel}}, {{ childrenLabel }}
 </template>
 
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   room: {
     description: string
     facilities: {
@@ -86,6 +90,19 @@ defineProps<{
     }
   }
 }>()
+
+const adultLabel = computed(() => {
+  if (props.room.max_adult > 1) {
+    return `${props.room.max_adult} adults`
+  }
+  return `${props.room.max_adult} adult`
+})
+const childrenLabel = computed(() => {
+  if (props.room.max_children > 1) {
+    return `${props.room.max_adult} childrens`
+  }
+  return `${props.room.max_adult} children`
+})
 </script>
 
 <style scoped></style>
