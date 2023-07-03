@@ -17,6 +17,9 @@ dependencies:
   '@iconify-json/eos-icons':
     specifier: ^1.1.6
     version: 1.1.6
+  '@iconify-json/material-symbols':
+    specifier: ^1.1.50
+    version: 1.1.50
   '@iconify-json/mdi':
     specifier: ^1.1.52
     version: 1.1.52
@@ -2001,6 +2004,12 @@ packages:
     dependencies:
       '@iconify/types': 2.0.0
     dev: true
+
+  /@iconify-json/material-symbols@1.1.50:
+    resolution: {integrity: sha512-sz2Vuws9CIL9doMBqB/M3awCQ9gzmk5m2UdosKgHd3/qIC12q1hq/wFZ6QisP8fLwgl+jRLdKenfA5mytIa2Xw==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: false
 
   /@iconify-json/mdi@1.1.52:
     resolution: {integrity: sha512-tLzpFcmoGw1/jHcl+BshUd4bqvP4755OUluaARsuKskTp2aIPIAkRQOhzJGpry9CZ0i82z0alq4HrKrp9uvj4A==}
