@@ -26,7 +26,9 @@ export default defineNuxtConfig({
     // naive ui
     '@bg-dev/nuxt-naiveui',
     // dayjs
-    'dayjs-nuxt'
+    'dayjs-nuxt',
+    // Nuxt icons https://github.com/gitFoxCode/nuxt-icons
+    'nuxt-icons'
   ],
 
   // ----- NAIVE UI CONFIG -------

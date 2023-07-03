@@ -60,7 +60,7 @@ const isFocus = computed(() => focus.value === 'location')
 const selectedProvince = ref<{
   label: string
   value: number
-}>(provincesFormated.value[0])
+}>(provincesFormated.value.find((province) => province.value === 79)!)
 // select province function
 function doSelectProvince(province: { label: string; value: number }) {
   // Reset search

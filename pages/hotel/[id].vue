@@ -1,31 +1,42 @@
 <template lang="pug">
 .max-w-7xl.w-full.mx-auto
-  HotelGallery.mt-6(:photos='images')
-  HotelInfo.mt-16
-  HotelFacilities.mt-16
-  HotelRoom.mt-16
+  LazyHotelGallery.mt-6(:photos='images')
+  LazyHotelInfo.mt-16
+  LazyHotelFacilities.mt-16
+  LazyHotelRoom.mt-16
 
 </template>
 
 <script setup lang="ts">
+import { useHotelDetail } from '~/composables/hotel/useHotelDetail'
+
 const route = useRoute()
 
 const hotelId = computed(() => route.params.id as string)
 const query = computed(() => route.query)
 
 const { getDetails } = useHotel()
-const { executeApi: fetchHotel } = getDetails(query, hotelId)
+const { hotel } = storeToRefs(useHotelDetail())
+const { executeApi: fetchHotel, data } = getDetails(query, hotelId)
 
-onMounted(() => {
-  fetchHotel()
+onBeforeMount(async () => {
+  await fetchHotel()
+  // hotel.value = hotelData
 })
-watch(hotelId, () => {
-  fetchHotel()
+watch(hotelId, async () => {
+  await fetchHotel()
+  // hotel.value = hotelData
 })
-
+whenever(data, () => {
+  hotel.value = data.value
+})
 //
-const images =
-  'https://pix8.agoda.net/hotelImages/165511/-1/16515024e4a0aeeec48d3e245bdec52c.jpg?ca=7&ce=1&s=1024x768;https://pix8.agoda.net/hotelImages/165511/-1/704570f8c0b3d98af27e354d01a63408.jpg?ca=7&ce=1&s=1024x768;https://pix8.agoda.net/hotelImages/165511/-1/25dfc171576bfd97fad3d0553c71ce24.jpg?ca=10&ce=1&s=1024x768'
+const images = computed(() => {
+  if (hotel.value) {
+    return hotel.value?.hotel_photos
+  }
+  return []
+})
 </script>
 
 <style scoped></style>

@@ -1,10 +1,24 @@
 <template lang="pug">
 .h-72px.w-40.flex.flex-col.items-center
-  div(class='w-8 h-8 text-black i-custom-plane?bg' )
-  span.mt-4 Airport pick-up
+  //- div(class=' i-custom-bar?bg' :class='iconClass')
+  nuxt-icon(
+    :name='name'
+    class='w-8 h-8'
+  )
+  span.mt-4.capitalize {{ name }}
 
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+defineProps<{
+  name: string
+}>()
+</script>
 
-<style scoped></style>
+<style>
+.nuxt-icon svg {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0;
+}
+</style>

@@ -34,11 +34,11 @@ import _remove from 'lodash-es/remove'
 import { defaultPhoto } from '@/constants/index'
 
 const props = defineProps<{
-  photos: string
+  photos: string[]
 }>()
 
 // Photos from parent
-const hotelPhotos = computed(() => Image2Array(props.photos))
+const hotelPhotos = computed(() => props.photos)
 
 // formated photo. if num of photos < 4, add default photo until rest.lengh == 4
 // return 4 photo with slice
@@ -47,6 +47,10 @@ const formated = computed(() => {
   const cut = _remove(original, (_, index) => {
     return index === 0
   })
+  // if hotel photo empty -> cut empty
+  if (cut.length < 1) {
+    cut.push(defaultPhoto)
+  }
   /** 
     - after remove with lodash -> original is the rest of init
     - example: original [1,2,3,4], remove 2, 3  = original [1,4]

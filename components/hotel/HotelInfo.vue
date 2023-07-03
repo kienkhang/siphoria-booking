@@ -2,8 +2,8 @@
 .flex.gap-16
   //- Hotel name and overviews
   .flex.flex-col.gap-6.flex-1
-    span.text-4xl.line-clamp-2.font-semibold Cam Ranh Riviera Beach Resort & Spa - All Exclusive
-    NRate( size='large', readonly, :value='5' class='mt-2' color='#F4803F')
+    span.text-4xl.line-clamp-2.font-semibold {{hotel?.name}}
+    NRate( size='large', readonly, :value='hotel?.rating' class='mt-2' color='#F4803F')
     .overview  
       span.text-2xl.font-semibold Overview
       div(v-html='overview')
@@ -56,15 +56,20 @@
 </template>
 
 <script setup lang="ts">
-const address = ref('Cam Ranh Riviera Beach Resort & Spa - All Exclusive')
-const embedUrl = computed(
-  () =>
-    `https://www.google.com/maps/embed/v1/place?q=${encodeURIComponent(
+import { useHotelDetail } from '@/composables/hotel/useHotelDetail'
+// const address = ref('Cam Ranh Riviera Beach Resort & Spa - All Exclusive')
+
+const { hotel } = storeToRefs(useHotelDetail())
+const address = computed(() => hotel.value?.raw_address)
+
+const embedUrl = computed(() => {
+  if (address.value) {
+    return `https://www.google.com/maps/embed/v1/place?q=${encodeURIComponent(
       address.value
     )}&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8`
-)
-const overview =
-  '<p><span style="color: rgb(26, 26, 26);">Tọa lạc tại Thành phố Hồ Chí Minh, cách Bảo tàng Lịch sử Việt Nam 3,5 km, Oakwood Hotel &amp; Apartments Saigon cung cấp chỗ nghỉ 4 sao và có trung tâm thể dục, nhà hàng cũng như quầy bar. Khách sạn 4 sao này có phòng giữ hành lý. </span></p><p><br></p><p><span style="color: rgb(26, 26, 26);">Chỗ nghỉ cung cấp dịch vụ lễ tân 24 giờ, dịch vụ đưa đón sân bay, dịch vụ phòng và Wi-Fi miễn phí trong toàn bộ khuôn viên.</span>Phòng nghỉ gắn máy điều hòa tại khách sạn có bàn làm việc, ấm đun nước, tủ lạnh, lò vi sóng, két an toàn, TV màn hình phẳng và phòng tắm riêng với vòi xịt/chậu rửa vệ sinh. Tại Oakwood Hotel &amp; Apartments Saigon, mỗi phòng đều được trang bị ga trải giường và khăn tắm.</p><p><br></p><p>Chỗ nghỉ phục vụ bữa sáng à la carte và bữa sáng kiểu lục địa hằng ngày.</p><p>Oakwood Hotel &amp; Apartments Saigon nằm cách trung tâm thương mại Diamond Plaza 4,6 km và Bưu điện Trung tâm Sài Gòn 4,7 km. Sân bay gần nhất là sân bay quốc tế Tân Sơn Nhất, nằm trong bán kính 7 km từ khách sạn.</p>'
+  }
+})
+const overview = computed(() => hotel.value?.overview)
 </script>
 
 <style scoped></style>
