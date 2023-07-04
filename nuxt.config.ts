@@ -141,7 +141,7 @@ export default defineNuxtConfig({
 
   routeRules: {
     // '/': { ssr: true },
-    '/**': { ssr: true },
+    '/**': { ssr: false },
     '/account/**': { ssr: false },
     '/oauth/**': { prerender: true }
   }
