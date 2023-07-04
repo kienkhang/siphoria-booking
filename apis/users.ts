@@ -34,12 +34,16 @@ class User {
 
   deleteCart = (cartId: string) => {
     const url = `${path}/carts/${cartId}`
-    return usePost({ url, requiredToken: true })
+    return useDelete({ url, requiredToken: true })
   }
 
-  checkout = () => {
+  checkout = (data: {}) => {
     const url = `${path}/payments`
-    return usePost({ url, requiredToken: true })
+    return usePost({ url, data, requiredToken: true })
+  }
+  pay = (data: any | {}) => {
+    const url = `${path}/pay`
+    return usePost({ url, data, requiredToken: true })
   }
 }
 
