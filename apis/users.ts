@@ -21,6 +21,21 @@ class User {
       requiredToken: true
     })
   }
+
+  getCart = () => {
+    const url = `${path}/carts`
+    return useGet({ url, requiredToken: true })
+  }
+
+  addToCart = (data: any | {}) => {
+    const url = `${path}/add-to-cart`
+    return usePost({ url, data, requiredToken: true })
+  }
+
+  deleteCart = (cartId: string) => {
+    const url = `${path}/carts/${cartId}`
+    return usePost({ url, requiredToken: true })
+  }
 }
 
 const usersApi = new User()
