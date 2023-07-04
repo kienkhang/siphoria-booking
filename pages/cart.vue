@@ -1,7 +1,10 @@
 <template lang="pug">
-.max-w-1200px.mx-auto.mt-6
+.max-w-1200px.mx-auto.mt-6.relative
   span.block.text-2xl.font-medium.text-center Booking cart
-  CartList
+  .mt-9
+    LazyCartList
+  .fixed.right-0.bottom-0.left-0
+    LazyCartCheckout
   
 </template>
 
