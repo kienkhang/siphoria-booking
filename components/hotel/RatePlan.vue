@@ -136,9 +136,10 @@ const { isAuthorized, account } = storeToRefs(useAuthStore())
 
 const { form: searchForm } = storeToRefs(useSearchHotel())
 
+const hotelId = computed(() => route.query?.id as string)
 const addToCartForm = computed(() => ({
   from_date: searchForm.value.from,
-  hotel_id: route.query?.id,
+  hotel_id: hotelId.value,
   number_of_adults: searchForm.value.n_o_a,
   number_of_children: searchForm.value.n_o_c,
   number_of_rooms: searchForm.value.n_o_r,
