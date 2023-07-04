@@ -7,7 +7,10 @@ div(class='sticky z-50 w-full')
         SharedSearchHotelBar
         .flex.items-center.gap-4
           //- Icon.cursor-pointer(name='mdi:cart-outline' color='white' size='24')
-          div(class='flex-shrink-0 w-8 h-8 text-white cursor-pointer select-none i-mdi:cart-outline?mask')
+          nuxt-link(
+            class='flex-shrink-0 w-6 h-6 text-white cursor-pointer select-none i-mdi:cart-outline?mask'
+            to='/cart'
+            )
           SharedLanguageSelect
           //- LazySharedPayment
           AuthButton(v-if='!isLogin')
