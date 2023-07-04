@@ -14,7 +14,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
     }
   }
   // If isn't logged in and from is not account guard -> navigato('/')
-  else if (!account.value && to.fullPath.includes('account')) {
+  else if (!account.value && (to.fullPath.includes('cart') || to.fullPath.includes('account'))) {
     return navigateTo('/')
   }
 })
