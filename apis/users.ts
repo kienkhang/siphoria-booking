@@ -36,6 +36,11 @@ class User {
     const url = `${path}/carts/${cartId}`
     return usePost({ url, requiredToken: true })
   }
+
+  checkout = () => {
+    const url = `${path}/payments`
+    return usePost({ url, requiredToken: true })
+  }
 }
 
 const usersApi = new User()
