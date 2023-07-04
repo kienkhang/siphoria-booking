@@ -1,5 +1,4 @@
 <template lang="pug">
-TheHeader
 HomeBackgroundSlider
 HomeFamousPlace.mt-16
 HomeHotelType.mt-16
@@ -7,7 +6,7 @@ HomeHotelType.mt-16
 
 <script setup lang="ts">
 definePageMeta({
-  layout: 'empty',
+  layout: 'home',
   title: 'My Home page'
 })
 </script>
