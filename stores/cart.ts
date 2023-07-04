@@ -1,8 +1,10 @@
+import type { ICart } from '~/dtos/cart'
+
 const useCartStore = defineStore('cart__store', () => {
-  const cart = ref()
+  const carts = ref<ICart[]>()
 
   return {
-    cart
+    carts
   }
 })
 

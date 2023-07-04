@@ -1,14 +1,14 @@
 import { usersApi } from '@/apis/users'
 import { useCartStore } from '~/stores/cart'
 function useCart() {
-  const { cart } = storeToRefs(useCartStore())
+  const { carts } = storeToRefs(useCartStore())
   // usemessage composables
   const mess = useMessage()
 
   // Add to cart
   function addToCart(form: Ref<any | {}>) {
     const usedAdd = usersApi.addToCart(form)
-    // destructuring search hotel
+    // destructuring axios delete
     const { execute } = usedAdd
     // custom execute api
     const executeApi = async () => {
@@ -32,14 +32,18 @@ function useCart() {
   function getCarts() {
     const usedGet = usersApi.getCart()
     // destructuring search hotel
-    const { execute, data } = usedGet
+    const { execute, data, isFinished } = usedGet
+
+    until(isFinished)
+      .toBeTruthy()
+      .then(() => {
+        carts.value = data.value
+      })
     // custom execute api
     const executeApi = async () => {
       try {
         // execute-> call api
         await execute()
-        //
-        cart.value = data.value
       } catch (e: any) {
         // push log
         mess.success('Lấy giỏ hàng thất bại')
@@ -54,13 +58,14 @@ function useCart() {
   // Delete cart
   function deleteCart(cartId: Ref<string>) {
     const usedDelete = usersApi.deleteCart(cartId.value)
-    // destructuring search hotel
+    // destructuring axios delete
     const { execute } = usedDelete
     // custom execute api
     const executeApi = async () => {
       try {
         // execute-> call api
         await execute()
+        getCarts().executeApi()
         // push log
         mess.success('Xoá phòng thành công')
       } catch (e: any) {
@@ -75,10 +80,34 @@ function useCart() {
     }
   }
 
+  // Checkout
+  function checkoutCart() {
+    const usedCheckout = usersApi.checkout()
+    // destructuring checkout
+    const { execute } = usedCheckout
+    // custom execute api
+    const executeApi = async () => {
+      try {
+        // execute-> call api
+        await execute()
+        // push log
+      } catch (e: any) {
+        // push log
+        mess.success('Chuyển trang thất bại')
+        throw new Error(e)
+      }
+    }
+    return {
+      ...usedCheckout,
+      executeApi
+    }
+  }
+
   return {
     getCarts,
     addToCart,
-    deleteCart
+    deleteCart,
+    checkoutCart
   }
 }
 
