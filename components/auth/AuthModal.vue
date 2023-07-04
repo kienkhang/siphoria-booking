@@ -1,5 +1,5 @@
 <template lang="pug">
-BaseModal(:show='show' @mask-click='closeModal')
+NModal(:show='show' @mask-click='closeModal')
   .bg-white.w-400px.rounded-lg.px-5.py-6
     //- Login Tab 
     .tabs-list.w-full.flex.items-center.justify-center
