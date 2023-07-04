@@ -5,7 +5,9 @@ AuthModal(v-model:show='show')
 </template>
 
 <script setup lang="ts">
-const show = ref(false)
+import { useAuthStore } from '~/stores/auth'
+
+const { showAuthModal: show } = storeToRefs(useAuthStore())
 </script>
 
 <style scoped></style>
