@@ -17,7 +17,7 @@
   .sold-out(v-if='isSoldOut')
     .rounded-md.p-2.px-3.w-max.border.border-red-400.bg-red-100
       span.font-bold.text-pink-600 Sold out
-  .no-sold-out.flex.flex-col.gap-6(v-else)
+  .no-sold-out.flex.flex-col.gap-6.hide-scroll(v-auto-animate v-else)
     .prices-and-actions.flex.items-center.justify-between 
       .average-price
         span.text-xs.text-x11 Average Price per Night
