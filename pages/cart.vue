@@ -3,6 +3,7 @@
   span.block.text-2xl.font-medium.text-center Booking cart
   .mt-9
     LazyCartList
+  .pb-28
   .fixed.right-0.bottom-0.left-0
     LazyCartCheckout
   

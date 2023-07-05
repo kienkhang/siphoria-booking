@@ -13,6 +13,7 @@
       LazyCartTime(:from-time='cutFromTime' :to-time="cutToTime")
       .flex-1
         LazyCartInfo(:cart='cart')
+        
 
 </template>
 
