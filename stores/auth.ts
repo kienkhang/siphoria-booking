@@ -1,6 +1,6 @@
 import { useAccountStore } from './account'
 
-const useAuthStore = defineStore('', () => {
+const useAuthStore = defineStore('auth__store', () => {
   const { account } = storeToRefs(useAccountStore())
   const isAuthorized = computed(() => !!account.value)
 

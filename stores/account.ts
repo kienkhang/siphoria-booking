@@ -1,6 +1,6 @@
 import type { IUser } from '@/dtos/user'
 
-const useAccountStore = defineStore('account_store', () => {
+const useAccountStore = defineStore('account__store', () => {
   const account = ref<IUser>()
 
   const role = computed(() => {
