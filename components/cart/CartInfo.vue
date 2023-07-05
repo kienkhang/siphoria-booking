@@ -7,7 +7,10 @@
       br
       span.text-xs.text-x11 {{hotel.raw_address}}
     //- icon delete
-    .flex.items-center.text-red-600.p-2.gap-2.select-none.cursor-pointer.transition-all(class='hover:bg-red-500/[0.02]' @click='doDelete()')
+    .flex.items-center.text-red-600.px-3.gap-2.select-none.cursor-pointer(
+      class='hover:bg-red-500/[0.05] rounded-lg transition-all' 
+      @click='doDelete()'
+    )
       div(class='w-18px h-18px i-material-symbols:delete-outline')
       span Delete
   .flex-1
