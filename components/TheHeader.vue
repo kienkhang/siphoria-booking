@@ -13,7 +13,7 @@ div(class='sticky z-50 w-full')
             )
           LazySharedLanguageSelect
           //- LazySharedPayment
-          LazyAuthButton(v-if='!isLogin')
+          AuthButton(v-if='!isLogin')
           LazyAuthProfileDropdown(:account='account' v-else)
 </template>
 

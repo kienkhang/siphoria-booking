@@ -1,14 +1,14 @@
 <template lang="pug">
-UPopover(mode='click' class='w-8 h-8')
-  .h-9.w-9
+UPopover(mode='click' class='w-6 h-6')
+  .h-6.w-6
     .h-full.w-full(v-if='language === "vi"' class='i-custom-vietnam?bg')
     .h-full.w-full(v-else-if='language === "en"' class='i-custom-united-kingdom?bg')
   template(#panel='{ close }')
       .flex.items-center.gap-3.py-2.px-4(class='cursor-pointer hover:bg-gray-300' @click='switchLang("vi",close)')
-        .flex-shrink-0.w-7.h-7(class='i-custom-vietnam?bg')
+        .flex-shrink-0.w-6.h-6(class='i-custom-vietnam?bg')
         span Việt Nam
       .flex.items-center.gap-3.py-2.px-4(class='cursor-pointer hover:bg-gray-300' @click='switchLang("en",close)')
-        .flex-shrink-0.w-7.h-7(class='i-custom-united-kingdom?bg')
+        .flex-shrink-0.w-6.h-6(class='i-custom-united-kingdom?bg')
         span English
 
 </template>
