@@ -38,7 +38,7 @@ class User {
   }
 
   getPayments = (params: any | {}) => {
-    const url = `${path}/payments`
+    const url = `${path}/payments/history`
     return useGet({ url, params, requiredToken: true })
   }
 
