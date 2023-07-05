@@ -6,7 +6,7 @@
       PaymentPayer
       PaymentMethod.mt-6
       PaymentVoucher.mt-6
-      BaseButton.mt-6(class='justify-center w-full h-10 px-4 text-white border bg-crayola rounded-3xl' @click="pay()")
+      BaseButton.mt-6(class='justify-center w-full h-10 px-4 text-white border bg-crayola rounded-3xl' @click="doPay()")
         .w-4.h-4(class='i-custom-load' v-if='isLoading')
         span(v-else) Pay 
     PaymentList
