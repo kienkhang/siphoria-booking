@@ -6,7 +6,6 @@
     NDatePicker(
       type='daterange' 
       v-model:value='stayTime'
-      :default-value="[Date.now(),Date.now()+86400000]" 
       :show='isFocus' 
       placement='bottom'
       :clearable='true'
@@ -40,7 +39,9 @@ const stayTimeFormat = computed(() => {
       'DD MMM, YYYY'
     )}`
   }
-  return `${dayjs().format('DD MMM, YYYY')} - ${dayjs().add(1, 'day').format('DD MMM, YYYY')}`
+  return `${dayjs().add(1, 'day').format('DD MMM, YYYY')} - ${dayjs()
+    .add(2, 'day')
+    .format('DD MMM, YYYY')}`
 })
 
 // disable previous dates

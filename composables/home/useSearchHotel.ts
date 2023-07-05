@@ -18,8 +18,8 @@ const useSearchHotel = defineStore('home__useSeachHotel', () => {
   // form to search
   const form = reactive<ISearchHotel>({
     city: 79,
-    from: dayjs().format('YYYY-MM-DD'),
-    to: dayjs(Date.now() + 86400000).format('YYYY-MM-DD'),
+    from: dayjs(Date.now() + 86400000).format('YYYY-MM-DD'),
+    to: dayjs(Date.now() + 86400000 * 2).format('YYYY-MM-DD'),
     n_o_a: 2,
     n_o_c: 0,
     n_o_r: 1
