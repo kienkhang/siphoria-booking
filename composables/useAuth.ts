@@ -134,7 +134,7 @@ function useAuth() {
       if (!error.value) {
         setToken(data.value.access_token)
         setRToken(data.value.refresh_token)
-        console.log('😃😦😧 ~ loginGG ~ data:', data.value)
+        // console.log('😃😦😧 ~ loginGG ~ data:', data.value)
       }
     })
     return {
@@ -151,7 +151,7 @@ function useAuth() {
       if (!error.value) {
         setToken(data.value.access_token)
         setRToken(data.value.refresh_token)
-        console.log('😃😦😧 ~ loginFB ~ data:', data.value)
+        // console.log('😃😦😧 ~ loginFB ~ data:', data.value)
       }
     })
 
