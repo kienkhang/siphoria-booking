@@ -15,6 +15,8 @@
 import { useCart } from '~/composables/cart/useCart'
 import { useCartStore } from '~/stores/cart'
 
+const router = useRouter()
+
 const { carts } = storeToRefs(useCartStore())
 const totalBooking = computed(() => carts.value?.length)
 const totalRoomNight = computed(() => {
@@ -30,11 +32,15 @@ const totalPrice = computed(() => {
 })
 // Checkout function
 const { checkoutCart } = useCart()
-const { executeApi: callCheckout } = checkoutCart()
+const { executeApi: callCheckout, data: sessionId } = checkoutCart()
 
 async function checkout() {
   await callCheckout()
 }
+
+whenever(sessionId, () => {
+  router.push({ name: 'checkout', query: { id: sessionId.value } })
+})
 </script>
 
 <style scoped></style>

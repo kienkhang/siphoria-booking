@@ -82,7 +82,7 @@ function useCart() {
 
   // Checkout
   function checkoutCart() {
-    const usedCheckout = usersApi.checkout()
+    const usedCheckout = usersApi.checkout({})
     // destructuring checkout
     const { execute } = usedCheckout
     // custom execute api

@@ -37,6 +37,11 @@ class User {
     return useDelete({ url, requiredToken: true })
   }
 
+  getPayments = (params: any | {}) => {
+    const url = `${path}/payments`
+    return useGet({ url, params, requiredToken: true })
+  }
+
   checkout = (data: {}) => {
     const url = `${path}/payments`
     return usePost({ url, data, requiredToken: true })

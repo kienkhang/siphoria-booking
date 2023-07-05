@@ -18,13 +18,21 @@ definePageMeta({
   title: 'Siphoria | Search Hotel'
 })
 
-const { payWith } = usePayment()
+const route = useRoute()
+const { payWith, getPayments } = usePayment()
 
 const payForm = ref({
   session_id: ''
 })
 
 function doPayment() {}
+
+const sessionId = computed(() => route.query?.id as string)
+const { executeApi: fetchPayments } = getPayments({ session_id: sessionId.value })
+
+onMounted(async () => {
+  await fetchPayments()
+})
 </script>
 
 <style scoped></style>
