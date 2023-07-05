@@ -7,7 +7,6 @@ export default defineNuxtRouteMiddleware((to, from) => {
   const { isLoggedIn } = useAuthStorage()
   const { isAuthorized } = storeToRefs(useAuthStore())
   // If is logged in -> fetch account
-  const { openAuthModal } = useAuthStore()
   if (isLoggedIn()) {
     if (!isAuthorized.value) {
       fetchAccount()
@@ -19,7 +18,6 @@ export default defineNuxtRouteMiddleware((to, from) => {
     !isAuthorized.value &&
     ['cart', 'account', 'checkout'].some((path) => to.fullPath.includes(path))
   ) {
-    openAuthModal()
     return navigateTo('/')
   }
 })
