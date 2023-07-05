@@ -1,14 +1,10 @@
 <template lang="pug">
-div Callback from redirect url
-
+AuthRedirect
 </template>
 
 <script setup lang="ts">
-const route = useRoute()
-
-onMounted(() => {
-  console.log({ ...route })
-})
+const router = useRouter()
+router.push('/account')
 </script>
 
 <style scoped></style>
