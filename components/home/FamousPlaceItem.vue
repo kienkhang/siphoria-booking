@@ -8,7 +8,7 @@
       class='object-cover object-center w-full h-full group-hover/place:opacity-90'
       :src='place.imageUrl'
     )
-  span.font-semibold.text-xs.cursor-pointer(class='group-hover/place:animate-bounce') {{place.name}}
+  span.font-semibold.text-xs.cursor-pointer(class='group-hover/place:animate-bounce') {{$t(place.name)}}
 
 </template>
 

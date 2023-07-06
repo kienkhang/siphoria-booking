@@ -80,5 +80,21 @@ export default {
       phone_placeholder: 'Enter your phone number',
       change: 'Change'
     }
-  }
+  },
+
+  home_page: {
+    slogan: 'The next-generation Travel Service Transaction Platform',
+    popular_location: 'The top attractive destination in Vietnam',
+    type_of_hotel: 'Type of hotel',
+    hotel: 'Hotel',
+    resort: 'Resort',
+    homestay: 'Homestay'
+  },
+
+  ho_chi_minh: 'Ho Chi Minh',
+  ha_noi: 'Ha Noi',
+  phu_quoc: 'Phu Quoc',
+  hoi_an: 'Hoi An',
+  da_nang: 'Da Nang',
+  khanh_hoa: 'Khanh Hoa'
 }

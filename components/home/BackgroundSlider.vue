@@ -62,7 +62,7 @@ Swiper(
       )
   .absolute(class='inset-0 z-10 bg-gradient-to-b from-black/70 to-black/20')
     .flex.items-center.justify-center.h-full
-      span.text-white.font-bold.text-3xl Nền tảng Giao dịch Dịch vụ Du lịch thế hệ mới
+      span.text-white.font-bold.text-3xl {{$t('home_page.slogan')}}
 </template>
 
 <script setup lang="ts"></script>

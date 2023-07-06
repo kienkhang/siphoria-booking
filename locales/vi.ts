@@ -80,5 +80,20 @@ export default {
       phone_placeholder: 'Nhập số điện thoại của bạn',
       change: 'Đổi'
     }
-  }
+  },
+  home_page: {
+    slogan: 'Nền tảng Giao dịch Dịch vụ Du lịch thế hệ mới', //The next-generation Travel Service Transaction Platform,
+    popular_location: 'Điểm đến hấp dẫn hàng đầu Việt Nam',
+    type_of_hotel: 'Loại khách sạn',
+    hotel: 'Khách sạn',
+    resort: 'Khu nghỉ dưỡng',
+    homestay: 'Homestay'
+  },
+
+  ho_chi_minh: 'Hồ Chí Minh',
+  ha_noi: 'Hà Nội',
+  phu_quoc: 'Phú Quốc',
+  hoi_an: 'Hội An',
+  da_nang: 'Đà Nẵng',
+  khanh_hoa: 'Khánh Hoà'
 }
