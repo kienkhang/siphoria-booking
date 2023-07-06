@@ -12,7 +12,7 @@ function usePayment() {
     session_id: ''
   })
 
-  const mess = useMessage()
+  const toast = useToast()
 
   // Get Payments
   function getPayments(params: { session_id?: string }) {
@@ -28,7 +28,12 @@ function usePayment() {
         // push log
       } catch (e: any) {
         // push log
-        mess.success('Lấy thanh toán thất bại')
+        toast.add({
+          id: 'get__checkout__payments',
+          title: 'Có lỗi xảy ra',
+          description: 'Không tìm thấy đơn hàng',
+          color: 'rose'
+        })
         throw new Error(e)
       }
     }
@@ -48,10 +53,15 @@ function usePayment() {
         // execute-> call api
         await execute({ data: payForm.value })
         // push log
-        mess.success('Thêm giỏ hàng thành công')
+        // mess.success('Thêm giỏ hàng thành công')
       } catch (e: any) {
         // push log
-        mess.success('Thêm giỏ hàng thất bại')
+        toast.add({
+          id: 'pay__payments',
+          title: 'Có lỗi xảy ra',
+          description: 'Không thể tiến hành thanh toán',
+          color: 'rose'
+        })
         throw new Error(e)
       }
     }

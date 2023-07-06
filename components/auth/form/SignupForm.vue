@@ -17,7 +17,7 @@ const emit = defineEmits<{
 }>()
 
 // TOAST HANDLER
-const toast = useMessage()
+const toast = useToast()
 // Signup HANDLER
 const signupData = reactive({
   email: '',
@@ -36,12 +36,23 @@ async function doSignup() {
     // close modal
     emit('closeModal')
     // toast message
-    toast.success('Đăng ký thành công, vui lòng kiểm tra email kích hoạt tài khoản')
+    toast.add({
+      id: 'auth__signup',
+      title: 'Thông báo',
+      description: 'Đăng ký thành công, vui lòng kiểm tra email xác thực',
+      color: 'primary',
+      timeout: 8000
+    })
   } catch (error: any) {
     // close modal
     emit('closeModal')
     // toast error
-    toast.error(error?.response?.data?.message)
+    toast.add({
+      id: 'auth__signup',
+      title: 'Có lỗi xảy ra',
+      description: 'Đăng ký thất bại',
+      color: 'rose'
+    })
   }
 
   // emit('closeModal')

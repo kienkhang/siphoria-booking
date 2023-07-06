@@ -3,7 +3,7 @@ import { useCartStore } from '~/stores/cart'
 function useCart() {
   const { carts } = storeToRefs(useCartStore())
   // usemessage composables
-  const mess = useMessage()
+  const toast = useToast()
 
   // Add to cart
   function addToCart(form: Ref<any | {}>) {
@@ -16,10 +16,20 @@ function useCart() {
         // execute-> call api
         await execute({ data: form.value })
         // push log
-        mess.success('Thêm giỏ hàng thành công')
+        toast.add({
+          id: 'add__cart',
+          title: 'Thông báo',
+          description: 'Thêm đơn hàng thành công',
+          color: 'rose'
+        })
       } catch (e: any) {
         // push log
-        mess.success('Thêm giỏ hàng thất bại')
+        toast.add({
+          id: 'add__cart',
+          title: 'Có lỗi xảy ra',
+          description: 'Không thể thêm đơn hàng',
+          color: 'rose'
+        })
         throw new Error(e)
       }
     }
@@ -46,7 +56,12 @@ function useCart() {
         await execute()
       } catch (e: any) {
         // push log
-        mess.success('Lấy giỏ hàng thất bại')
+        toast.add({
+          id: 'get__cart',
+          title: 'Có lỗi xảy ra',
+          description: 'Không thể lấy đơn hàng',
+          color: 'rose'
+        })
         throw new Error(e)
       }
     }
@@ -67,10 +82,20 @@ function useCart() {
         await execute()
         getCarts().executeApi()
         // push log
-        mess.success('Xoá phòng thành công')
+        toast.add({
+          id: 'delete__cart',
+          title: 'Thông báo',
+          description: 'Xoá đơn hàng thành công',
+          color: 'primary'
+        })
       } catch (e: any) {
         // push log
-        mess.success('Xoá phòng thất bại')
+        toast.add({
+          id: 'delete__cart',
+          title: 'Có lỗi xảy ra',
+          description: 'Không thể xoá đơn hàng',
+          color: 'rose'
+        })
         throw new Error(e)
       }
     }
@@ -93,7 +118,13 @@ function useCart() {
         // push log
       } catch (e: any) {
         // push log
-        mess.success('Chuyển trang thất bại')
+        // mess.success('Chuyển trang thất bại')
+        toast.add({
+          id: 'checkout__cart',
+          title: 'Có lỗi xảy ra',
+          description: 'Không tìm thấy đơn hàng',
+          color: 'rose'
+        })
         throw new Error(e)
       }
     }

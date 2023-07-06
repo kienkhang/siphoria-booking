@@ -9,11 +9,13 @@ useLanguageStorage()
 </script>
 
 <template lang="pug">
-VitePwaManifest
-NMessageProvider(placement='bottom-right' container-style='borderRadius: 8px' :duration="3000")
-  NDialogProvider
-    NuxtLayout
-      NuxtPage
+div
+  VitePwaManifest
+  NMessageProvider(placement='bottom-right' container-style='borderRadius: 8px' :duration="3000")
+    NDialogProvider
+      NuxtLayout
+        NuxtPage
+    UNotifications(:ui='{ width: "w-96"}')
 </template>
 
 <style>

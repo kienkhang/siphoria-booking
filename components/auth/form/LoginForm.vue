@@ -17,7 +17,7 @@ const emit = defineEmits<{
 }>()
 
 // TOAST HANDLER
-const toast = useMessage()
+const toast = useToast()
 // LOGIN HANDLER
 // Define login form
 const loginData = reactive({
@@ -25,7 +25,7 @@ const loginData = reactive({
   password: ''
 })
 // Destruct composable useAuth
-const { login, getMe } = useAuth()
+const { login } = useAuth()
 // Destruct api call function
 const { executeAPI: executeLogin } = login(loginData)
 async function doLogin() {
@@ -35,12 +35,22 @@ async function doLogin() {
     // close modal
     emit('closeModal')
     // show notification
-    toast.success('Đăng nhập thành công')
+    toast.add({
+      id: 'auth__login',
+      title: 'Thông báo',
+      description: 'Đăng nhập thành công',
+      color: 'primary'
+    })
   } catch (error: any) {
     // close modal
     emit('closeModal')
     // show notification
-    toast.error(error?.response?.data?.message)
+    toast.add({
+      id: 'auth__login',
+      title: 'Có lỗi xảy ra',
+      description: 'Đăng nhập thất bại',
+      color: 'rose'
+    })
   }
 }
 </script>
