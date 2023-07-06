@@ -19,7 +19,7 @@ NPopover(
           ref='searchRef'
           )
   .rounded-16px.bg-white.w-640px.max-h-500px.overflow-y-auto.hide-scroll.mt-2.shadow-search(v-auto-animate ref='target')
-    .flex.items-center.gap-3.px-8.h-16(class='transition-all hover:bg-eerie-black/[0.08]' v-for='province in provincesFormated' @click='doSelectProvince(province)')
+    .flex.items-center.gap-3.px-8.h-16(class='transition-all hover:bg-eerie-black/[0.08] select-none cursor-pointer' v-for='province in provincesFormated' @click='doSelectProvince(province)')
       div(class='w-6 h-6 i-custom-location')
       span.font-medium {{ province.label }}
 
