@@ -27,7 +27,7 @@ NPopover.max-w-192px.w-max(
       Icon.flex-shrink-0(name='mdi:calendar-outline' size='16')
       span Lịch sử đặt phòng
     hr
-    .flex.items-center.gap-3.py-2.px-4.text-red-500(class='cursor-pointer hover:bg-gray-100' @click='logout')
+    .flex.items-center.gap-3.py-2.px-4.text-red-500(class='cursor-pointer hover:bg-gray-100' @click='doLogout()')
       Icon.flex-shrink-0(name='mdi:logout' size='16')
       span Đăng xuất 
 
@@ -44,6 +44,8 @@ defineProps<{
   account: IUser | undefined
 }>()
 
+// router composables
+const router = useRouter()
 // --------- POPOVER HANDELER -----------
 const visible = ref(false)
 // update show popover
@@ -51,6 +53,11 @@ const updateShow = (val: boolean) => (visible.value = val)
 
 // logout
 const { logout } = useAuth()
+
+function doLogout() {
+  logout()
+  router.push('/')
+}
 </script>
 
 <style scoped></style>
