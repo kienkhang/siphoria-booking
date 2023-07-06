@@ -4,7 +4,7 @@
     //- Title & Upgrade button
     .flex.justify-between.items-center
       span.text-4xl.font-bold Membership Card
-      BaseButton.px-4.py-2.border.border-vivid.text-vivid(class='hover:bg-vivid hover:text-white')
+      BaseButton.px-4.py-2.border.border-vivid.text-vivid.rounded-lg(class='hover:bg-vivid hover:text-white')
         span.font-medium Upgrade
     //- membership card
     .flex.items-center.gap-6.mt-6
@@ -16,8 +16,8 @@
     //- Title & Update Infomation button
     .flex.justify-between.items-center
       span.text-4xl.font-bold Personal information
-      BaseButton.px-4.py-2.border.border-vivid.text-vivid(class='hover:bg-vivid hover:text-white' @click='showUpdate = true')
-        span.font-medium Update / Change Password
+      BaseButton.px-4.py-2.border.border-vivid.text-vivid.rounded-lg(class='hover:bg-vivid hover:text-white' @click='showUpdate = true')
+        span.font-medium Update profile
       AccountUpdateModal(v-model:show='showUpdate')
     //- Member information
     .mt-6

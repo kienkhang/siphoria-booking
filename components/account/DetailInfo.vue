@@ -17,15 +17,27 @@
         span.line-clamp-4 {{account?.phone}}
   .grid.grid-cols-12.room-overview
       .col-span-3
-        span.font-semibold.text-x11 Timezone
-      .col-span-9
-        span.line-clamp-4 GMT+7
+        span.font-semibold.text-x11 Password
+      .col-span-9.flex.items-center.gap-3
+        span.line-clamp-4 ••••••••••
+        .w-4.h-4(class='cursor-pointer i-custom-arrow-spin' @click='openModal()')
+  NModal(
+    v-model:show='showModal'
+  )
+    .bg-white.w-400px.rounded-lg.px-5.py-6
+      AccountFormChangePasswordForm
+
 </template>
 
 <script setup lang="ts">
 import { useAccountStore } from '~/stores/account'
 
 const { account } = storeToRefs(useAccountStore())
+
+const showModal = ref(false)
+function openModal() {
+  showModal.value = true
+}
 </script>
 
 <style scoped></style>
