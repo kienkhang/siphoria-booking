@@ -1,17 +1,11 @@
 <template lang="pug">
 FormKit(type='form' v-model:model-value="changeData" name='update_profile_form' id='update_profile_form' @submit="doUpdate" :actions='false' style='width: 100%; padding: 16px;')
   .flex.flex-col.gap-2
-    FormKit(type="password" label='Old password' name='password' :placeholder='$t("form.signup_form.password_placeholder")' validation="required|length:6")
-    FormKit(type="password" label='New password' name='new_password' :placeholder='$t("form.signup_form.password_placeholder")' validation="required|length:6")
+    FormKit(type="password" :label='$t("form.change_password.current")' name='password' :placeholder='$t("form.change_password.current_placeholder")' validation="required|length:6")
+    FormKit(type="password" :label='$t("form.change_password.new")' name='new_password' :placeholder='$t("form.change_password.new_placeholder")' validation="required|length:6")
       //- Confirm rule: ``name = [field_name]_confirm & validation: confirm
-    FormKit(type="password" label='Confirm password' name='new_password_confirm' :placeholder='$t("form.signup_form.confirm_password_placeholder")' validation="required|confirm")
-    FormKit(type="submit" name='update' input-class='w-full') Change
-    //- FormKit(type='text' label='First name' name="first_name" :placeholder='$t("form.login_form.email_placeholder")' validation="required")
-    //- FormKit(type='text' label='Last name' name="last_name" :placeholder='$t("form.login_form.email_placeholder")' validation="required")
-    //- FormKit(type='text' label='Phone' name="phone" :placeholder='$t("form.login_form.email_placeholder")' validation="required")
-    //- FormKit(type="submit" name='login' input-class='w-full') {{$t('form.login_form.login')}}
-
-
+    FormKit(type="password" :label='$t("form.change_password.confirm")' name='new_password_confirm' :placeholder='$t("form.change_password.confirm_placeholder")' validation="required|confirm")
+    FormKit(type="submit" name='update' input-class='w-full') {{$t("form.change_password.change")}}
 </template>
 
 <script setup lang="ts">
@@ -20,8 +14,10 @@ const emit = defineEmits<{
   (e: 'closeModal'): void
 }>()
 
+// TRANSLATE HANDLER
+const { t } = useI18n()
 // TOAST HANDLER
-const toast = useMessage()
+const toast = useToast()
 // UPDATE PASSWORD HANDLER
 // Define change password form
 const changeData = reactive({
@@ -39,12 +35,22 @@ async function doUpdate() {
     // close modal
     emit('closeModal')
     // show notification
-    toast.success('Đổi mật khẩu thành công')
+    toast.add({
+      id: 'change_password',
+      title: t('toast.notification'),
+      description: t('toast.change_password_form.success'),
+      color: 'primary'
+    })
   } catch (error: any) {
     // close modal
     emit('closeModal')
     // show notification
-    toast.error(error?.response?.data?.message)
+    toast.add({
+      id: 'change_password',
+      title: t('toast.an_error_occurred'),
+      description: t('toast.change_password_form.error'),
+      color: 'rose'
+    })
   }
 }
 </script>

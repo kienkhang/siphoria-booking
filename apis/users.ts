@@ -37,7 +37,7 @@ class User {
     return useDelete({ url, requiredToken: true })
   }
 
-  getPayments = (params: any | {}) => {
+  getHistoryPayments = (params: any | {}) => {
     const url = `${path}/payments/history`
     return useGet({ url, params, requiredToken: true })
   }

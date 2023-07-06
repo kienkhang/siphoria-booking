@@ -4,6 +4,8 @@ function useCart() {
   const { carts } = storeToRefs(useCartStore())
   // usemessage composables
   const toast = useToast()
+  // usei18n
+  const { t } = useI18n()
 
   // Add to cart
   function addToCart(form: Ref<any | {}>) {
@@ -18,16 +20,16 @@ function useCart() {
         // push log
         toast.add({
           id: 'add__cart',
-          title: 'Thông báo',
-          description: 'Thêm đơn hàng thành công',
-          color: 'rose'
+          title: t('toast.notification'),
+          description: t('toast.add_to_cart.success'),
+          color: 'primary'
         })
       } catch (e: any) {
         // push log
         toast.add({
           id: 'add__cart',
-          title: 'Có lỗi xảy ra',
-          description: 'Không thể thêm đơn hàng',
+          title: t('toast.an_error_occurred'),
+          description: t('toast.add_to_cart.error'),
           color: 'rose'
         })
         throw new Error(e)
@@ -58,8 +60,8 @@ function useCart() {
         // push log
         toast.add({
           id: 'get__cart',
-          title: 'Có lỗi xảy ra',
-          description: 'Không thể lấy đơn hàng',
+          title: t('toast.an_error_occurred'),
+          description: t('toast.get_cart.error'),
           color: 'rose'
         })
         throw new Error(e)
@@ -84,16 +86,16 @@ function useCart() {
         // push log
         toast.add({
           id: 'delete__cart',
-          title: 'Thông báo',
-          description: 'Xoá đơn hàng thành công',
+          title: t('toast.notification'),
+          description: t('toast.delete_cart.success'),
           color: 'primary'
         })
       } catch (e: any) {
         // push log
         toast.add({
           id: 'delete__cart',
-          title: 'Có lỗi xảy ra',
-          description: 'Không thể xoá đơn hàng',
+          title: t('toast.an_error_occurred'),
+          description: t('toast.delete_cart.error'),
           color: 'rose'
         })
         throw new Error(e)
@@ -121,8 +123,8 @@ function useCart() {
         // mess.success('Chuyển trang thất bại')
         toast.add({
           id: 'checkout__cart',
-          title: 'Có lỗi xảy ra',
-          description: 'Không tìm thấy đơn hàng',
+          title: t('toast.an_error_occurred'),
+          description: t('toast.checkout_cart.error'),
           color: 'rose'
         })
         throw new Error(e)

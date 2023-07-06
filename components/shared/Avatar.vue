@@ -21,7 +21,10 @@ import { useAccountStore } from '~/stores/account'
 // destruct account store
 const { account } = storeToRefs(useAccountStore())
 
-const message = useMessage()
+// TRANSLATE HANLDER
+const { t } = useI18n()
+// TOAST HANDLER
+const toast = useToast()
 /* 
 select image includes 2 step: 
 1. click open window select 
@@ -49,22 +52,43 @@ function doChange() {
     const files = fileSelect.value.files
 
     // check file > 5 MB
-    if (files && files[0].size > 1024 * 1024 * 5) {
-      message.error('File không được lớn hơn 5MB')
+    if (files && files[0].size > 1024 * 1024 * 2) {
+      toast.add({
+        id: 'update_profile_form',
+        title: t('toast.an_error_occurred'),
+        description: t('toast.change_avatar.file_large'),
+        color: 'rose'
+      })
+      return
     }
     // Check file is image ?
     if (files && files[0].type.indexOf('image') == -1) {
-      message.error('File phải là hình ảnh')
+      toast.add({
+        id: 'update_profile_form',
+        title: t('toast.an_error_occurred'),
+        description: t('toast.change_avatar.be_image'),
+        color: 'rose'
+      })
       return
     }
     // Call api update avatar
     if (files) {
       executeApi({ images: files[0] })
         .then(() => {
-          message.success('Cập nhật avatar thành công')
+          toast.add({
+            id: 'update_profile_form',
+            title: t('toast.notification'),
+            description: t('toast.change_avatar.success'),
+            color: 'primary'
+          })
         })
         .catch(() => {
-          message.error('Cập nhật avatar thất bại')
+          toast.add({
+            id: 'update_profile_form',
+            title: t('toast.an_error_occurred'),
+            description: t('toast.change_avatar.error'),
+            color: 'rose'
+          })
         })
     }
   }

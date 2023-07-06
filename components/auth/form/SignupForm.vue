@@ -16,6 +16,8 @@ const emit = defineEmits<{
   (e: 'closeModal'): void
 }>()
 
+// TRANSLATE HANDLER
+const { t } = useI18n()
 // TOAST HANDLER
 const toast = useToast()
 // Signup HANDLER
@@ -37,9 +39,9 @@ async function doSignup() {
     emit('closeModal')
     // toast message
     toast.add({
-      id: 'auth__signup',
-      title: 'Thông báo',
-      description: 'Đăng ký thành công, vui lòng kiểm tra email xác thực',
+      id: 'signup_form',
+      title: t('toast.notification'),
+      description: t('toast.signup_form.success'),
       color: 'primary',
       timeout: 8000
     })
@@ -48,9 +50,9 @@ async function doSignup() {
     emit('closeModal')
     // toast error
     toast.add({
-      id: 'auth__signup',
-      title: 'Có lỗi xảy ra',
-      description: 'Đăng ký thất bại',
+      id: 'signup_form',
+      title: t('toast.an_error_occurred'),
+      description: t('toast.signup_form.error'),
       color: 'rose'
     })
   }

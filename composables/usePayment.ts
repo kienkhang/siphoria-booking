@@ -12,11 +12,12 @@ function usePayment() {
     session_id: ''
   })
 
+  const { t } = useI18n()
   const toast = useToast()
 
   // Get Payments
-  function getPayments(params: { session_id?: string }) {
-    const usedGetPayments = usersApi.getPayments(params)
+  function getCheckoutPayments(params: { session_id?: string }) {
+    const usedGetPayments = usersApi.getHistoryPayments(params)
     // destructuring axios delete
     const { execute, data } = usedGetPayments
     // custom execute api
@@ -58,8 +59,8 @@ function usePayment() {
         // push log
         toast.add({
           id: 'pay__payments',
-          title: 'Có lỗi xảy ra',
-          description: 'Không thể tiến hành thanh toán',
+          title: t('toast.an_error_occurred'),
+          description: t('toast.pay.error'),
           color: 'rose'
         })
         throw new Error(e)
@@ -74,7 +75,7 @@ function usePayment() {
     checkout,
     payForm,
     payWith,
-    getPayments
+    getCheckoutPayments
   }
 }
 

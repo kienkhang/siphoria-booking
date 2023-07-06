@@ -25,7 +25,7 @@
     v-model:show='showModal'
   )
     .bg-white.w-400px.rounded-lg.px-5.py-6
-      AccountFormChangePasswordForm
+      AccountFormChangePasswordForm(@close-modal='closeModal')
 
 </template>
 
@@ -37,6 +37,9 @@ const { account } = storeToRefs(useAccountStore())
 const showModal = ref(false)
 function openModal() {
   showModal.value = true
+}
+function closeModal() {
+  showModal.value = false
 }
 </script>
 

@@ -16,6 +16,8 @@ const emit = defineEmits<{
   (e: 'closeModal'): void
 }>()
 
+// TRANSLATE HANDLER
+const { t } = useI18n()
 // TOAST HANDLER
 const toast = useToast()
 // LOGIN HANDLER
@@ -36,9 +38,9 @@ async function doLogin() {
     emit('closeModal')
     // show notification
     toast.add({
-      id: 'auth__login',
-      title: 'Thông báo',
-      description: 'Đăng nhập thành công',
+      id: 'login_form',
+      title: t('toast.notification'),
+      description: t('toast.login_form.success'),
       color: 'primary'
     })
   } catch (error: any) {
@@ -46,9 +48,9 @@ async function doLogin() {
     emit('closeModal')
     // show notification
     toast.add({
-      id: 'auth__login',
-      title: 'Có lỗi xảy ra',
-      description: 'Đăng nhập thất bại',
+      id: 'login_form',
+      title: t('toast.an_error_occurred'),
+      description: t('toast.login_form.error'),
       color: 'rose'
     })
   }
