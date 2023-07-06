@@ -6,7 +6,7 @@ function usePayment() {
 
   const payForm = ref<{
     session_id: string
-    pay_method: 'momo' | 'vnpay' | 'siphoria'
+    pay_method: 'momo' | 'vnpay' | 'siphoria' | 'stripe'
   }>({
     pay_method: 'momo',
     session_id: ''

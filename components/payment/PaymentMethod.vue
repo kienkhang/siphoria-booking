@@ -22,10 +22,16 @@
         .w-6.h-6(class='i-custom-vnpay?bg')
         span.font-medium VNPay
         .w-8.h-8(class='text-green-600 i-material-symbols:check-small-rounded' v-if='selectedPayment === "vnpay"')
+    //- Stripe wallet
+    .flex.items-center.justify-between.py-4.h-14.pr-8.pl-4.select-none.cursor-pointer(class='rounded-md hover:bg-platinum' @click='selectPayment("stripe")')
+      .flex.items-center.gap-4
+        .w-6.h-6(class='i-custom-stripe?bg')
+        span.font-medium Stripe
+        .w-8.h-8(class='text-green-600 i-material-symbols:check-small-rounded' v-if='selectedPayment === "stripe"')
 </template>
 
 <script setup lang="ts">
-type TPaymentMethod = 'momo' | 'vnpay' | 'siphoria'
+type TPaymentMethod = 'momo' | 'vnpay' | 'siphoria' | 'stripe'
 
 const { payForm } = storeToRefs(usePayment())
 
