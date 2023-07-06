@@ -62,7 +62,6 @@
 
 <script setup lang="ts">
 import { useHotelDetail } from '@/composables/hotel/useHotelDetail'
-// const address = ref('Cam Ranh Riviera Beach Resort & Spa - All Exclusive')
 
 const { hotel } = storeToRefs(useHotelDetail())
 const address = computed(() => hotel.value?.raw_address)

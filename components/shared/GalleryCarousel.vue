@@ -53,14 +53,10 @@ const index = ref(0)
 const isNext = computed(() => index.value < props.photos.length - 1)
 const isPrev = computed(() => index.value > 0)
 function next() {
-  if (isNext.value) {
-    index.value++
-  }
+  if (isNext.value) index.value++
 }
 function prev() {
-  if (isPrev.value) {
-    index.value--
-  }
+  if (isPrev.value) index.value--
 }
 
 function close() {

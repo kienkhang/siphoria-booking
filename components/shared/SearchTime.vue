@@ -18,6 +18,7 @@
 
 <script setup lang="ts">
 import { useSearchHotel } from '@/composables/home/useSearchHotel'
+
 // Handler time
 // import dayjs handl format time
 const dayjs = useDayjs()
@@ -45,7 +46,7 @@ const stayTimeFormat = computed(() => {
 })
 
 // disable previous dates
-const disablePreviousDate = (ts: number) => {
+function disablePreviousDate(ts: number) {
   return ts <= Date.now()
 }
 </script>

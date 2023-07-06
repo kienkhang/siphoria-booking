@@ -1,5 +1,6 @@
 import { pwa } from './config/pwa'
 import { appDescription } from './constants/index'
+
 export default defineNuxtConfig({
   modules: [
     // VueUse

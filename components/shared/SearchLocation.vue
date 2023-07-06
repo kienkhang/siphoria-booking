@@ -28,6 +28,7 @@ NPopover(
 <script setup lang="ts">
 import provinces from '@/constants/provinces.json'
 import { useSearchHotel } from '~/composables/home/useSearchHotel'
+
 const provinceOptions = provinces.map((p) => {
   return {
     label: p.name,

@@ -16,7 +16,7 @@ import RatePlan from './RatePlan.vue'
 const { roomTypes } = storeToRefs(useHotelDetail())
 
 // sold out if nums of room night <= 0
-const soldOut = (roomNightCount: number) => {
+function soldOut(roomNightCount: number) {
   return roomNightCount <= 0
 }
 </script>

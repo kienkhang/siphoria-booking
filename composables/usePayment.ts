@@ -1,5 +1,5 @@
 import { usersApi } from '~/apis/users'
-import { ICheckout } from '~/dtos/payment'
+import type { ICheckout } from '~/dtos/payment'
 
 function usePayment() {
   const checkout = ref<ICheckout[]>()

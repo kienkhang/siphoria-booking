@@ -16,6 +16,7 @@
 
 <script setup lang="ts">
 import type { IPayResponse } from '@/dtos/payment'
+
 definePageMeta({
   layout: 'home',
   title: 'Siphoria | Search Hotel'
@@ -31,9 +32,9 @@ const sessionId = computed(() => route.query?.id as string)
 // Watch session id, when exist value -> set session id to form
 payForm.value.session_id = sessionId.value
 // destruct get payments and pay function
-const { payWith, getPayments } = usePayment()
+const { payWith, getCheckoutPayments } = usePayment()
 const { executeApi: pay, data: payData, isLoading } = payWith()
-const { executeApi: fetchPayments } = getPayments({ session_id: sessionId.value })
+const { executeApi: fetchPayments } = getCheckoutPayments({ session_id: sessionId.value })
 
 // Define response
 const payResponse = ref<IPayResponse>()
@@ -46,8 +47,11 @@ async function doPay() {
     throw new Error(e as string)
   }
 }
-whenever(payResponse, () => {
-  window.location.replace(payResponse.value?.payUrl!)
+
+watch(payResponse, () => {
+  if (payResponse.value) 
+    window.location.replace(payResponse.value.payUrl)
+  
 })
 
 onMounted(async () => {

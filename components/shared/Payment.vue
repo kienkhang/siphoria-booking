@@ -6,6 +6,7 @@ BaseButton(class='gap-3 p-3 font-medium text-white bg-pink-600' @click='doPaymen
 
 <script setup lang="ts">
 import { paymentApi } from '@/apis/payment'
+
 const { execute, isFinished, data } = paymentApi.withMomo()
 
 function doPaymentWithMomo() {

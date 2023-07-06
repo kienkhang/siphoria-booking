@@ -4,6 +4,7 @@ NuxtPage
 
 <script setup lang="ts">
 import { useSearchHotel } from '~/composables/home/useSearchHotel'
+
 definePageMeta({
   layout: 'home',
   title: 'Siphoria | Search Hotel'

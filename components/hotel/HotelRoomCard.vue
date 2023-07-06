@@ -92,15 +92,15 @@ const props = defineProps<{
 }>()
 
 const adultLabel = computed(() => {
-  if (props.room.max_adult > 1) {
+  if (props.room.max_adult > 1) 
     return `${props.room.max_adult} adults`
-  }
+  
   return `${props.room.max_adult} adult`
 })
 const childrenLabel = computed(() => {
-  if (props.room.max_children > 1) {
+  if (props.room.max_children > 1) 
     return `${props.room.max_adult} childrens`
-  }
+  
   return `${props.room.max_adult} children`
 })
 </script>

@@ -1,4 +1,4 @@
-import { IHotelDetail } from '~/dtos/hotel'
+import type { IHotelDetail } from '~/dtos/hotel'
 
 const useHotelDetail = defineStore('hotel_detail', () => {
   const hotel = ref<IHotelDetail | null>()

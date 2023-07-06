@@ -46,6 +46,7 @@ class User {
     const url = `${path}/payments`
     return usePost({ url, data, requiredToken: true })
   }
+
   pay = (data: any | {}) => {
     const url = `${path}/pay`
     return usePost({ url, data, requiredToken: true })

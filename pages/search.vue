@@ -11,6 +11,7 @@
 
 <script setup lang="ts">
 import useHotel from '~/composables/useHotel'
+
 definePageMeta({
   layout: 'home',
   title: 'Siphoria | Search Hotel'

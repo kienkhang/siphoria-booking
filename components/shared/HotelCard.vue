@@ -38,6 +38,7 @@
 <script setup lang="ts">
 import type { IHotelSearch } from '@/dtos/hotel'
 import { Image2Array, VND } from '@/utils/format'
+
 const props = defineProps<{
   hotel: IHotelSearch
 }>()

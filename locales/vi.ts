@@ -82,7 +82,7 @@ export default {
     }
   },
   home_page: {
-    slogan: 'Nền tảng Giao dịch Dịch vụ Du lịch thế hệ mới', //The next-generation Travel Service Transaction Platform,
+    slogan: 'Nền tảng Giao dịch Dịch vụ Du lịch thế hệ mới', // The next-generation Travel Service Transaction Platform,
     popular_location: 'Điểm đến hấp dẫn hàng đầu Việt Nam',
     type_of_hotel: 'Loại khách sạn',
     hotel: 'Khách sạn',

@@ -62,25 +62,25 @@ const formated = computed(() => {
     return index === 0
   })
   // if hotel photo empty -> cut empty
-  if (cut.length < 1) {
+  if (cut.length < 1) 
     cut.push(defaultPhoto)
-  }
+  
   /** 
     - after remove with lodash -> original is the rest of init
     - example: original [1,2,3,4], remove 2, 3  = original [1,4]
     - and cut is [2,3]
   */
   // If photo < 4 -> push photo to 4
-  while (original.length < 3) {
+  while (original.length < 3) 
     original.push(defaultPhoto)
-  }
+  
   return { first: cut, rest: original.slice(0, 3) }
 })
 
 const restCountString = computed(() => {
-  if (roomPhotos.value.length > 4) {
-    return roomPhotos.value.length - 4 + ''
-  }
+  if (roomPhotos.value.length > 4) 
+    return `${roomPhotos.value.length - 4}`
+  
   return 'More'
 })
 const showModal = ref(false)

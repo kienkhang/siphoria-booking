@@ -7,9 +7,9 @@ const useAuthStore = defineStore('auth__store', () => {
   const showAuthModal = ref(false)
 
   function openAuthModal() {
-    if (isAuthorized.value) {
+    if (isAuthorized.value) 
       return
-    }
+    
     showAuthModal.value = true
   }
 

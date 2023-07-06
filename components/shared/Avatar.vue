@@ -62,7 +62,7 @@ function doChange() {
       return
     }
     // Check file is image ?
-    if (files && files[0].type.indexOf('image') == -1) {
+    if (files && files[0].type.includes('image')) {
       toast.add({
         id: 'update_profile_form',
         title: t('toast.an_error_occurred'),

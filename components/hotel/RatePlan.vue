@@ -91,18 +91,18 @@ const isSoldOut = computed(() => {
 })
 
 // ===== HANDLER SHOW INFO RATE PLAN ====
-//- Rate plan free
+// - Rate plan free
 const freeText = computed(() => {
   let result = 'Free '
-  if (props.ratePlans.free_breakfast) {
+  if (props.ratePlans.free_breakfast) 
     result += 'breakfast,'
-  } else if (props.ratePlans.free_lunch) {
+   else if (props.ratePlans.free_lunch) 
     result += ' lunch,'
-  } else if (props.ratePlans.free_dinner) {
+   else if (props.ratePlans.free_dinner) 
     result += ' dinner'
-  }
+  
   // concat string to show free text
-  return result + ' for people'
+  return `${result} for people`
 })
 
 // Total Price

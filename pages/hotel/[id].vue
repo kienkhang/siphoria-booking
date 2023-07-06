@@ -32,9 +32,9 @@ whenever(data, () => {
 })
 //
 const images = computed(() => {
-  if (hotel.value) {
+  if (hotel.value) 
     return hotel.value?.hotel_photos
-  }
+  
   return []
 })
 </script>
