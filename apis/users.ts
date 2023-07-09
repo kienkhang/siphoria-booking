@@ -37,7 +37,17 @@ class User {
     return useDelete({ url, requiredToken: true })
   }
 
-  getHistoryPayments = (params: any | {}) => {
+  getPayments = (params?: any | {}) => {
+    const url = `${path}/payments`
+    return useGet({ url, params, requiredToken: true })
+  }
+
+  getPaymentDetail = (paymentId: string) => {
+    const url = `${path}/payments/${paymentId}`
+    return useGet({ url, requiredToken: true })
+  }
+
+  getCheckoutPayments = (params: { session_id: string }) => {
     const url = `${path}/payments/history`
     return useGet({ url, params, requiredToken: true })
   }
