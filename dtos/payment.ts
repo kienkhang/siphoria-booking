@@ -171,4 +171,81 @@ interface IPayResponse {
   payUrl: string
 }
 
-export { ICheckout, IPayResponse }
+interface IPayment {
+  id: string
+  payment_method: string
+  rank_price: number
+  converted_price: number
+  voucher_price: number
+  total_price: number
+  start_at: string
+  end_at: string
+  total_day: number
+  updated_at: string
+  user: {
+    id: string
+    avatar: string
+    email: string
+    first_name: string
+    last_name: string
+    full_name: string
+    phone: string
+    gender: boolean
+    role: string
+    status: number
+    user_key_firebase: string
+    created_at: string
+    updated_at: string
+    user_rank: any
+  }
+  room_type: {
+    id: string
+    activated: boolean
+    name: string
+    description: string
+    max_adult: number
+    max_children: number
+    bed_nums: number
+    bathroom_nums: number
+    photos: string
+    created_at: string
+    updated_at: string
+    hotel_id: string
+    room_nights: any
+    rate_plans: any
+  }
+  hotel: {
+    id: string
+    name: string
+    overview: string
+    rating: number
+    commission_rate: number
+    created_at: string
+    updated_at: string
+    status: number
+    activate: boolean
+    province_code: number
+    district_code: number
+    ward_code: number
+    raw_address: string
+    hotel_photos: string
+    bank_account: string
+    bank_beneficiary: string
+    bank_name: string
+    business_licence: string
+    hotelier_id: string
+    price_hotel: number
+    discount_price: number
+    discount_hotel: number
+    room_types: any
+  }
+  details: {
+    id: string
+    day_off: string
+    price: number
+    adult_num: number
+    children_num: number
+  }[]
+}
+
+export { ICheckout, IPayResponse, IPayment }
