@@ -10,7 +10,7 @@
     )
   .time-out-in.flex-1
     .flex.gap-6.h-full
-      LazyCartTime(:from-time='cutFromTime' :to-time="cutToTime")
+      SharedBookingTime(axis='vertical', :from='fromTime', :to='toTime')
       .flex-1
         LazyCartInfo(:cart='cart')
         

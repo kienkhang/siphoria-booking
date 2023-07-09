@@ -7,7 +7,7 @@
       span.font-bold {{ fromTime.month }}
       span {{ fromTime.year }}
   //- To time
-  .flex-1.w-2px.bg-x11
+  .h-12.w-2px.bg-x11
   .flex.gap-3
     span.text-28px.font-bold {{ toTime.date }}
     .flex.flex-col
