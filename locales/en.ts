@@ -40,6 +40,9 @@ export default {
     },
     pay: {
       error: 'Cannot proceed with payment'
+    },
+    get_payment: {
+      error: 'Cant not retrieve payment data'
     }
   },
   form: {

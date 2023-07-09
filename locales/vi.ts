@@ -40,6 +40,9 @@ export default {
     },
     pay: {
       error: 'Không thể tiến hành thanh toán'
+    },
+    get_payment: {
+      error: 'Không thể lấy dữ liệu thanh toán'
     }
   },
   form: {
