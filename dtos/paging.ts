@@ -35,6 +35,6 @@ interface IRequestFilter {
   page: number
   offset: number
   search?: string
-  state?: string
-  [x: string]: number | string | undefined
+  state?: string | {}
+  [x: string]: number | string | undefined | {}
 }
