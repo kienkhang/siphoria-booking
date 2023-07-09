@@ -15,7 +15,7 @@ div
     NDialogProvider
       NuxtLayout
         NuxtPage
-    UNotifications(:ui='{ width: "w-96"}')
+    UNotifications(:ui='{ width: "w-full max-w-sm"}')
 </template>
 
 <style>
