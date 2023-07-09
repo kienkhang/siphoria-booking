@@ -6,7 +6,7 @@ NPopover(
   :show='isFocus'
 )
   template(#trigger)
-    .location.flex.items-center.gap-1(:class='["px-4 text-xs h-full rounded-60px max-w-[250px] hover:bg-eerie-black/[0.08]" , {"shadow-search":isFocus}]' @click='focus = "location"')
+    .location.flex.items-center.gap-1(:class='["px-4 text-xs h-full rounded-60px max-w-[250px] hover:bg-eerie-black/[0.08]" , {"shadow-search":isFocus}]' @click='focus = "location"' v-auto-animate)
       div(class='flex-shrink-0 i-custom-location text-crayola w-[18px] h-[18px]')
       span.truncate {{ selectedProvince ? selectedProvince.label : "Where are you going ?" }}
       .flex.flex-col.gap-1(v-if='isFocus')
