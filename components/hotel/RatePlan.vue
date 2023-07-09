@@ -87,20 +87,17 @@ const dayjs = useDayjs()
 
 // ==== HANDLER SHOW SOLD OUT ====
 const isSoldOut = computed(() => {
-  return props.soldOut || props.ratePlans.rate_packages.length < 0
+  return props.soldOut || props.ratePlans.rate_packages.length <= 0
 })
 
 // ===== HANDLER SHOW INFO RATE PLAN ====
 // - Rate plan free
 const freeText = computed(() => {
   let result = 'Free '
-  if (props.ratePlans.free_breakfast) 
-    result += 'breakfast,'
-   else if (props.ratePlans.free_lunch) 
-    result += ' lunch,'
-   else if (props.ratePlans.free_dinner) 
-    result += ' dinner'
-  
+  if (props.ratePlans.free_breakfast) result += 'breakfast,'
+  else if (props.ratePlans.free_lunch) result += ' lunch,'
+  else if (props.ratePlans.free_dinner) result += ' dinner'
+
   // concat string to show free text
   return `${result} for people`
 })
