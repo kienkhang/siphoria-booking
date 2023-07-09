@@ -1,7 +1,6 @@
 <template lang="pug">
-.w-full.p-8.rounded-2xl.shadow-bar.bg-white(v-auto-animate)
-  NuxtPage
-    
+.detail
+
 </template>
 
 <script setup lang="ts"></script>
