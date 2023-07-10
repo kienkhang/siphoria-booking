@@ -4,6 +4,8 @@
   LazyAccountMyBookingInfo(:booking='booking')
   .flex.flex-col.justify-between.items-end
     SharedBookingTime(axis='horizontal', :from='startAt', :to='endAt')
+    //- Price
+    //- .total-price.text-2xl.font-bold {{ VND(''+totalPrice) }} VND
     //- icon delete
     button.flex.items-center.text-red-600.font-medium.w-max.pr-4.pl-2.py-2.gap-2.select-none.cursor-pointer(
       class='hover:bg-red-500/[0.05] rounded-lg transition-all' 
@@ -14,9 +16,6 @@
 </template>
 
 <script setup lang="ts">
-import MyBookingGallery from './MyBookingGallery.vue'
-import MyBookingInfo from './MyBookingInfo.vue'
-
 const props = defineProps<{
   booking: IPayment
 }>()
