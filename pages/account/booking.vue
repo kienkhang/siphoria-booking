@@ -1,26 +1,44 @@
 <template lang="pug">
 .w-full.p-8.rounded-2xl.shadow-bar.bg-white
-  .flex.flex-col.gap-10(v-for='booking in history')
-    MyBooking(:booking='booking')
-    .h-1px.bg-x11(class='w-1/2 mx-auto')
+  .flex.flex-col(v-for='booking in data')
+    MyBooking.mb-10(:booking='booking')
+    //- Show line exclude last index
+    .h-1px.bg-x11.mb-10(class='w-1/2 mx-auto' v-if='booking.id !== data[data.length - 1].id')
+  .flex.flex-row-reverse.pt-6
+    NPagination(
+      v-model:page='page'
+      :page-count='calculatedPaging?.total_pages'
+      @update:page='updatePage'
+    )
 </template>
 
 <script setup lang="ts">
 import MyBooking from '~/components/account/MyBooking.vue'
 
+// Destruct function call get booking
 const { getBookingHistory } = useBookingHistory()
-const { history, filter } = storeToRefs(useBookingHistory())
 const { executeApi: fetchBookings } = getBookingHistory()
+// Destruct filter and paging from store
+const { filter, calculatedPaging, page } = storeToRefs(useBookingHistory())
 
+// Fetch booking with state empty
 function getMyBooking() {
   filter.value.state = {}
   fetchBookings()
 }
-
+// Mounted -> call api get booking
 onMounted(() => getMyBooking())
-whenever(history, () => {
-  console.log('😃😦😧 ~ whenever ~ bookings:', history.value)
-})
+
+// ---- HANDLE PAGING HOTEL ----
+// Get data from calculated paging
+const data = computed(() => calculatedPaging.value.data)
+// Trigger update page
+function updatePage() {
+  calculatedPaging.value.changeServerPage(() => {
+    filter.value.page = calculatedPaging.value.alpha
+    getMyBooking()
+  })
+}
 </script>
 
 <style scoped></style>
