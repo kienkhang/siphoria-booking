@@ -28,6 +28,7 @@
     "@vueuse/integrations": "^10.1.2",
     "axios": "^1.4.0",
     "lodash-es": "^4.17.21",
+    "maska": "^2.1.9",
     "nuxt-icon": "^0.4.1",
     "nuxt-icons": "^3.2.1",
     "nuxt-swiper": "^1.1.0",

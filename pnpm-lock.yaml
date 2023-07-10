@@ -44,6 +44,9 @@ dependencies:
   lodash-es:
     specifier: ^4.17.21
     version: 4.17.21
+  maska:
+    specifier: ^2.1.9
+    version: 2.1.9
   nuxt-icon:
     specifier: ^0.4.1
     version: 0.4.1(rollup@2.79.1)(vue@3.3.4)
@@ -8056,6 +8059,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /maska@2.1.9:
+    resolution: {integrity: sha512-LlAHN/ivh1NpwQSDrOWkj4PJlbMXkH2X0r1L4Pm9k6laO/0vxORLfogeLDPKLAbkJEugjfGS5wjhGE96iRpqbw==}
+    dev: false
 
   /mdast-util-from-markdown@0.8.5:
     resolution: {integrity: sha512-2hkTXtYYnr+NubD/g6KGBS/0mFmBcifAsI0yIWRiRo0PjVs6SSOSOdtzbp6kSGnShDN6G5aWZpKQ2lWRy27mWQ==}
