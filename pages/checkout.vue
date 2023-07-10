@@ -69,6 +69,8 @@ async function doPay() {
 watch(payResponse, () => {
   if (payResponse.value) window.location.replace(payResponse.value.payUrl)
 })
+
+// -------------------------- CHECK ENOUGH MONEY --------------------------
 </script>
 
 <style scoped></style>
