@@ -34,7 +34,6 @@
 
 <script setup lang="ts">
 import { defaultPhoto } from '~/constants'
-import type { ICheckout } from '~/dtos/payment'
 
 const props = defineProps<{
   checkout: ICheckout

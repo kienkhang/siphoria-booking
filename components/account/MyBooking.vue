@@ -14,7 +14,6 @@
 </template>
 
 <script setup lang="ts">
-import { type IPayment } from '~/dtos/payment'
 import MyBookingGallery from './MyBookingGallery.vue'
 import MyBookingInfo from './MyBookingInfo.vue'
 

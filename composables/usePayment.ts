@@ -1,12 +1,11 @@
 import { usersApi } from '~/apis/users'
-import type { ICheckout } from '~/dtos/payment'
 
 function usePayment() {
   const checkout = ref<ICheckout[]>()
 
   const payForm = ref<{
     session_id: string
-    pay_method: 'momo' | 'vnpay' | 'siphoria' | 'stripe'
+    pay_method: TPaymentMethod
   }>({
     pay_method: 'momo',
     session_id: ''

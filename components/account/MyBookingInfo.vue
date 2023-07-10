@@ -8,28 +8,27 @@
       .col-span-3
         span.font-semibold Booking ID
       .col-span-9
-        span.line-clamp-1 {{booking.id}}
+        span.line-clamp-1 {{ booking.id }}
     .grid.grid-cols-12
       .col-span-3
         span.font-semibold Room type
       .col-span-9
         span.line-clamp-1 {{ room.name }}
-    //- .grid.grid-cols-12
-    //-   .col-span-3
-    //-     span.font-semibold Rateplan
-    //-   .col-span-9
-    //-     span.line-clamp-1 Deluxe King Room - With Breakfast
+    .grid.grid-cols-12
+      .col-span-3
+        span.font-semibold Rate plan
+      .col-span-9
+        span.line-clamp-1 {{ ratePlan.name }}
 </template>
 
 <script setup lang="ts">
-import { type IPayment } from '~/dtos/payment'
-
 const props = defineProps<{
   booking: IPayment
 }>()
 
 const hotel = computed(() => props.booking.hotel)
 const room = computed(() => props.booking.room_type)
+const ratePlan = computed(() => props.booking.rate_plans)
 </script>
 
 <style scoped></style>

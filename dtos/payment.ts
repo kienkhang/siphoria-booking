@@ -239,6 +239,20 @@ interface IPayment {
     discount_hotel: number
     room_types: any
   }
+  rate_plans: {
+    id: string
+    name: string
+    type: string
+    status: number
+    activate: boolean
+    created_at: string
+    updated_at: string
+    free_breakfast: boolean
+    free_lunch: boolean
+    free_dinner: boolean
+    room_type_id: string
+    prices: any
+  }
   details: {
     id: string
     day_off: string
@@ -248,4 +262,4 @@ interface IPayment {
   }[]
 }
 
-export { ICheckout, IPayResponse, IPayment }
+type TPaymentMethod = 'momo' | 'vnpay' | 'siphoria' | 'stripe'

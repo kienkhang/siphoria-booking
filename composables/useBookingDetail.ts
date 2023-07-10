@@ -1,5 +1,4 @@
 import { usersApi } from '~/apis/users'
-import type { IPayment } from '~/dtos/payment'
 
 function useBookingDetail() {
   // toast composable

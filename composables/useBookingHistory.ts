@@ -1,5 +1,4 @@
 import { usersApi } from '~/apis/users'
-import type { IPayment } from '~/dtos/payment'
 
 const useBookingHistory = defineStore('account__useBookingHistory', () => {
   // composables
