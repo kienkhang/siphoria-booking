@@ -61,6 +61,16 @@ class User {
     const url = `${path}/pay`
     return usePost({ url, data, requiredToken: true })
   }
+
+  topUp = (data: any | {}) => {
+    const url = `${path}/wallets`
+    return usePost({ url, data, requiredToken: true })
+  }
+
+  topUpHistory = () => {
+    const url = `${path}/top-up`
+    return useGet({ url, requiredToken: true })
+  }
 }
 
 const usersApi = new User()

@@ -4,7 +4,13 @@
     .max-w-752px.w-full 
       //- Payer & payment method
       PaymentPayer
-      PaymentMethod.mt-6
+      //- PaymentMethod.mt-6
+      SharedSelectMethod.mt-6(
+        :method='payForm.pay_method'
+        :is-topup='false'
+        :is-enough-money='false'
+        @select-method='selectPayMethod'
+      )
       PaymentVoucher.mt-6
       BaseButton.mt-6(class='justify-center w-full h-10 px-4 text-white border bg-crayola rounded-3xl' @click="doPay()")
         .w-4.h-4(class='i-custom-load' v-if='isLoading')
@@ -15,8 +21,6 @@
 </template>
 
 <script setup lang="ts">
-import type { IPayResponse } from '@/dtos/payment'
-
 definePageMeta({
   layout: 'home',
   title: 'Siphoria | Search Hotel'
@@ -24,21 +28,35 @@ definePageMeta({
 
 // route & router composables
 const route = useRoute()
-const router = useRouter()
+
 // Get payform from usePayment
 const { payForm } = storeToRefs(usePayment())
+
+function selectPayMethod(method: TPaymentMethod) {
+  payForm.value.pay_method = method
+}
 // get session id
 const sessionId = computed(() => route.query?.id as string)
 // Watch session id, when exist value -> set session id to form
 payForm.value.session_id = sessionId.value
+
 // destruct get payments and pay function
 const { payWith, getCheckoutPayments } = usePayment()
-const { executeApi: pay, data: payData, isLoading } = payWith()
-const { executeApi: fetchPayments } = getCheckoutPayments({ session_id: sessionId.value })
 
+// -------------------------- FETCH CHECKOUT SESSION --------------------------
+// destruct fetch api calling
+const { executeApi: fetchPayments } = getCheckoutPayments({ session_id: sessionId.value })
+// mounted -> fetch payment with session id
+onMounted(async () => {
+  await fetchPayments()
+})
+
+// -------------------------- PAY CALL --------------------------
+// destruct pay api calling
+const { executeApi: pay, data: payData, isLoading } = payWith()
 // Define response
 const payResponse = ref<IPayResponse>()
-
+// Pay
 async function doPay() {
   try {
     await pay()
@@ -47,15 +65,9 @@ async function doPay() {
     throw new Error(e as string)
   }
 }
-
+// when receive reponse from server => redirect to payUrl
 watch(payResponse, () => {
-  if (payResponse.value) 
-    window.location.replace(payResponse.value.payUrl)
-  
-})
-
-onMounted(async () => {
-  await fetchPayments()
+  if (payResponse.value) window.location.replace(payResponse.value.payUrl)
 })
 </script>
 

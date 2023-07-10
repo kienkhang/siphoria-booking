@@ -30,6 +30,15 @@ interface IUser {
     updated_at: string
     expired_at: string
   }
+  wallet: {
+    id: string
+    user_id: string
+    name: string
+    balance: number
+    currency: string
+    created_at: string
+    updated_at: string
+  }
 }
 
 type IAddUser = Pick<IUser, 'first_name' | 'last_name' | 'email' | 'role' | 'password'>
