@@ -67,9 +67,9 @@ class User {
     return usePost({ url, data, requiredToken: true })
   }
 
-  topUpHistory = () => {
+  topUpHistory = (params?: any | {}) => {
     const url = `${path}/top-up`
-    return useGet({ url, requiredToken: true })
+    return useGet({ url, params, requiredToken: true })
   }
 }
 

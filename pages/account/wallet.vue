@@ -9,7 +9,7 @@
   .topup-tab(v-else-if='selectedTab === "top-up"')
     AccountWalletTopUp
   .topup-history-tab(v-else-if='selectedTab === "history"')
-    | History
+    AccountWalletHistory
 
 </template>
 

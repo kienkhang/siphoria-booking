@@ -3,13 +3,15 @@
   .top-up-amount
     .text-lg.font-bold 1. Top-up Amount
     .rounded-xl.border.p-5.mt-3
-      p.px-3.text-xs Amount
+      label.px-3.text-sm.cursor-pointer(for='money') Amount
       .flex.items-center.justify-between
         input(
-          type='text' 
+          type='text'
+          id='money' 
+          name='money'
           v-model='maskInput' 
           v-maska:[options]
-          class='text-3xl border-0 border-b w-max border-crayola focus:border-crayola focus:outline-none focus:ring-0 '
+          class='text-3xl border-0 w-max focus:border-crayola focus:outline-none focus:ring-0 '
         )
         span.text-3xl VND
     AccountWalletTopUpMoney.mt-3(@select-money="selectMoney")
