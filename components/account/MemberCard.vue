@@ -2,7 +2,7 @@
 .p-6.rounded-20px.flex.flex-col.bg-cover.select-none(class='min-h-240px' :style='cardBg')
   .flex.justify-between.items-center
     div(class='i-custom-logo-text-nocolor?bg h-14 w-28')
-    span.font-bold.uppercase(:style='cardText') {{cardType}}
+    span.font-bold.uppercase(:style='cardText') {{ cardType }}
   .flex-1.flex.flex-col.justify-center.font-bold(:style='cardText')
     span.uppercase {{account?.full_name}}
     span {{  account?.phone }}
@@ -116,7 +116,7 @@ const userRank = computed(() => account.value?.user_rank)
 const beginAt = computed(() => dayjs(userRank.value?.begin_at).format('MMM DD, YYYY'))
 const expiredAt = computed(() => dayjs(userRank.value?.expired_at).format('MMM DD, YYYY'))
 
-watch(userRank, () => {
+function selectCard() {
   switch (userRank.value?.rank.id) {
     case 'f4c363f1-a942-4f39-8f92-9ae93ed42966':
       cardType.value = 'silver'
@@ -135,6 +135,14 @@ watch(userRank, () => {
       cardType.value = 'silver'
       break
   }
+}
+
+watch(userRank, () => {
+  selectCard()
+})
+
+onMounted(() => {
+  selectCard()
 })
 </script>
 
