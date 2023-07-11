@@ -66,7 +66,7 @@ function selectMethod(method: TPaymentMethod) {
 }
 // Hanlde select money
 function selectMoney(price: number) {
-  maskInput.value = price + ''
+  maskInput.value = `${price}`
 }
 
 // ------------ HANDLE CALL TOP UP API ------------

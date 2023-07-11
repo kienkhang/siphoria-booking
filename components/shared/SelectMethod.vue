@@ -29,6 +29,7 @@
         span.font-medium Stripe
         .w-8.h-8(class='text-green-600 i-material-symbols:check-small-rounded' v-if='method === "stripe"')
 </template>
+
 <script setup lang="ts">
 withDefaults(
   defineProps<{

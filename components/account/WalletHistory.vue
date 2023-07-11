@@ -26,7 +26,7 @@ const { executeApi: fetchHistory, isLoading } = getTopUpHistory()
 const dayjs = useDayjs()
 // Data to fill table
 // define type
-type TTransactionTable = {
+interface TTransactionTable {
   date: string
   amount: string
   method: string
@@ -38,7 +38,7 @@ const data = computed<TTransactionTable[]>(() =>
   calculatedPaging.value.data.map((transaction) => {
     return {
       date: dayjs(transaction.created_at).format('YYYY-MM-DD'),
-      amount: `${VND('' + transaction.amount)} VND`,
+      amount: `${VND(`${transaction.amount}`)} VND`,
       method: transaction.method,
       currency: transaction.currency,
       status: transaction.status

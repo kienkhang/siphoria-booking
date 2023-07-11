@@ -17,7 +17,8 @@ div
 
 <script setup lang="ts">
 import { type DataTableColumns } from 'naive-ui'
-type PaymentTable = {
+
+interface PaymentTable {
   date: string
   booking_id: string
   hotel: string
@@ -132,7 +133,7 @@ const data = computed(() =>
         'YYYY-MM-DD'
       )}`,
       // checkout: dayjs(payment.end_at).format('YYYY-MM-DD'),
-      price: `${VND('' + payment.total_price)} VND`
+      price: `${VND(`${payment.total_price}`)} VND`
     }
   })
 )
@@ -143,7 +144,7 @@ watch(tableState, () => {
   page.value = 1
 })
 // ---- HANDLE PAGING HOTEL ----
-const updatePage = async () => {
+async function updatePage() {
   calculatedPaging.value.changeServerPage(() => {
     filter.value.page = calculatedPaging.value.alpha
     fetchPayments()

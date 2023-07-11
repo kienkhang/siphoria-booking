@@ -1,11 +1,11 @@
-const calculatePaging = <T>({
+function calculatePaging<T>({
   offset,
   page,
   serverData,
   total_items,
   server_page,
   server_offset
-}: IParamsPaging<T>): ICalulatedPaging<T> => {
+}: IParamsPaging<T>): ICalulatedPaging<T> {
   // Paging and return data follow client page
   const end = computed(() => {
     return offset * page - (server_page - 1) * server_offset
@@ -35,7 +35,7 @@ const calculatePaging = <T>({
     total_pages: total_pages.value,
     start: start.value,
     end: end.value,
-    page: page,
+    page,
     offset,
     alpha: alpha.value,
     changeServerPage
