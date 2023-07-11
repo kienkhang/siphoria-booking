@@ -32,6 +32,11 @@ class User {
     return usePost({ url, data, requiredToken: true })
   }
 
+  bookNow = (data: any | {}) => {
+    const url = `${path}/book-now`
+    return usePost({ url, data, requiredToken: true })
+  }
+
   deleteCart = (cartId: string) => {
     const url = `${path}/carts/${cartId}`
     return useDelete({ url, requiredToken: true })

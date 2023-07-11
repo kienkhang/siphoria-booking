@@ -109,7 +109,9 @@ const totalPrice = computed(() => {
   }, 0)
 })
 // Avarage Price = total / (num of rate)
-const averagePrice = computed(() => totalPrice.value / props.ratePlans.rate_packages.length)
+const averagePrice = computed(() =>
+  Math.ceil(totalPrice.value / props.ratePlans.rate_packages.length)
+)
 
 // show detail rate package
 const showDetail = ref(false)
@@ -146,8 +148,9 @@ const addToCartForm = computed(() => ({
   userId: account.value?.id
 }))
 
-const { addToCart: add } = useCart()
+const { addToCart: add, bookNow: book } = useCart()
 const { executeApi: callAdd } = add(addToCartForm)
+const { executeApi: callBook, data: bookedData } = book(addToCartForm)
 
 async function addToCart() {
   // If not authoried -> go to login
@@ -158,14 +161,21 @@ async function addToCart() {
   await callAdd()
   // Else -> Add to cart
 }
-function bookNow() {
+
+async function bookNow() {
   // If not authoried -> go to login
   if (!isAuthorized.value) {
     openAuthModal()
     return
   }
+  await callBook()
   // Else -> redirect to payment
 }
+
+// when receive reponse from server => redirect to payUrl
+watch(bookedData, () => {
+  if (bookedData.value) window.location.replace(bookedData.value.payUrl)
+})
 </script>
 
 <style scoped></style>

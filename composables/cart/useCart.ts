@@ -41,6 +41,40 @@ function useCart() {
       executeApi
     }
   }
+
+  function bookNow(form: Ref<any | {}>) {
+    const usedAdd = usersApi.bookNow(form)
+    // destructuring axios delete
+    const { execute } = usedAdd
+    // custom execute api
+    const executeApi = async () => {
+      try {
+        // execute-> call api
+        await execute({ data: form.value })
+        // push log
+        toast.add({
+          id: 'hotel_book__now',
+          title: t('toast.notification'),
+          description: t('toast.add_to_cart.success'),
+          color: 'primary'
+        })
+      } catch (e: any) {
+        // push log
+        toast.add({
+          id: 'hotel_book__now',
+          title: t('toast.an_error_occurred'),
+          description: t('toast.add_to_cart.error'),
+          color: 'rose'
+        })
+        throw new Error(e)
+      }
+    }
+    return {
+      ...usedAdd,
+      executeApi
+    }
+  }
+
   // Get cart
   function getCarts() {
     const usedGet = usersApi.getCart()
@@ -139,6 +173,7 @@ function useCart() {
 
   return {
     getCarts,
+    bookNow,
     addToCart,
     deleteCart,
     checkoutCart
