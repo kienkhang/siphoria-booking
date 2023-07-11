@@ -6,7 +6,7 @@
     .flex.items-center.justify-between
       span.text-lg.font-medium {{ ratePlans.name }}
       .flex.items-center.rounded-lg.pl-4.pr-2.py-2.border.cursor-not-allowed.select-none
-        span.mr-2 {{ searchForm.n_o_r }} Phòng
+        span.mr-2 {{ $t('hotel_detail_page.room_quantity', { count: `${searchForm.n_o_r}` }) }}
         div(:class='["w-4 h-4 i-custom-chevron-down transition-all"]')
     //- Rate plan free
     .flex.items-center.gap-3.mt-4
@@ -16,18 +16,18 @@
   //- Sold out
   .sold-out(v-if='isSoldOut')
     .rounded-md.p-2.px-3.w-max.border.border-red-400.bg-red-100
-      span.font-bold.text-pink-600 Sold out
+      span.font-bold.text-pink-600  {{ $t('hotel_detail_page.sold_out') }}
   .no-sold-out.flex.flex-col.gap-6.hide-scroll(v-auto-animate v-else)
     .prices-and-actions.flex.items-center.justify-between 
       .average-price
-        span.text-xs.text-x11 Average Price per Night
+        span.text-xs.text-x11 {{ $t('hotel_detail_page.average_price_per_night') }}
         .flex.items-center.gap-2.cursor-pointer(@click='toggleDetail()')
-          span.text-xl.font-medium {{ VND( averagePrice + '') }} VND / night
+          span.text-xl.font-medium {{ VND( averagePrice + '') }} VND / {{ $t('hotel_detail_page.night') }}
           div(:class='["w-6 h-6 i-custom-chevron-down transition-all", {"rotate-180": showDetail}]' )
       //- Action
       .flex.items-center
-        BaseButton.mr-3(class='h-10 px-4 border border-crayola text-crayola rounded-3xl' @click="addToCart()") Add to cart
-        BaseButton(class='h-10 px-4 text-white border bg-crayola rounded-3xl' @click="bookNow()") Book now
+        BaseButton.mr-3(class='h-10 px-4 border border-crayola text-crayola rounded-3xl' @click="addToCart()") {{ $t('hotel_detail_page.add_to_cart') }}
+        BaseButton(class='h-10 px-4 text-white border bg-crayola rounded-3xl' @click="bookNow()") {{ $t('hotel_detail_page.book_now') }}
 
     //- 
     //- Detail rate-package, show if showDetail
@@ -38,7 +38,7 @@
         span.font-medium {{ VND( rate.price  + '') }} VND
     .w-full.h-1px.bg-platinum
     .total-price.flex.items-center.justify-between
-      span.text-lg.font-medium Total
+      span.text-lg.font-medium {{ $t('hotel_detail_page.total') }}
       span.text-2xl.font-bold.text-green-700 {{ VND( totalPrice + '') }} VND
   
   

@@ -22,7 +22,7 @@
   .absolute.bottom-4.right-8
     BaseButton.rounded-3xl.pr-6.pl-4.py-2.flex.items-center.cursor-pointer.bg-white.shadow-search(@click='showModal = true')
       div(class='w-4 h-4 mr-2 i-custom-menu')
-      span.text-sm.font-medium Show all photos
+      span.text-sm.font-medium {{ $t('hotel_detail_page.show_all_photos') }}
   SharedGalleryCarousel(
     v-model:show="showModal"
     :photos='hotelPhotos'
@@ -48,18 +48,16 @@ const formated = computed(() => {
     return index === 0
   })
   // if hotel photo empty -> cut empty
-  if (cut.length < 1) 
-    cut.push(defaultPhoto)
-  
+  if (cut.length < 1) cut.push(defaultPhoto)
+
   /** 
     - after remove with lodash -> original is the rest of init
     - example: original [1,2,3,4], remove 2, 3  = original [1,4]
     - and cut is [2,3]
   */
   // If photo < 4 -> push photo to 4
-  while (original.length < 4) 
-    original.push(defaultPhoto)
-  
+  while (original.length < 4) original.push(defaultPhoto)
+
   return { first: cut, rest: original.slice(0, 4) }
 })
 

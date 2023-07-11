@@ -5,7 +5,7 @@
     :name='name'
     class='w-8 h-8'
   )
-  span.mt-4.capitalize {{ name.replaceAll('_',' ') }}
+  span.mt-4.capitalize {{ $t(`hotel_detail_page.hotel_facilities.${name}`) }}
 
 </template>
 

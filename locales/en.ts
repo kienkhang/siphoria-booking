@@ -94,6 +94,88 @@ export default {
     homestay: 'Homestay'
   },
 
+  hotel_detail_page: {
+    // Hotel
+    show_all_photos: 'Show all photos',
+    overview: 'Overview',
+    see_comments: 'See comments',
+    what_you_have_in_property: 'What you have in this property',
+    hotel_facilities: {
+      bar: 'Bar',
+      bath: 'Bath',
+      beach: 'beach',
+      breakfast: 'Breakfast',
+      casino: 'Casino',
+      fitness: 'Fitness',
+      no_smoking_room: 'No smoking room',
+      parking: 'Parking',
+      pool: 'Pool',
+      spa: 'Spa',
+      wifi: 'Wifi'
+    },
+    hotel_types: {
+      apartment: 'Apartment',
+      camping: 'Camping',
+      homestay: 'Homestay',
+      hotel: 'Hotel',
+      motel: 'Motel',
+      resort: 'Resort',
+      villa: 'Villa'
+    },
+
+    // Room
+    average_price_per_night: 'Average price per night',
+    room_quantity: '{count} room',
+    night: 'Night',
+    total: 'Total',
+    bed: 'Bed',
+    bath: 'Bath',
+    adult: 'Adult',
+    children: 'Children',
+    adults: 'Adults',
+    childrens: 'Childrens',
+    where_you_will_stay: 'Where you will stay',
+    room_infomation: 'Room Information',
+    facilities: 'Facilities',
+    views: 'Views',
+    room_information: 'Room information',
+    room_facilities: {
+      air_conditional: 'Air conditional',
+      bbq: 'BBQ',
+      desk: 'Desk',
+      fruit: 'Fruit',
+      fryer: 'Fryer',
+      hairdry: 'Hairdry',
+      iron: 'Iron',
+      kitchen: 'Kitchen',
+      kitchen_tool: 'Kitchen Tool',
+      private_pool: 'Private Pool',
+      shower: 'Shower',
+      slippers: 'Slippers',
+      sofa: 'Sofa',
+      soundproof: 'Soundproof',
+      tivi: 'Tivi',
+      toiletries: 'Toiletries',
+      towels: 'Towels',
+      wine: 'Wine'
+    },
+    room_views: {
+      beach: 'Beach',
+      city: 'City',
+      lake: 'Lake',
+      mountain: 'Mountain',
+      private_balcony: 'Private Balcony',
+      bay: 'Bay',
+      sea: 'Sea',
+      ocean: 'Ocean',
+      garden: 'Garden',
+      river: 'River'
+    },
+    sold_out: 'Sold out',
+    add_to_cart: 'Add to cart',
+    book_now: 'Book now'
+  },
+
   ho_chi_minh: 'Ho Chi Minh',
   ha_noi: 'Ha Noi',
   phu_quoc: 'Phu Quoc',

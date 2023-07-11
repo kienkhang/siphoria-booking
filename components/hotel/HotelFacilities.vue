@@ -1,6 +1,6 @@
 <template lang="pug">
 .flex.flex-col.gap-6
-  span.text-xl.font-medium What you have in this property
+  span.text-xl.font-medium {{ $t('hotel_detail_page.what_you_have_in_property') }}
   .grid.grid-cols-6.justify-items-center.gap-6(v-if='facilities.length > 0')
     LazyHotelFacility(v-for='facility in facilities' :name='facility')
     //- BaseButton(class='justify-center w-full p-2 bg-green-300 border rounded-2xl' v-if='isShowMore') +20 More
@@ -12,16 +12,16 @@ import { useHotelDetail } from '~/composables/hotel/useHotelDetail'
 
 const { hotelFacilities } = storeToRefs(useHotelDetail())
 
+// Map object facilities
 const facilities = computed(() => {
-  if (hotelFacilities.value) {
-    // 0 is key
-    // 1 is value
-    // filter value true
-    const results = Object.entries(hotelFacilities.value).filter((f) => f[1])
-    // return keys having value true
-    return results.map((r) => r[0])
+  const arr = []
+  for (const key in hotelFacilities.value) {
+    // If value of key true -> return key
+    if ({ ...hotelFacilities.value }[key]) {
+      arr.push(key)
+    }
   }
-  return []
+  return arr
 })
 </script>
 

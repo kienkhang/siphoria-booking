@@ -5,7 +5,7 @@
     span.text-4xl.line-clamp-2.font-semibold {{hotel?.name}}
     NRate( size='large', readonly, :value='hotel?.rating' class='mt-2' color='#F4803F')
     .overview  
-      span.text-2xl.font-semibold Overview
+      span.text-2xl.font-semibold {{ $t('hotel_detail_page.overview') }}
       div(v-html='overview')
 
   //- Address and Reviews
@@ -55,7 +55,7 @@
             span 1
             NRate( size='small', readonly, :value='1' :count='1' color='#F4803F')
           n-progress(type="line" :percentage="50" :show-indicator="false" color='#1BBA85')
-    BaseButton(class='justify-center w-full p-2 font-medium border rounded-lg text-crayola border-crayola') Xem bình luận
+    BaseButton(class='justify-center w-full p-2 font-medium border rounded-lg text-crayola border-crayola') {{ $t('hotel_detail_page.see_comments') }}
 
 
 </template>

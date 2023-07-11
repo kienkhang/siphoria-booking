@@ -54,7 +54,7 @@ interface IHotel {
     apartment: boolean
     camping: boolean
     homestay: boolean
-    hotel: true
+    hotel: boolean
     hotel_id: string
     motel: boolean
     resort: boolean

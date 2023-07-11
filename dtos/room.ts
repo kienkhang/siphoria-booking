@@ -1,75 +1,65 @@
 interface IRoom {
-  // INFO
-  id: string
-  name: string
   description: string
-  bed_nums: number
-  bathroom_nums: number
-  activated: boolean
-  max_children: number
-  max_adult: number
-  photos: any
-  hotel_id: string
-  // VIEW
-  bay: boolean
-  ocean: boolean
-  sea: boolean
-  city: boolean
-  garden: boolean
-  lake: boolean
-  mountain: boolean
-  river: boolean
-  private_balcony: boolean
-  // FACILITIES
-  air_conditional: boolean
-  tivi: boolean
-  kitchen: boolean
-  private_pool: boolean
-  iron: boolean
-  sofa: boolean
-  desk: boolean
-  soundproof: boolean
-  towels: boolean
-  toiletries: boolean
-  fruit: boolean
-  shower: boolean
-  slippers: boolean
-  hairdry: boolean
-  bbq: boolean
-  wine: boolean
-  fryer: boolean
-  kitchen_tool: boolean
-  room_type_views?: {
-    bay: boolean
-    ocean: boolean
-    sea: boolean
-    city: boolean
-    garden: boolean
-    lake: boolean
-    mountain: boolean
-    river: boolean
-    private_balcony: boolean
-  }
-  room_type_facility?: {
+  facilities: {
     air_conditional: boolean
-    tivi: boolean
-    kitchen: boolean
-    private_pool: boolean
-    iron: boolean
-    sofa: boolean
+    bbq: boolean
     desk: boolean
-    soundproof: boolean
-    towels: boolean
-    toiletries: boolean
     fruit: boolean
+    fryer: boolean
+    hairdry: boolean
+    iron: boolean
+    kitchen: boolean
+    kitchen_tool: boolean
+    private_pool: boolean
     shower: boolean
     slippers: boolean
-    hairdry: boolean
-    bbq: boolean
+    sofa: boolean
+    soundproof: boolean
+    tivi: boolean
+    toiletries: boolean
+    towels: boolean
     wine: boolean
-    fryer: boolean
-    kitchen_tool: boolean
   }
-  // [more: string]: any
+  id: string
+  max_adult: number
+  max_children: number
+  bed_nums: number
+  bathroom_nums: number
+  name: string
+  photos: string[]
+  room_nights: {
+    id: string
+    inventory: number
+    remain: number
+    availability_at: string
+    updated_at: number
+  }[]
+  rate_plans: {
+    id: string
+    name: string
+    type: number
+    status: number
+    free_breakfast: boolean
+    free_lunch: boolean
+    free_dinner: boolean
+    rate_packages: {
+      available_at: string
+      currency: string
+      price: number
+      updated_at: number
+    }[]
+  }[]
+  views: {
+    beach: boolean
+    city: boolean
+    lake: boolean
+    mountain: boolean
+    private_balcony: boolean
+    bay: boolean
+    sea: boolean
+    ocean: boolean
+    garden?: boolean
+    river?: boolean
+  }
 }
-export { IRoom }
+// [more: string]: any
