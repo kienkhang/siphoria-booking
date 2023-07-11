@@ -1,7 +1,9 @@
 <template lang="pug">
 .rounded-full.h-48.w-48.border-8.relative.select-none(class='border-platinum')
-  img(:src='account?.avatar || appIcon' loading='lazy' decoding='async' class='object-cover w-full h-full rounded-full')
-  .absolute.right-0.bottom-0.w-10.h-10.cursor-pointer.rounded-full(class='flex items-center justify-center bg-gray-600 border-8 border-platinum' @click='openWindowSelect')
+  .flex.items-center.justify-center.w-full.h-full.rounded-full.overflow-hidden(class='bg-white bg-opacity-50' v-if='isLoading')
+    .w-20.h-20(class='i-custom-load animate-spin')
+  img(:src='account?.avatar || appIcon' loading='lazy' decoding='async' class='object-cover w-full h-full rounded-full' v-else)
+  .absolute.right-0.bottom-0.w-10.h-10.cursor-pointer.rounded-full(class='flex items-center justify-center bg-gray-600 border-8 border-platinum' :class="{'pointer-events-none cursor-not-allowed': isLoading}" @click='openWindowSelect')
     div(class='w-4 h-4 i-mdi:camera-outline?mask text-white')
   input.hidden(
     ref='fileSelect'
@@ -32,7 +34,7 @@ select image includes 2 step:
 */
 
 const { changeAvatar } = useAuth()
-const { executeApi } = changeAvatar()
+const { executeApi, isLoading } = changeAvatar()
 
 // define file input ref
 const fileSelect = ref<HTMLInputElement | null>(null)
@@ -62,7 +64,7 @@ function doChange() {
       return
     }
     // Check file is image ?
-    if (files && files[0].type.includes('image')) {
+    if (files && !files[0].type.includes('image')) {
       toast.add({
         id: 'update_profile_form',
         title: t('toast.an_error_occurred'),
