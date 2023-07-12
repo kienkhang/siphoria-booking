@@ -8,10 +8,11 @@
       .flex.items-center.rounded-lg.pl-4.pr-2.py-2.border.cursor-not-allowed.select-none
         span.mr-2 {{ $t('hotel_detail_page.room_quantity', { count: `${searchForm.n_o_r}` }) }}
         div(:class='["w-4 h-4 i-custom-chevron-down transition-all"]')
-    //- Rate plan free
-    .flex.items-center.gap-3.mt-4
-      .w-6.h-6(class='i-material-symbols:restaurant')
-      span {{ freeText }}
+    //- Show remain
+    .flex.items-center.gap-2.mt-4(v-if='!isSoldOut')
+      .w-6.h-6(class='i-custom-logo-origin?bg')
+      span.text-crayola.font-medium.animate-pulse Còn lại {{ countRemain }} phòng
+      
   //- === ROOM NIGHT AND RATE PACKAGE INFOMATION ===
   //- Sold out
   .sold-out(v-if='isSoldOut')
@@ -82,12 +83,19 @@ const props = defineProps<{
 
 // Route & Router Composables
 const route = useRoute()
+const router = useRouter()
 // Dayjs composables
 const dayjs = useDayjs()
 
 // ==== HANDLER SHOW SOLD OUT ====
 const isSoldOut = computed(() => {
   return props.soldOut || props.ratePlans.rate_packages.length <= 0
+})
+
+// ==== HANDLER COUNT REMAIN ====
+const countRemain = computed(() => {
+  const remains = props.roomNights.map((rn) => rn.remain)
+  return Math.min(...remains)
 })
 
 // ===== HANDLER SHOW INFO RATE PLAN ====
@@ -133,9 +141,11 @@ const detailRate = computed(() => {
 const { openAuthModal } = useAuthStore()
 const { isAuthorized, account } = storeToRefs(useAuthStore())
 
+// search hotel form, includes: from date, to date, number of guests
 const { form: searchForm } = storeToRefs(useSearchHotel())
-
+// Get hotel id from url
 const hotelId = computed(() => route.params?.id as string)
+// Define add to cart & booking form
 const addToCartForm = computed(() => ({
   from_date: searchForm.value.from,
   hotel_id: hotelId.value,
@@ -148,10 +158,12 @@ const addToCartForm = computed(() => ({
   userId: account.value?.id
 }))
 
+// Destruct useAdd and useBook from useCart
 const { addToCart: add, bookNow: book } = useCart()
 const { executeApi: callAdd } = add(addToCartForm)
-const { executeApi: callBook, data: bookedData } = book(addToCartForm)
+const { executeApi: callBook, data: sessionId } = book(addToCartForm)
 
+// =========== ADD TO CART =============
 async function addToCart() {
   // If not authoried -> go to login
   if (!isAuthorized.value) {
@@ -162,6 +174,7 @@ async function addToCart() {
   // Else -> Add to cart
 }
 
+// ============ BOOK NOW ==============
 async function bookNow() {
   // If not authoried -> go to login
   if (!isAuthorized.value) {
@@ -172,9 +185,9 @@ async function bookNow() {
   // Else -> redirect to payment
 }
 
-// when receive reponse from server => redirect to payUrl
-watch(bookedData, () => {
-  if (bookedData.value) window.location.replace(bookedData.value.payUrl)
+// when user choosen book-now -> receive sessionId from response => redirect to checkout page
+whenever(sessionId, () => {
+  router.push({ name: 'checkout', query: { id: sessionId.value } })
 })
 </script>
 
