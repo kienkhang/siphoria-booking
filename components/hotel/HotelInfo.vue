@@ -20,42 +20,20 @@
         :src='embedUrl')
     .address
       span.text-xs.font-medium {{ address }}
-    .h-1px.w-full.bg-platinum
-    .flex.items-center.gap-4
-      n-progress(type="circle" :percentage="92" :offset-degree="180" color='#FF9900')
-        span.text-3xl.font-medium 4.5
-      .flex.flex-col.gap-3.w-full
-        //- Stars
-        .flex.items-center.justify-between.gap-3.gap-3
-          .flex.gap-1.items-center
-            span 5 
-            NRate( size='small', readonly, :value='1' :count='1' color='#F4803F')
-          n-progress(type="line" :percentage="90" :show-indicator="false" color='#1BBA85')
-        //- Stars
-        .flex.items-center.justify-between.gap-3
-          .flex.gap-1.items-center
-            span 4
-            NRate( size='small', readonly, :value='1' :count='1' color='#F4803F')
-          n-progress(type="line" :percentage="80" :show-indicator="false" color='#1BBA85')
-        //- Stars
-        .flex.items-center.justify-between.gap-3
-          .flex.gap-1.items-center
-            span 3
-            NRate( size='small', readonly, :value='1' :count='1' color='#F4803F')
-          n-progress(type="line" :percentage="70" :show-indicator="false" color='#1BBA85')
-        //- Stars
-        .flex.items-center.justify-between.gap-3
-          .flex.gap-1.items-center
-            span 2
-            NRate( size='small', readonly, :value='1' :count='1' color='#F4803F')
-          n-progress(type="line" :percentage="60" :show-indicator="false" color='#1BBA85')
-        //- Stars
-        .flex.items-center.justify-between.gap-3
-          .flex.gap-1.items-center
-            span 1
-            NRate( size='small', readonly, :value='1' :count='1' color='#F4803F')
-          n-progress(type="line" :percentage="50" :show-indicator="false" color='#1BBA85')
-    BaseButton(class='justify-center w-full p-2 font-medium border rounded-lg text-crayola border-crayola') {{ $t('hotel_detail_page.see_comments') }}
+    //- .h-1px.w-full.bg-platinum
+    NWatermark(
+      content='Coming soon'
+      cross
+      :font-size="16"
+      :line-height="16"
+      :width="192"
+      :height="128"
+      :x-offset="12"
+      :y-offset="28"
+      :rotate="-15"
+    )
+      HotelCommentStatistics.opacity-10
+
 
 
 </template>
