@@ -2,5 +2,6 @@
 
 LazyTheHeader
 slot
-.p-t-6.w-full
+.p-t-10.w-full
+LazyTheFooter
 </template>

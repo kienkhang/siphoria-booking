@@ -22,7 +22,8 @@ export default {
         bar: '0px 0px 10px rgba(100, 124, 159, 0.25)',
         card: '0px 24px 34px rgba(80, 79, 89, 0.14)',
         search: '0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30)',
-        room: '0px 1px 3px 0px rgba(0, 0, 0, 0.30), 0px 4px 8px 3px rgba(0, 0, 0, 0.15);'
+        room: '0px 1px 3px 0px rgba(0, 0, 0, 0.30), 0px 4px 8px 3px rgba(0, 0, 0, 0.15);',
+        footer: 'rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;'
       }
     }
   },
