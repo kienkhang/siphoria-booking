@@ -45,10 +45,11 @@ NModal(
 const props = defineProps<{
   photos: string[]
 }>()
-const show = defineModel<boolean>('show')
+const show = defineModel<boolean>('show', { required: true })
+const index = defineModel<number>('index', { required: true })
 
 // Handle click next and prev image
-const index = ref(0)
+// const index = ref(props.initIndex)
 
 const isNext = computed(() => index.value < props.photos.length - 1)
 const isPrev = computed(() => index.value > 0)

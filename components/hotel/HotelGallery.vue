@@ -1,7 +1,7 @@
 <template lang="pug">
 .grid.grid-cols-2.gap-4.relative.h-552px
   //- First image
-  .rounded-2xl.overflow-hidden.shadow-card
+  .rounded-2xl.overflow-hidden.shadow-card.cursor-pointer(@click='openCarousel(0)')
     nuxt-img(
       :src="formated?.first[0]", 
       alt="Yeah", 
@@ -11,7 +11,7 @@
     )
   //- Rest images
   .grid.grid-cols-2.grid-rows-2.gap-4
-    .rounded-2xl.overflow-hidden.shadow-card(v-for="photo in formated?.rest" :key='photo')
+    .rounded-2xl.overflow-hidden.shadow-card.cursor-pointer(v-for="(photo,idx) in formated?.rest" :key='photo' @click='openCarousel(idx+1)') 
       nuxt-img(
         :src="photo", 
         alt="Yeah", 
@@ -20,12 +20,13 @@
         decoding='async'
       )
   .absolute.bottom-4.right-8
-    BaseButton.rounded-3xl.pr-6.pl-4.py-2.flex.items-center.cursor-pointer.bg-white.shadow-search(@click='showModal = true')
+    BaseButton.rounded-3xl.pr-6.pl-4.py-2.flex.items-center.cursor-pointer.bg-white.shadow-search(@click='openCarousel(0)')
       div(class='w-4 h-4 mr-2 i-custom-menu')
       span.text-sm.font-medium {{ $t('hotel_detail_page.show_all_photos') }}
   SharedGalleryCarousel(
     v-model:show="showModal"
     :photos='hotelPhotos'
+    v-model:index='index'
   )
 </template>
 
@@ -62,6 +63,14 @@ const formated = computed(() => {
 })
 
 const showModal = ref(false)
+const index = ref(0)
+function openCarousel(idx: number) {
+  index.value = idx
+  if (idx > props.photos.length - 1) {
+    index.value = props.photos.length - 1
+  }
+  showModal.value = true
+}
 </script>
 
 <style scoped></style>

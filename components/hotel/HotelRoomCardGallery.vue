@@ -1,7 +1,7 @@
 <template lang="pug">
 .flex.flex-col.gap-1
   //- first image
-  figure.w-full.h-184px
+  figure.w-full.h-184px.cursor-pointer.transition-all(class='hover:opacity-90' @click='openCarousel(0)')
     nuxt-img(
       :src='formated?.first[0]'
       alt="Yeah", 
@@ -11,7 +11,7 @@
     )
   .grid.grid-cols-3.gap-1
     //- Image 1
-    figure.h-16.rounded-lg.rounded-l-none.overflow-hidden.border
+    figure.h-16.rounded-lg.rounded-l-none.overflow-hidden.border.cursor-pointer.transition-all(class='hover:opacity-90' @click='openCarousel(1)')
       nuxt-img(
         :src='formated?.rest[0]'
         alt="Yeah", 
@@ -20,7 +20,7 @@
         decoding='async'
       )
     //- Image 2
-    figure.h-16.rounded-lg.overflow-hidden.border
+    figure.h-16.rounded-lg.overflow-hidden.border.cursor-pointer.transition-all(class='hover:opacity-90' @click='openCarousel(2)')
       nuxt-img(
         :src='formated?.rest[1]'
         alt="Yeah", 
@@ -29,7 +29,7 @@
         decoding='async'
       )
     //- Image 3
-    figure.h-16.rounded-lg.rounded-r-none.overflow-hidden.relative.cursor-pointer.transition-all.border(class='hover:opacity-90' @click='openCarousel()')
+    figure.h-16.rounded-lg.rounded-r-none.overflow-hidden.relative.cursor-pointer.transition-all.border(class='hover:opacity-90' @click='openCarousel(3)')
       nuxt-img(
         :src='formated?.rest[2]'
         alt="Yeah", 
@@ -43,6 +43,7 @@
   SharedGalleryCarousel(
     v-model:show='showCarousel'
     :photos='photos'
+    v-model:index='index'
   )
 </template>
 
@@ -85,7 +86,12 @@ const restCountString = computed(() => {
 })
 // Hanlde show carousel
 const showCarousel = ref(false)
-function openCarousel() {
+const index = ref(0)
+function openCarousel(idx: number) {
+  index.value = idx
+  if (idx > props.photos.length - 1) {
+    index.value = props.photos.length - 1
+  }
   showCarousel.value = true
 }
 </script>

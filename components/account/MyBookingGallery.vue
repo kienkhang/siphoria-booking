@@ -1,7 +1,7 @@
 <template lang="pug">
 .flex.flex-col(class='gap-1.5')
   //- first image
-  figure.w-full.h-90px.rounded.overflow-auto.border
+  figure.w-full.h-90px.rounded.overflow-auto.border.cursor-pointer.transition-all(@click='show(0)' class='hover:opacity-90')
     nuxt-img(
       :src='formated?.first[0]'
       alt="Yeah", 
@@ -11,7 +11,7 @@
     )
   .grid.grid-cols-3.h-12(class='gap-1.5')
     //- Image 1
-    figure.h-12.rounded.overflow-hidden.border
+    figure.h-12.rounded.overflow-hidden.border.cursor-pointer.transition-all(@click='show(1)' class='hover:opacity-90')
       nuxt-img(
         :src='formated?.rest[0]'
         alt="Yeah", 
@@ -20,7 +20,7 @@
         decoding='async'
       )
     //- Image 2
-    figure.h-12.rounded.overflow-hidden.border
+    figure.h-12.rounded.overflow-hidden.border.cursor-pointer.transition-all(@click='show(2)' class='hover:opacity-90')
       nuxt-img(
         :src='formated?.rest[1]'
         alt="Yeah", 
@@ -29,7 +29,7 @@
         decoding='async'
       )
     //- Image 3
-    figure.h-12.rounded.overflow-hidden.relative.cursor-pointer.transition-all.border(class='hover:opacity-90')
+    figure.h-12.rounded.overflow-hidden.relative.cursor-pointer.transition-all.border(@click='show(3)' class='hover:opacity-90')
       nuxt-img(
         :src='formated?.rest[2]'
         alt="Yeah", 
@@ -38,11 +38,12 @@
         decoding='async'
       )
       .absolute(class='inset-0 bg-gradient-to-b from-black/40 from-0% to-black/40 to-100%')
-        .flex.items-center.justify-center.h-full(@click='show()')
+        .flex.items-center.justify-center.h-full(@click='show(4)')
           span.font-bold.text-white.text-xs + {{restCountString}}
   shared-gallery-carousel(
     v-model:show='showGallery'
     :photos='photos'
+    v-model:index='index'
   )
 </template>
 
@@ -85,7 +86,12 @@ const restCountString = computed(() => {
 })
 
 const showGallery = ref(false)
-function show() {
+const index = ref(0)
+function show(idx: number) {
+  index.value = idx
+  if (idx > props.photos.length - 1) {
+    index.value = props.photos.length - 1
+  }
   showGallery.value = true
 }
 </script>
