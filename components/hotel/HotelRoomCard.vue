@@ -17,7 +17,7 @@
       .h-10.flex.items-center.gap-2
         .i-custom-bed.w-5.h-5.flex-shrink-0
         span.flex-1 {{room.bed_nums}} {{$t('hotel_detail_page.bed')}}
-        button.w-5.h-5.flex-shrink-0.cursor-pointer(class='i-material-symbols:pan-zoom-rounded' @click='openDetail()')
+        button.w-5.h-5.flex-shrink-0.cursor-pointer(class='transition-all i-material-symbols:pan-zoom-rounded hover:bg-crayola' @click='openDetail()')
       //- Bath
       .h-10.flex.items-center.gap-2
         .i-custom-bath-room.w-5.h-5.flex-shrink-0
