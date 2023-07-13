@@ -31,9 +31,7 @@ const facilities = computed(() => {
   const arr = []
   for (const key in props.room.facilities) {
     // If value of key true -> return key
-    if ({ ...props.room.facilities }[key]) {
-      arr.push(key)
-    }
+    if ({ ...props.room.facilities }[key]) arr.push(key)
   }
   return arr
 })
@@ -43,9 +41,7 @@ const views = computed(() => {
   const arr = []
   for (const key in props.room.views) {
     // If value of key true -> return key
-    if ({ ...props.room.views }[key]) {
-      arr.push(key)
-    }
+    if ({ ...props.room.views }[key]) arr.push(key)
   }
   return arr
 })

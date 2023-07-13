@@ -17,9 +17,7 @@ const facilities = computed(() => {
   const arr = []
   for (const key in hotelFacilities.value) {
     // If value of key true -> return key
-    if ({ ...hotelFacilities.value }[key]) {
-      arr.push(key)
-    }
+    if ({ ...hotelFacilities.value }[key]) arr.push(key)
   }
   return arr
 })
