@@ -87,15 +87,14 @@ const router = useRouter()
 // Dayjs composables
 const dayjs = useDayjs()
 
-// ==== HANDLER SHOW SOLD OUT ====
-const isSoldOut = computed(() => {
-  return props.soldOut || props.ratePlans.rate_packages.length <= 0
-})
-
 // ==== HANDLER COUNT REMAIN ====
 const countRemain = computed(() => {
   const remains = props.roomNights.map((rn) => rn.remain)
   return Math.min(...remains)
+})
+// ==== HANDLER SHOW SOLD OUT ====
+const isSoldOut = computed(() => {
+  return props.soldOut || props.ratePlans.rate_packages.length <= 0 || countRemain.value <= 0
 })
 
 // ===== HANDLER SHOW INFO RATE PLAN ====
