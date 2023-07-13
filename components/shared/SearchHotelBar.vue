@@ -28,7 +28,6 @@ function doSearch() {
     path: '/search',
     query: form.value
   })
-  console.log('😃😦😧 ~ form:', form.value)
 }
 </script>
 

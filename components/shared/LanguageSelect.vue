@@ -24,14 +24,6 @@ function switchLang(lang: string, close: () => void) {
   // close popover
   close()
 }
-
-onMounted(() => {
-  console.log('😃😦😧 ~ Mounted:', language.value)
-})
-
-watch([language], () => {
-  console.log('😃😦😧 ~ Watch:', language.value)
-})
 </script>
 
 <style scoped></style>
