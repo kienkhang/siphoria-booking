@@ -8,7 +8,7 @@
       SharedSelectMethod.mt-6(
         :method='payForm.pay_method'
         :is-topup='false'
-        :is-enough-money='false'
+        :is-enough-money='isEnoughMoney'
         @select-method='selectPayMethod'
       )
       PaymentVoucher.mt-6
@@ -21,6 +21,8 @@
 </template>
 
 <script setup lang="ts">
+import { useAccountStore } from '~/stores/account'
+
 definePageMeta({
   layout: 'home',
   title: 'Siphoria | Search Hotel'
@@ -30,7 +32,7 @@ definePageMeta({
 const route = useRoute()
 
 // Get payform from usePayment
-const { payForm } = storeToRefs(usePayment())
+const { payForm, checkout: lists } = storeToRefs(usePayment())
 
 function selectPayMethod(method: TPaymentMethod) {
   payForm.value.pay_method = method
@@ -71,6 +73,20 @@ watch(payResponse, () => {
 })
 
 // -------------------------- CHECK ENOUGH MONEY --------------------------
+// Get balance account
+// Get account
+const { account } = storeToRefs(useAccountStore())
+// Get balance
+const balance = computed(() => account.value?.wallet.balance)
+const isEnoughMoney = computed(() => {
+  const totalPrice = lists.value?.reduce((sumTemp, checkout) => {
+    return sumTemp + checkout.total_price
+  }, 0)
+  if (totalPrice && balance.value) {
+    return balance.value >= totalPrice
+  }
+  return false
+})
 </script>
 
 <style scoped></style>
