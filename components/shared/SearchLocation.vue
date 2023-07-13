@@ -29,6 +29,11 @@ NPopover(
 import provinces from '@/constants/provinces.json'
 import { useSearchHotel } from '~/composables/home/useSearchHotel'
 
+// Composable route
+const route = useRoute()
+// composable dayjs
+const dayjs = useDayjs()
+// mapped province
 const provinceOptions = provinces.map((p) => {
   return {
     label: p.name,
@@ -56,12 +61,23 @@ const provincesFormated = computed(() => {
 })
 // destruct useSearchHotel
 const { form, focus } = storeToRefs(useSearchHotel())
+// Check route exist city ->
+const cityFormUrl = computed(() => route.query?.city as string)
+onBeforeMount(() => {
+  form.value.city = cityFormUrl.value ? +cityFormUrl.value : form.value.city
+})
 // isFocus location tab
 const isFocus = computed(() => focus.value === 'location')
 const selectedProvince = ref<{
   label: string
   value: number
-}>(provincesFormated.value.find((province) => province.value === 79)!)
+}>(
+  provincesFormated.value.find((province) => {
+    const cityCode = cityFormUrl.value ? +cityFormUrl.value : form.value.city
+    return province.value === cityCode
+  })!
+)
+
 // select province function
 function doSelectProvince(province: { label: string; value: number }) {
   // Reset search

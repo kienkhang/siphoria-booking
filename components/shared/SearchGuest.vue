@@ -25,10 +25,24 @@ NPopover(
 <script setup lang="ts">
 import { useSearchHotel } from '~/composables/home/useSearchHotel'
 
+// Composable route
+const route = useRoute()
+// Destruct form and focus value
 const { form, focus } = storeToRefs(useSearchHotel())
 // isFocus guests tab
 const isFocus = computed(() => focus.value === 'guests')
+// Check route exist adults && childrens, rooms ->
+const adults = computed(() => route.query?.n_o_a as string)
+const childrens = computed(() => route.query?.n_o_c as string)
+const rooms = computed(() => route.query?.n_o_r as string)
+// Update "form" useSeachHotel
+onBeforeMount(() => {
+  form.value.n_o_a = adults.value ? +adults.value : form.value.n_o_a
+  form.value.n_o_c = childrens.value ? +childrens.value : form.value.n_o_c
+  form.value.n_o_r = rooms.value ? +rooms.value : form.value.n_o_r
+})
 
+// Define guests array
 const guests = computed(() => {
   return [
     {
