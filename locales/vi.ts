@@ -26,7 +26,8 @@ export default {
     },
     add_to_cart: {
       success: 'Thêm giỏ hàng thành công',
-      error: 'Thêm giỏ hàng thất bại'
+      error: 'Thêm giỏ hàng thất bại',
+      out_of_room: 'Không còn phòng, vui lòng thử lại sau'
     },
     get_cart: {
       error: 'Không thể lấy dữ liệu giỏ hàng'
@@ -103,7 +104,7 @@ export default {
       bath: '@:hotel_detail_page.bath',
       beach: 'Gần biển',
       breakfast: 'Bữa sáng',
-      casino: 'Casino',
+      casio: 'Casino',
       fitness: 'Phòng tập thể dục',
       no_smoking_room: 'Phòng không hút thuốc',
       parking: 'Bãi giữ xe',

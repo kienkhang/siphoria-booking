@@ -1,4 +1,5 @@
 import { usersApi } from '@/apis/users'
+import { isAxiosError } from 'axios'
 import { useCartStore } from '~/stores/cart'
 
 function useCart() {
@@ -12,12 +13,13 @@ function useCart() {
   function addToCart(form: Ref<any | {}>) {
     const usedAdd = usersApi.addToCart(form)
     // destructuring axios delete
-    const { execute } = usedAdd
+    const { execute, data } = usedAdd
     // custom execute api
     const executeApi = async () => {
       try {
         // execute-> call api
         await execute({ data: form.value })
+
         // push log
         toast.add({
           id: 'add__cart',
@@ -45,7 +47,7 @@ function useCart() {
   function bookNow(form: Ref<any | {}>) {
     const usedAdd = usersApi.bookNow(form)
     // destructuring axios delete
-    const { execute } = usedAdd
+    const { execute, data } = usedAdd
     // custom execute api
     const executeApi = async () => {
       try {
@@ -59,14 +61,20 @@ function useCart() {
           color: 'primary'
         })
       } catch (e: any) {
-        // push log
-        toast.add({
-          id: 'hotel_book__now',
-          title: t('toast.an_error_occurred'),
-          description: t('toast.add_to_cart.error'),
-          color: 'rose'
-        })
-        throw new Error(e)
+        if (e && isAxiosError(e)) {
+          // get error
+          let key = 'error'
+          if (e.response && typeof e.response.data.data === 'string')
+            key = e.response.data.data.split('#')[1]
+          // push log
+          toast.add({
+            id: 'hotel_book__now',
+            title: t('toast.an_error_occurred'),
+            description: t(`toast.add_to_cart.${key}`),
+            color: 'rose'
+          })
+          // throw new Error(e)
+        }
       }
     }
     return {

@@ -26,7 +26,8 @@ export default {
     },
     add_to_cart: {
       success: 'Added to cart successfully',
-      error: 'Adding to cart failed'
+      error: 'Adding to cart failed',
+      out_of_room: 'No rooms available, please try again later'
     },
     get_cart: {
       error: 'Cannot retrieve cart data'
@@ -105,7 +106,7 @@ export default {
       bath: 'Bath',
       beach: 'beach',
       breakfast: 'Breakfast',
-      casino: 'Casino',
+      casio: 'Casino',
       fitness: 'Fitness',
       no_smoking_room: 'No smoking room',
       parking: 'Parking',
