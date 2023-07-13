@@ -1,7 +1,7 @@
 <template lang="pug">
-.w-full.h-max.mx-auto.shadow-md.p-2.border-t-2.bg-white
+.w-full.h-max.mx-auto.shadow-md.p-5.border-t-2.bg-white
   .max-w-1200px.flex.flex-col.mx-auto.gap-4
-    .booking-count.flex.justify-between
+    .booking-count.flex.justify-between.items-center
       span.font-medium {{ totalBooking }} bookings
       span.price.text-2xl {{ VND(''+totalPrice) }} VND
     .night-count.flex.justify-between
