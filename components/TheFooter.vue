@@ -1,5 +1,5 @@
 <template lang="pug">
-div(class='sticky z-50 w-full bg-white shadow-footer')
+div(class='fixed bottom-0 left-0 right-0 z-50 w-full bg-white shadow-footer')
   .max-w-7xl.mx-auto.p-5
     .flex.items-center.justify-between
       .flex.items-center.gap-4
