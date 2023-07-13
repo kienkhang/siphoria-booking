@@ -24,6 +24,9 @@ const router = useRouter()
 const { isFocus, focus, form } = storeToRefs(useSearchHotel())
 
 function doSearch() {
+  // Turn off popup
+  focus.value = ''
+  // redirect to search page
   router.push({
     path: '/search',
     query: form.value
