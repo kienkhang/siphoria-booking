@@ -23,30 +23,18 @@ const props = defineProps<{
   axis: 'horizontal' | 'vertical'
 }>()
 
-// const { language: lang } = useLanguageStorage()
-// const dayjs = useDayjs()
-// const cutFromTime = computed(() => ({
-//   date: dayjs(props.from).locale(lang.value).format('DD'),
-//   month: dayjs(props.from).locale(lang.value).format('MMMM'),
-//   year: dayjs(props.from).locale(lang.value).format('YYYY')
-// }))
-
-// const cutToTime = computed(() => ({
-//   date: dayjs(props.to).locale(lang.value).format('DD'),
-//   month: dayjs(props.to).locale(lang.value).format('MMMM'),
-//   year: dayjs(props.to).locale(lang.value).format('YYYY')
-// }))
+const { language: lang } = useLanguageStorage()
 const dayjs = useDayjs()
 const cutFromTime = computed(() => ({
-  date: dayjs(props.from).format('DD'),
-  month: dayjs(props.from).format('MMMM'),
-  year: dayjs(props.from).format('YYYY')
+  date: dayjs(props.from).locale(lang.value).format('DD'),
+  month: dayjs(props.from).locale(lang.value).format('MMMM'),
+  year: dayjs(props.from).locale(lang.value).format('YYYY')
 }))
 
 const cutToTime = computed(() => ({
-  date: dayjs(props.to).format('DD'),
-  month: dayjs(props.to).format('MMMM'),
-  year: dayjs(props.to).format('YYYY')
+  date: dayjs(props.to).locale(lang.value).format('DD'),
+  month: dayjs(props.to).locale(lang.value).format('MMMM'),
+  year: dayjs(props.to).locale(lang.value).format('YYYY')
 }))
 </script>
 

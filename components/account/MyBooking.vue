@@ -11,7 +11,7 @@
       class='hover:bg-red-500/[0.05] rounded-lg transition-all' 
     )
       div(class='w-18px h-18px i-ph:x')
-      span Cancel
+      span {{$t('account_page.my_bookings.cancel')}}
 
 </template>
 
