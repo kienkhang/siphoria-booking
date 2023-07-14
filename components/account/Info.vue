@@ -10,20 +10,25 @@
       span.text-4xl.font-bold {{account?.first_name}} {{account?.last_name}}
       .mt-2
         span.flex.items-center.select-none 
-          span Hạng thành viên &nbsp
-          span.text-vivid.font-bold.cursor-pointer  {{rankName}}
+          span {{$t('account_page.membership_rank')}} &nbsp
+          span.text-vivid.font-bold.cursor-pointer(v-if='rank')  {{$t(`account_page.${rank.id}`)}}
     
   
 </template>
 
 <script setup lang="ts">
 import { useAccountStore } from '~/stores/account'
-
-import bgImg from '@/assets/images/saigon_resize.jpg'
+import _values from 'lodash-es/values'
+import bgImg from '@/assets/images/phuquoc_resize.jpg'
 
 // destruct account store
 const { account } = storeToRefs(useAccountStore())
-const rankName = computed(() => account.value?.user_rank.rank.name)
+
+const { benefits } = useCardMember()
+const rank = computed(() => {
+  const arr = _values(benefits.value)
+  return arr.find((benefit) => benefit.rank_id === account.value?.user_rank.rank_id)
+})
 </script>
 
 <style scoped></style>

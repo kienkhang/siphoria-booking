@@ -2,7 +2,7 @@
 .flex.flex-col.gap-4
   .grid.grid-cols-12.room-name
       .col-span-3
-        span.font-semibold.text-x11 Tên
+        span.font-semibold.text-x11 {{$t('account_page.name')}}
       .col-span-9
         span.font-semibold {{account?.first_name}} {{account?.last_name}}
   .grid.grid-cols-12.room-overview
@@ -12,12 +12,12 @@
         span.line-clamp-4 {{account?.email}}
   .grid.grid-cols-12.room-overview
       .col-span-3
-        span.font-semibold.text-x11 Phone
+        span.font-semibold.text-x11 {{$t('account_page.phone')}}
       .col-span-9
         span.line-clamp-4 {{account?.phone}}
   .grid.grid-cols-12.room-overview
       .col-span-3
-        span.font-semibold.text-x11 Password
+        span.font-semibold.text-x11 {{$t('account_page.password')}}
       .col-span-9.flex.items-center.gap-3
         span.line-clamp-4 ••••••••••
         .w-4.h-4(class='cursor-pointer i-custom-arrow-spin' @click='openModal()')

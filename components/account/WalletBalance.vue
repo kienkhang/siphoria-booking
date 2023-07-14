@@ -4,8 +4,8 @@
     .flex.items-center.gap-2
       .w-10.h-10.flex-shrink-0(class='i-mdi:wallet-outline')
       .wallet
-        p.text-lg.font-bold My wallet
-        p.text-sm Total Balance
+        p.text-lg.font-bold {{ $t('account_page.my_wallet.my_wallet') }}
+        p.text-sm {{ $t('account_page.my_wallet.total_balance') }}
     .total-balance.text-2xl.font-bold {{ VND('' + balance) }} VND
   .mt-6.flex.items-center.gap-5
     BaseButton(
@@ -13,7 +13,7 @@
       @click='$emit("top-up")'
     ) 
       .w-6.h-6(class='i-mdi:wallet-plus')
-      span Top Up
+      span {{ $t('account_page.my_wallet.topup') }}
 </template>
 
 <script setup lang="ts">

@@ -3,9 +3,9 @@
   .w-full.p-8.rounded-2xl.shadow-bar.bg-white
     //- Title & Upgrade button
     .flex.justify-between.items-center
-      span.text-4xl.font-bold Membership Card
+      span.text-4xl.font-bold {{$t('account_page.membership_card')}}
       BaseButton.px-4.py-2.border.border-vivid.text-vivid.rounded-lg(class='hover:bg-vivid hover:text-white' @click='openUpgrade')
-        span.font-medium Upgrade
+        span.font-medium {{$t('account_page.upgrade')}}
       AccountUpgradeCardModal(
         v-model:show='showUpgrade'
       )
@@ -18,9 +18,9 @@
   .w-full.p-8.rounded-2xl.shadow-bar.bg-white.mt-4
     //- Title & Update Infomation button
     .flex.justify-between.items-center
-      span.text-4xl.font-bold Personal information
+      span.text-4xl.font-bold {{$t('account_page.personal_infomation')}}
       BaseButton.px-4.py-2.border.border-vivid.text-vivid.rounded-lg(class='hover:bg-vivid hover:text-white' @click='showUpdate = true')
-        span.font-medium Update profile
+        span.font-medium {{$t('account_page.update_profile')}}
       AccountUpdateModal(v-model:show='showUpdate')
     //- Member information
     .mt-6

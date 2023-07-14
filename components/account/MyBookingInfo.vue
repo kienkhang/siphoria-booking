@@ -6,17 +6,17 @@
   .flex.flex-col.gap-2
     .grid.grid-cols-12
       .col-span-3
-        span.font-semibold Booking ID
+        span.font-semibold {{$t('account_page.my_bookings.booking_id')}}
       .col-span-9
         span.line-clamp-1 {{ booking.id }}
     .grid.grid-cols-12
       .col-span-3
-        span.font-semibold Room type
+        span.font-semibold {{$t('account_page.my_bookings.room_type')}}
       .col-span-9
         span.line-clamp-1 {{ room.name }}
     .grid.grid-cols-12
       .col-span-3
-        span.font-semibold Rate plan
+        span.font-semibold {{$t('account_page.my_bookings.rate_plan')}}
       .col-span-9
         span.line-clamp-1 {{ ratePlan.name }}
 </template>

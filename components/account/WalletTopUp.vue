@@ -1,9 +1,9 @@
 <template lang="pug">
 .flex.flex-col.gap-6
   .top-up-amount
-    .text-lg.font-bold 1. Top-up Amount
+    .text-lg.font-bold 1. {{ $t('account_page.my_wallet.topup_amount') }}
     .rounded-xl.border.p-5.mt-3
-      label.px-3.text-sm.cursor-pointer(for='money') Amount
+      label.px-3.text-sm.cursor-pointer(for='money') {{ $t('account_page.my_wallet.amount') }}
       .flex.items-center.justify-between
         input(
           type='text'
@@ -16,7 +16,7 @@
         span.text-3xl VND
     AccountWalletTopUpMoney.mt-3(@select-money="selectMoney")
   .top-up-method
-    .text-lg.font-bold 2. Choose top-up method
+    .text-lg.font-bold 2. {{ $t('account_page.my_wallet.choose_topup_method') }}
     SharedSelectMethod.mt-3(
       :method='topUpForm.method'
       :is-topup='true'
@@ -26,7 +26,7 @@
   .flex.flex-row-reverse
     BaseButton.top-up-button.rounded-lg.py-3.px-6.text-lg(class='justify-center text-white bg-vivid w-max' @click='doTopUp()')
       .w-4.h-4(class='i-custom-load' v-if='isLoading')
-      span(v-else) Top Up 
+      span(v-else) {{ $t('account_page.my_wallet.topup') }}
 </template>
 
 <script setup lang="ts">

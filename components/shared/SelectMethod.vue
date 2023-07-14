@@ -9,7 +9,7 @@
         .w-6.h-6(class='i-custom-logo-origin?bg')
         span.font-medium Siphoria
         .w-8.h-8(class='text-green-600 i-material-symbols:check-small-rounded' v-if='method === "siphoria"')
-      span.text-sm.font-medium {{ VND(''+100000) }} VND
+      span.text-sm.font-medium {{ VND(''+balance) }} VND
     //- momo wallet
     .flex.items-center.justify-between.py-4.h-14.pr-8.pl-4.select-none.cursor-pointer(class='rounded-md hover:bg-platinum' @click='$emit("select-method","momo")')
       .flex.items-center.gap-4
@@ -31,6 +31,8 @@
 </template>
 
 <script setup lang="ts">
+import { useAccountStore } from '~/stores/account'
+
 withDefaults(
   defineProps<{
     method: TPaymentMethod
@@ -48,6 +50,9 @@ defineEmits<{
   (e: 'select-method', value: TPaymentMethod): void
 }>()
 
+const { account } = storeToRefs(useAccountStore())
+
+const balance = computed(() => account.value?.wallet.balance)
 // Top-up not show siphoria wallet
 </script>
 

@@ -17,6 +17,9 @@ div
 <script setup lang="ts">
 import { type DataTableColumns } from 'naive-ui'
 
+// useI18n composables
+const { t } = useI18n()
+
 const { calculatedPaging, page, filter } = storeToRefs(useWallet())
 // Destruct get top up history function call
 const { getTopUpHistory } = useWallet()
@@ -64,17 +67,17 @@ onMounted(() => {
 function createColumns(): DataTableColumns<TTransactionTable> {
   return [
     {
-      title: 'Top-up Date',
+      title: t('account_page.my_wallet.topup_date'),
       key: 'date',
       align: 'center'
     },
     {
-      title: 'Currency',
+      title: t('account_page.my_wallet.currency'),
       key: 'currency',
       align: 'center'
     },
     {
-      title: 'Method',
+      title: t('account_page.my_wallet.method'),
       key: 'method',
       align: 'center',
       render(row) {
@@ -88,7 +91,7 @@ function createColumns(): DataTableColumns<TTransactionTable> {
       }
     },
     {
-      title: 'Amount',
+      title: t('account_page.my_wallet.amount'),
       key: 'amount',
       align: 'center',
       render(row) {
@@ -102,7 +105,7 @@ function createColumns(): DataTableColumns<TTransactionTable> {
       }
     },
     {
-      title: 'Status',
+      title: t('account_page.my_wallet.status'),
       key: 'status',
       align: 'center',
       render(row) {
@@ -111,10 +114,12 @@ function createColumns(): DataTableColumns<TTransactionTable> {
           {
             class:
               row.status === 'success'
-                ? 'w-20 mx-auto px-2 py-1 border border-crayola text-crayola font-medium bg-white rounded-lg select-none'
-                : 'w-20 mx-auto px-2 py-1 border border-red-500 text-red-500 font-medium bg-white rounded-lg select-none'
+                ? 'w-24 mx-auto px-2 py-1 border border-crayola text-crayola font-medium bg-white rounded-lg select-none'
+                : 'w-24 mx-auto px-2 py-1 border border-red-500 text-red-500 font-medium bg-white rounded-lg select-none'
           },
-          row.status === 'success' ? 'Success' : 'Fail'
+          row.status === 'success'
+            ? t('account_page.my_wallet.success')
+            : t('account_page.my_wallet.fail')
         )
       }
     }
