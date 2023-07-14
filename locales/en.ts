@@ -95,6 +95,61 @@ export default {
     homestay: 'Homestay'
   },
 
+  account_page: {
+    membership_rank: 'Membership rank',
+    silver: 'Silver',
+    gold: 'Gold',
+    platinum: 'Platinum',
+    diamond: 'Diamond',
+    navbar: {
+      profile: 'Profile',
+      my_wallet: 'My Wallet',
+      my_bookings: 'My Bookings',
+      my_history: 'My History'
+    },
+
+    membership_card: 'Membership card',
+    upgrade: 'Upgrade',
+    exclusive_benefits: 'Exclusive benefits',
+    benefits: {
+      cashback: '{cash}%  cashback on every purchase',
+      member_only_gifts: 'Member-only gifts',
+      priority_check_ins: 'Priority check-ins'
+    },
+
+    personal_infomation: 'Personal Infomation',
+    update_profile: 'Update Profile',
+    name: 'Name',
+    phone: 'Phone',
+    password: '@:form.login_form.password',
+
+    my_wallet: {
+      overview: 'Overview',
+      topup: 'Top up',
+      history: '@:account_page.navbar.my_history',
+      my_wallet: '@:account_page.navbar.my_wallet',
+      total_balance: 'Total balance',
+      topup_amount: 'Top-up amount',
+      amount: 'Amount',
+      choose_topup_method: 'Choose top-up method',
+      payment_method: 'Payment method',
+      topup_date: 'Top-up date',
+      currency: 'Currency',
+      method: 'Method',
+      status: 'Status',
+      success: 'Success',
+      fail: 'Fail'
+    },
+
+    my_bookings: {
+      cancel: 'Cancel',
+      booking_id: 'Booking ID',
+      room_type: 'Room',
+      rate_plan: 'Rate Plan',
+      more: 'More'
+    }
+  },
+
   hotel_detail_page: {
     // Hotel
     show_all_photos: 'Show all photos',

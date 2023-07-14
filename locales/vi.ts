@@ -93,6 +93,60 @@ export default {
     resort: 'Khu nghỉ dưỡng',
     homestay: 'Homestay'
   },
+  account_page: {
+    membership_rank: 'Hạng thành viên',
+    silver: 'Bạc',
+    gold: 'Vàng',
+    platinum: 'Bạch kim',
+    diamond: 'Kim cương',
+    navbar: {
+      profile: 'Cá nhân',
+      my_wallet: 'Ví của tôi',
+      my_bookings: 'Đặt chỗ của tôi',
+      my_history: 'Lịch sử'
+    },
+
+    membership_card: 'Thẻ thành viên',
+    upgrade: 'Nâng cấp',
+    exclusive_benefits: 'Lợi ích độc quyền',
+    benefits: {
+      cashback: 'Hoàn tiền {cash}% cho mỗi giao dịch phòng',
+      member_only_gifts: 'Quà tặng thành viên',
+      priority_check_ins: 'Ưu tiên nhận phòng'
+    },
+
+    personal_infomation: 'Thông tin cá nhân',
+    update_profile: 'Cập nhật hồ sơ',
+    name: 'Tên',
+    phone: 'Số điện thoại',
+    password: '@:form.login_form.password',
+
+    my_wallet: {
+      overview: 'Tổng quan',
+      topup: 'Nạp tiền',
+      history: '@:account_page.navbar.my_history',
+      my_wallet: '@:account_page.navbar.my_wallet',
+      total_balance: 'Tổng số dư',
+      topup_amount: 'Số tiền nạp',
+      amount: 'Tổng số tiền',
+      choose_topup_method: 'Chọn phương thức nạp tiền',
+      payment_method: 'Phương thức thanh toán',
+      topup_date: 'Ngày nạp tiền',
+      currency: 'Tiền tệ',
+      method: 'Phương thức',
+      status: 'Trạng thái',
+      success: 'Thành công',
+      fail: 'Thất bại'
+    },
+
+    my_bookings: {
+      cancel: 'Huỷ bỏ',
+      booking_id: 'Mã đặt',
+      room_type: 'Phòng',
+      rate_plan: 'Gói',
+      more: 'Thêm'
+    }
+  },
   hotel_detail_page: {
     // Hotel
     show_all_photos: 'Hiển thị tất cả',
