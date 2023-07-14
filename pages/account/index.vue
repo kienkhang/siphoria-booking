@@ -11,7 +11,7 @@
       )
     //- membership card
     .flex.items-center.gap-6.mt-6
-      AccountMemberCard.flex-1
+      AccountMemberCard(:user='user').flex-1
       AccountMemberBenefit.flex-1
 
 
@@ -28,6 +28,8 @@
 </template>
 
 <script setup lang="ts">
+import { useAccountStore } from '~/stores/account'
+
 // Update
 const showUpdate = ref(false)
 // show upgrade card modal
@@ -36,6 +38,18 @@ const showUpgrade = ref(false)
 function openUpgrade() {
   showUpgrade.value = true
 }
+
+// Show Card by account
+const { account } = storeToRefs(useAccountStore())
+const user = computed(() => {
+  return {
+    rankId: account.value?.user_rank.id,
+    name: account.value?.full_name,
+    phone: account.value?.phone,
+    begin: account.value?.user_rank.begin_at,
+    expired: account.value?.user_rank.expired_at
+  }
+})
 </script>
 
 <style scoped></style>

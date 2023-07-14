@@ -76,6 +76,11 @@ class User {
     const url = `${path}/top-up`
     return useGet({ url, params, requiredToken: true })
   }
+
+  updateRank = (data: any | {}) => {
+    const url = `${path}/update-rank`
+    return usePost({ url, data, requiredToken: true })
+  }
 }
 
 const usersApi = new User()

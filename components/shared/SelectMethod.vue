@@ -23,11 +23,11 @@
         span.font-medium VNPay
         .w-8.h-8(class='text-green-600 i-material-symbols:check-small-rounded' v-if='method === "vnpay"')
     //- Stripe wallet
-    .flex.items-center.justify-between.py-4.h-14.pr-8.pl-4.select-none.cursor-pointer(class='rounded-md hover:bg-platinum' @click='$emit("select-method","stripe")')
-      .flex.items-center.gap-4
-        .w-6.h-6(class='i-custom-stripe?bg')
-        span.font-medium Stripe
-        .w-8.h-8(class='text-green-600 i-material-symbols:check-small-rounded' v-if='method === "stripe"')
+    //- .flex.items-center.justify-between.py-4.h-14.pr-8.pl-4.select-none.cursor-pointer(class='rounded-md hover:bg-platinum' @click='$emit("select-method","stripe")')
+    //-   .flex.items-center.gap-4
+    //-     .w-6.h-6(class='i-custom-stripe?bg')
+    //-     span.font-medium Stripe
+    //-     .w-8.h-8(class='text-green-600 i-material-symbols:check-small-rounded' v-if='method === "stripe"')
 </template>
 
 <script setup lang="ts">
