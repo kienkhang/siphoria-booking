@@ -43,7 +43,7 @@ function openUpgrade() {
 const { account } = storeToRefs(useAccountStore())
 const user = computed(() => {
   return {
-    rankId: account.value?.user_rank.id,
+    rankId: account.value?.user_rank.rank_id,
     name: account.value?.full_name,
     phone: account.value?.phone,
     begin: account.value?.user_rank.begin_at,
