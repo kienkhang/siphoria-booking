@@ -78,6 +78,12 @@ export default defineNuxtConfig({
     }
   },
   // ----- ************** -------
+  // ----- DAYJS CONFIG -------
+  dayjs: {
+    locales: ['en', 'vi'],
+    defaultLocale: 'en'
+  },
+  // ----- ************** -------
   // ----- VITE CONFIG -------
   vite: {
     vue: {
