@@ -54,8 +54,8 @@ instance.interceptors.response.use(
 )
 instance.interceptors.request.use(
   (req) => {
-    const access_token = getToken()
-    if (access_token) req.headers.Authorization = `Bearer ${access_token}`
+    // const access_token = getToken()
+    // if (access_token) req.headers.Authorization = `Bearer ${access_token}`
     return req
   },
   (error) => {
