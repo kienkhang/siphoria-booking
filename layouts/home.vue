@@ -1,10 +1,11 @@
 <template lang="pug">
-div(v-auto-animate)
+div.relative(v-auto-animate)
   LazyTheHeader
   slot
   .p-t-10.w-full
   .h-120px(ref='el')
   LazyTheFooter(v-if='isVisible && !isCart')
+  LazyChatBubble(:visible-footer='isVisible')
 </template>
 
 <script setup lang="ts">
