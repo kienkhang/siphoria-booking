@@ -8,7 +8,7 @@ NPopover(
 )
   template(#trigger)
     .flex.items-center.rounded-lg.px-4.py-2.border.cursor-pointer.select-none
-      span.mr-2 Rate
+      span.mr-2 {{ $t('search_page.rate') }}
       div(:class='["w-4 h-4 i-custom-chevron-down transition-all", {"rotate-180": show}]')
   .rounded-16px.bg-white.w-320px.overflow-y-auto.hide-scroll.mt-2.flex.flex-col.p-3.gap-8.shadow-search(v-auto-animate)
     | Filter Rate
