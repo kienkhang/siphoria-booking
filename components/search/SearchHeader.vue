@@ -22,19 +22,19 @@ const location = computed(() => provinces.find((p) => p.code === +locationCode.v
 const locationPhoto = computed(() => {
   switch (+locationCode.value) {
     case 79:
-      return '/assets/images/saigon_resize.jpg'
+      return 'https://ik.imagekit.io/b4bytdpcj/siphoria/hochiminh.jpg?updatedAt=1686818926686'
     case 1:
-      return '/assets/images/hanoi_resize.jpg'
+      return 'https://ik.imagekit.io/b4bytdpcj/siphoria/hanoi.jpg?updatedAt=1686818926324'
     case 48:
-      return '/assets/images/danang_resize.jpg'
+      return 'https://ik.imagekit.io/b4bytdpcj/siphoria/danang.jpg?updatedAt=1686818927053'
     case 56:
-      return '/assets/images/nhatrang_resize.jpg'
+      return 'https://ik.imagekit.io/b4bytdpcj/siphoria/khanhhoa.jpg?updatedAt=1686818925546'
     case 91:
-      return '/assets/images/phuquoc_resize.jpg'
+      return 'https://ik.imagekit.io/b4bytdpcj/siphoria/phuquoc.jpg?updatedAt=1686818926852'
     case 49:
-      return '/assets/images/hoian_resize.jpg'
+      return 'https://ik.imagekit.io/b4bytdpcj/siphoria/hoian.jpg?updatedAt=1686818927217'
     default:
-      return '/assets/images/saigon_resize.jpg'
+      return 'https://ik.imagekit.io/b4bytdpcj/siphoria/hoian.jpg?updatedAt=1686818927217'
   }
 })
 </script>
