@@ -34,7 +34,8 @@
     "nuxt-swiper": "^1.1.0",
     "pug": "^3.0.2",
     "stylus": "^0.59.0",
-    "universal-cookie": "^4.0.4"
+    "universal-cookie": "^4.0.4",
+    "vue3-lottie": "^3.0.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.0",

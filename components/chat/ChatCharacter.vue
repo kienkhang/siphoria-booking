@@ -1,7 +1,7 @@
 <template lang="pug">
 .flex.gap-2
   figure.rounded-full.overflow-hidden.w-10.h-10.p-2.flex.items-center.justify-center.flex-shrink-0.border
-    nuxt-img(
+    img(
       :src="avatar", 
       alt="Chat character avatar", 
       class='object-cover object-center w-full h-full',
