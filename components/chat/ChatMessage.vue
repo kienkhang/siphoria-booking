@@ -5,13 +5,12 @@
     style='background-color: white; padding: 0px; height: 100%; border-radius: 10px'
     arrow-style='background-color: #fff'
     content-style='overflow: auto; width:100%'
-    :show='visible'
-    display-directive='show'
+    display-directive='if'
     placement="top-start"
     :show-arrow="true"
   )
     template(#trigger)
-      .w-6.h-6.cursor-pointer.select-none(class='i-mdi:brain text-crayola hover:animate-pulse' @click='toggleShow()')
+      .w-6.h-6.cursor-pointer.select-none(class='i-mdi:brain text-crayola hover:animate-pulse')
     .w-full.select-none.flex.flex-col.rounded-10px.overflow-hidden.shadow-lg
       .flex.items-center.gap-3.py-2.px-4(class='cursor-pointer hover:bg-gray-100' @click='renew()')
         Icon.flex-shrink-0(name='pepicons-pop:arrows-spin' size='16')
@@ -35,6 +34,7 @@
     size="small"
     v-model:value='mess'
     :autosize="{ minRows: 1, maxRows: 3 }"
+    @keydown.enter.prevent='doChat()'
   )
   .w-6.h-6.cursor-pointer.select-none(class='i-material-symbols:send-rounded hover:animate-pulse text-crayola' @click='doChat()')
 
@@ -44,10 +44,10 @@
 const { chat: doChat, reset: doReset, reGenerate: doRenew } = useChatGPT()
 const { userMess: mess } = storeToRefs(useChatGPT())
 
-// --------- POPOVER HANDLER -----------
-const visible = ref(false)
-// update show popover
-const toggleShow = () => (visible.value = !visible.value)
+// // --------- POPOVER HANDLER -----------
+// const visible = ref(false)
+// // update show popover
+// const toggleShow = () => (visible.value = !visible.value)
 
 // -------- CONFIRM HANDLER --------------
 const confirmReset = ref(false)
@@ -55,11 +55,9 @@ const confirmGenerate = ref(false)
 
 function reset() {
   confirmReset.value = true
-  toggleShow()
 }
 function renew() {
   confirmGenerate.value = true
-  toggleShow()
 }
 </script>
 
