@@ -1,15 +1,20 @@
 <template lang="pug">
 .w-full.p-8.rounded-2xl.shadow-bar.bg-white
-  .flex.flex-col(v-for='booking in data')
-    MyBooking.mb-10(:booking='booking')
-    //- Show line exclude last index
-    .h-1px.bg-x11.mb-10(class='w-1/2 mx-auto' v-if='booking.id !== data[data.length - 1].id')
-  .flex.flex-row-reverse.pt-6
-    NPagination(
-      v-model:page='page'
-      :page-count='calculatedPaging?.total_pages'
-      @update:page='updatePage'
-    )
+  div(v-if='data.length > 0')
+    .flex.flex-col(v-for='booking in data')
+      MyBooking.mb-10(:booking='booking')
+      //- Show line exclude last index
+      .h-1px.bg-x11.mb-10(class='w-1/2 mx-auto' v-if='booking.id !== data[data.length - 1].id')
+    .flex.flex-row-reverse.pt-6
+      NPagination(
+        v-model:page='page'
+        :page-count='calculatedPaging?.total_pages'
+        @update:page='updatePage'
+      )
+  SharedEmptySearch(
+    :empty='notFound'
+    v-else  
+  )
 </template>
 
 <script setup lang="ts">
@@ -39,6 +44,14 @@ function updatePage() {
     getMyBooking()
   })
 }
+
+// NOT FOUND DATA
+const { t } = useI18n()
+const notFound = reactive({
+  size: 64,
+  title: 'account_page.my_bookings.not_found_title',
+  content: 'account_page.my_bookings.not_found_content'
+})
 </script>
 
 <style scoped></style>

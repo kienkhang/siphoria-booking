@@ -144,7 +144,10 @@ export default {
       booking_id: 'Mã đặt',
       room_type: 'Phòng',
       rate_plan: 'Gói',
-      more: 'Thêm'
+      more: 'Thêm',
+      not_found_title: 'Không có dữ liệu đặt phòng',
+      not_found_content:
+        'Chúng tôi không có dữ liệu đặt phòng cho yêu cầu tìm kiếm của bạn. Vui lòng thử lại sau.'
     }
   },
   hotel_detail_page: {
@@ -225,6 +228,17 @@ export default {
     sold_out: 'Hết phòng',
     add_to_cart: 'Thêm vào giỏ',
     book_now: 'Đặt ngay'
+  },
+  search_page: {
+    not_found_title: 'Không tìm thấy khách sạn phù hợp',
+    not_found_content:
+      'Xin lỗi, không có khách sạn nào phù hợp với yêu cầu tìm kiếm của bạn. Vui lòng thử lại với tiêu chí tìm kiếm khác.',
+    price: 'Giá',
+    rate: 'Đánh giá'
+  },
+
+  the_header: {
+    logout: 'Đăng xuất'
   },
 
   ho_chi_minh: 'Hồ Chí Minh',
