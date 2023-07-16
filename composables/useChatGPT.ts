@@ -66,6 +66,7 @@ const useChatGPT = defineStore('useChatGPT', () => {
     }
     messages.value.push(newMessage)
     logs.value = JSON.stringify([...messages.value])
+    userMess.value = ''
     // Chat with GPT
     await gptGenerate(messages.value)
   }
@@ -79,6 +80,9 @@ const useChatGPT = defineStore('useChatGPT', () => {
 
   // Regenerate
   async function reGenerate() {
+    if (messages.value.length - 1 <= 0) {
+      return
+    }
     const role = messages.value[messages.value.length - 1].role
     // Check last chat is assistant
     // remove last chat -> and resend messages
