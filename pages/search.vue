@@ -21,10 +21,27 @@ definePageMeta({
   title: 'Siphoria | Search Hotel'
 })
 
+const dayjs = useDayjs()
 // route hooks
 const route = useRoute()
+const router = useRouter()
 // Get url string
 const query = computed(() => route.query)
+
+// ===== PREVENT USER EDIT URL ======
+const fromDate = computed(() => query.value.from as string)
+const toDate = computed(() => query.value.to as string)
+onBeforeMount(() => {
+  // if from date <= today or from_date > to_date => redirect to home
+  if (
+    fromDate.value &&
+    toDate.value &&
+    (+dayjs(fromDate.value) <= +dayjs() || +dayjs(toDate.value) <= +dayjs(fromDate.value))
+  ) {
+    router.push('/')
+  }
+})
+// ===== END PREVENT USER EDIT URL ======
 
 // search hotel with composable
 const { searchHotel, hotels } = useHotel()
