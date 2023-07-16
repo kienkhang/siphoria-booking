@@ -65,6 +65,9 @@ dependencies:
   universal-cookie:
     specifier: ^4.0.4
     version: 4.0.4
+  vue3-lottie:
+    specifier: ^3.0.0
+    version: 3.0.0(vue@3.3.4)
 
 devDependencies:
   '@antfu/eslint-config':
@@ -7950,6 +7953,10 @@ packages:
       is-unicode-supported: 0.1.0
     dev: true
 
+  /lottie-web@5.12.2:
+    resolution: {integrity: sha512-uvhvYPC8kGPjXT3MyKMrL3JitEAmDMp30lVkuq/590Mw9ok6pWcFCwXJveo0t5uqYw1UREQHofD+jVpdjBv8wg==}
+    dev: false
+
   /lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
     dependencies:
@@ -11956,6 +11963,17 @@ packages:
       semver: 7.5.1
       typescript: 5.0.4
     dev: true
+
+  /vue3-lottie@3.0.0(vue@3.3.4):
+    resolution: {integrity: sha512-1HZhpKyqlj5jOwO2JTERJOXuJBYqnz/wnkeHjAmn7yI95ize62XQImP226/0G3+c5T3Oj//vIwyMJ2Zhsd8fwg==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      vue: ^3.2
+    dependencies:
+      lodash-es: 4.17.21
+      lottie-web: 5.12.2
+      vue: 3.3.4
+    dev: false
 
   /vue@3.3.4:
     resolution: {integrity: sha512-VTyEYn3yvIeY1Py0WaYGZsXnz3y5UnGi62GjVEqvEGPl6nxbOrCXbVOTQWBEJUqAyTUk2uJ5JLVnYJ6ZzGbrSw==}
