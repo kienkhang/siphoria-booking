@@ -146,7 +146,10 @@ export default {
       booking_id: 'Booking ID',
       room_type: 'Room',
       rate_plan: 'Rate Plan',
-      more: 'More'
+      more: 'More',
+      not_found_title: 'No booking data available',
+      not_found_content:
+        'We currently have no booking data for your search request. Please try again later.'
     }
   },
 
@@ -230,6 +233,18 @@ export default {
     sold_out: 'Sold out',
     add_to_cart: 'Add to cart',
     book_now: 'Book now'
+  },
+
+  search_page: {
+    not_found_title: 'No matching hotels found',
+    not_found_content:
+      "We're sorry, no hotels match your search criteria. Please try again with different search criteria.",
+    price: 'Price',
+    rate: 'Rate'
+  },
+
+  the_header: {
+    logout: 'Log out'
   },
 
   ho_chi_minh: 'Ho Chi Minh',
