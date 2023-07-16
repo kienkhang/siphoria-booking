@@ -70,13 +70,43 @@ const useChatGPT = defineStore('useChatGPT', () => {
     await gptGenerate(messages.value)
   }
 
+  const reset = () => {
+    // Reset chat in progress
+    logs.value = JSON.stringify([characters[0]])
+    // Reload page to parse log to localstore to messages
+    messages.value = JSON.parse(logs.value)
+  }
+
+  // Regenerate
+  async function reGenerate() {
+    const role = messages.value[messages.value.length - 1].role
+    // Check last chat is assistant
+    // remove last chat -> and resend messages
+    if (role === 'assistant') {
+      messages.value.pop()
+      logs.value = JSON.stringify([...messages.value])
+      // resend api
+      await gptGenerate(messages.value)
+    } else if (role === 'system') {
+      return
+    }
+    // Check last chat is user -> resend messages
+    else {
+      // resend api
+      await gptGenerate(messages.value)
+    }
+  }
+
   return {
     logs,
     userMess,
     messages,
     isTyping,
     isChating,
-    chat
+    isLoading,
+    chat,
+    reset,
+    reGenerate
   }
 })
 
