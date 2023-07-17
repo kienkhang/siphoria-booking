@@ -12,7 +12,7 @@ NPopover(
       div(:class='["w-4 h-4 i-custom-chevron-down transition-all", {"rotate-180": show}]')
   .rounded-16px.bg-white.w-320px.overflow-y-auto.hide-scroll.mt-2.flex.flex-col.p-3.gap-8.shadow-search(v-auto-animate)
     .flex.flex-col.gap-4
-      span.text-lg.font-bold Khoảng giá
+      span.text-lg.font-bold {{ $t('search_page.rate') }}
       n-checkbox-group.flex.flex-col.gap-3(v-model:value="rates")
         n-checkbox( value="2" )
           n-rate(readonly :value='2')
@@ -24,10 +24,10 @@ NPopover(
           n-rate(readonly :value='5')
       .h-1px.bg-platinum
       .flex.items-center.justify-between
-        BaseButton.text-red-500(class='px-2 py-1 rounded-md hover:bg-red-500 hover:text-white' @click='clearFilter()') Xoá
+        BaseButton.text-red-500(class='px-2 py-1 rounded-md hover:bg-red-500 hover:text-white' @click='clearFilter()') {{ $t('search_page.delete') }}
         .flex.items-center.gap-2
-          BaseButton(class='px-3 py-2 text-white rounded-md bg-x11' @click='show = false') Huỷ
-          BaseButton(class='px-3 py-2 text-white rounded-md bg-vivid' @click="doSearch()") Chọn
+          BaseButton(class='px-3 py-2 text-white rounded-md bg-x11' @click='show = false') {{ $t('search_page.cancel') }}
+          BaseButton(class='px-3 py-2 text-white rounded-md bg-vivid' @click="doSearch()") {{ $t('search_page.select') }}
 
 
 </template>
@@ -48,9 +48,9 @@ const rates = ref([])
 
 watch(rates, () => {
   if (rates.value.length > 0) {
-    form.value.rate = rates.value.join(',')
+    form.value.rating = rates.value.join(',')
   } else {
-    form.value.rate = undefined
+    form.value.rating = undefined
   }
 })
 
@@ -67,7 +67,7 @@ function doSearch() {
 }
 
 function clearFilter() {
-  form.value.rate = undefined
+  form.value.rating = undefined
   doSearch()
 }
 </script>
