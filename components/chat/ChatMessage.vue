@@ -10,7 +10,7 @@
     :show-arrow="true"
   )
     template(#trigger)
-      .w-6.h-6.cursor-pointer.select-none(class='i-mdi:brain text-crayola hover:animate-pulse')
+      .w-7.h-7.cursor-pointer.select-none(class='i-mdi:dots-horizontal text-crayola hover:animate-pulse')
     .w-full.select-none.flex.flex-col.rounded-10px.overflow-hidden.shadow-lg
       .flex.items-center.gap-3.py-2.px-4(class='cursor-pointer hover:bg-gray-100' @click='renew()')
         Icon.flex-shrink-0(name='pepicons-pop:arrows-spin' size='16')
@@ -36,7 +36,7 @@
     :autosize="{ minRows: 1, maxRows: 3 }"
     @keydown.enter.prevent='doChat()'
   )
-  .w-6.h-6.cursor-pointer.select-none(class='i-material-symbols:send-rounded hover:animate-pulse text-crayola' @click='doChat()')
+  .w-7.h-7.cursor-pointer.select-none(class='i-material-symbols:send-rounded hover:animate-pulse text-crayola' @click='doChat()')
 
 </template>
 
