@@ -240,11 +240,19 @@ export default {
     not_found_content:
       "We're sorry, no hotels match your search criteria. Please try again with different search criteria.",
     price: 'Price',
-    rate: 'Rate'
+    rate: 'Rate',
+    select: 'Select',
+    cancel: 'Cancel',
+    delete: 'Delete'
   },
 
   the_header: {
-    logout: 'Log out'
+    logout: 'Log out',
+    adult: 'Adult',
+    children: 'Children',
+    adults: 'Adults',
+    childrens: 'Childrens',
+    rooms: 'Rooms'
   },
 
   ho_chi_minh: 'Ho Chi Minh',

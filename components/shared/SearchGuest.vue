@@ -47,16 +47,19 @@ const guests = computed(() => {
   return [
     {
       id: '64acdaa1-2881-49fe-b469-944964fb709f',
+      translate: 'the_header.adults',
       name: 'Adults',
       value: form.value.n_o_a
     },
     {
       id: 'f8a928a6-3422-45c4-946b-b01ac7f4e96e',
+      translate: 'the_header.childrens',
       name: 'Childrens',
       value: form.value.n_o_c
     },
     {
       id: 'a564dbce-f655-4e51-ad88-67152177576e',
+      translate: 'the_header.rooms',
       name: 'Rooms',
       value: form.value.n_o_r
     }

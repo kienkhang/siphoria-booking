@@ -7,7 +7,7 @@ interface ISearchHotel {
   city: number
   min_price?: number
   max_price?: number
-  rate?: string
+  rating?: string
 }
 const useSearchHotel = defineStore('home__useSeachHotel', () => {
   // Import dayjs lib

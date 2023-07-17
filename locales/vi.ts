@@ -234,11 +234,19 @@ export default {
     not_found_content:
       'Xin lỗi, không có khách sạn nào phù hợp với yêu cầu tìm kiếm của bạn. Vui lòng thử lại với tiêu chí tìm kiếm khác.',
     price: 'Giá',
-    rate: 'Đánh giá'
+    rate: 'Đánh giá',
+    select: 'Chọn',
+    cancel: 'Huỷ',
+    delete: 'Xoá'
   },
 
   the_header: {
-    logout: 'Đăng xuất'
+    logout: 'Đăng xuất',
+    adult: 'Người lớn',
+    children: 'Trẻ em',
+    adults: '@:the_header.adult',
+    childrens: '@:the_header.children',
+    rooms: 'Phòng'
   },
 
   ho_chi_minh: 'Hồ Chí Minh',
