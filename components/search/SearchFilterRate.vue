@@ -47,11 +47,11 @@ const { form } = storeToRefs(useSearchHotel())
 const rates = ref([])
 
 watch(rates, () => {
-  if (rates.value.length > 0) {
+  if (rates.value.length > 0) 
     form.value.rating = rates.value.join(',')
-  } else {
+   else 
     form.value.rating = undefined
-  }
+  
 })
 
 // Do search
@@ -60,10 +60,10 @@ function doSearch() {
   show.value = false
   // redirect to search page
   if (rates.value.length > 0)
-    router.push({
+    { router.push({
       path: '/search',
       query: form.value
-    })
+    }) }
 }
 
 function clearFilter() {

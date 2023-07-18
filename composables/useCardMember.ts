@@ -21,7 +21,7 @@ function useCardMember() {
     }
   })
 
-  //===================== DEFINE 3 TYPES TEXT =====================
+  // ===================== DEFINE 3 TYPES TEXT =====================
 
   const texts = ref({
     silver: {
@@ -49,7 +49,7 @@ function useCardMember() {
       'text-shadow': '0px 0px 5px rgba(0, 0, 0, 0.25)'
     }
   })
-  //===================== DEFINE BENEFIT =====================
+  // ===================== DEFINE BENEFIT =====================
 
   const benefits = ref({
     silver: {

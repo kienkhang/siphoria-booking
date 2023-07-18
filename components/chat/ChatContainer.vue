@@ -36,17 +36,17 @@ const needToScroll = ref(false)
 
 watch(bottomVisible, () => {
   needToScroll.value = !bottomVisible.value
-  if (!bottomVisible.value) {
+  if (!bottomVisible.value) 
     scrollToBottom()
-  }
+  
 })
 
 const { height } = useElementSize(msgWrapper)
 
 function scrollToBottom() {
-  if (!msgBox.value) {
+  if (!msgBox.value) 
     return
-  }
+  
   // msgBox.value.scrollTop = msgBox.value.scrollHeight
   msgBox.value.scrollTop = height.value
 }

@@ -37,9 +37,9 @@ onBeforeMount(() => {
     fromDate.value &&
     toDate.value &&
     (+dayjs(fromDate.value) <= +dayjs() || +dayjs(toDate.value) <= +dayjs(fromDate.value))
-  ) {
+  ) 
     router.push('/')
-  }
+  
 })
 // ===== END PREVENT USER EDIT URL ======
 

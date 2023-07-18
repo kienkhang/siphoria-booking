@@ -1,7 +1,7 @@
 <template lang="pug">
 .py-4.px-6.bg-white.border.rounded-lg
   FormKit(type='form' :actions='false' @submit='apply')
-    .flex.items-center.gap-3
+    .flex.items-end.gap-3
       FormKit(type='text', v-model='form.code' name='voucher', label='Voucher' inner-class='max-w-none')
       FormKit(type="submit" name='apply' input-class='w-full') Apply
 </template>

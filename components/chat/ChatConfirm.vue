@@ -28,12 +28,12 @@ const emit = defineEmits<{
 }>()
 
 // close modal
-const close = () => {
+function close() {
   emit('update:show', false)
 }
 
 // do actions
-const doActions = () => {
+function doActions() {
   emit('action')
   close()
 }

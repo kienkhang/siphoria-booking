@@ -66,9 +66,9 @@ const showModal = ref(false)
 const index = ref(0)
 function openCarousel(idx: number) {
   index.value = idx
-  if (idx > props.photos.length - 1) {
+  if (idx > props.photos.length - 1) 
     index.value = props.photos.length - 1
-  }
+  
   showModal.value = true
 }
 </script>
