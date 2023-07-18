@@ -44,6 +44,10 @@ export default {
     },
     get_payment: {
       error: 'Không thể lấy dữ liệu thanh toán'
+    },
+    cancel_booking: {
+      success: 'Huỷ đặt phòng thành công',
+      error: 'Huỷ đặt phòng thất bại'
     }
   },
   form: {
