@@ -81,6 +81,16 @@ class User {
     const url = `${path}/update-rank`
     return usePost({ url, data, requiredToken: true })
   }
+
+  cancelBooking = (data: any | {}) => {
+    const url = `${path}/cancel-booking`
+    return usePost({ url, data, requiredToken: true })
+  }
+
+  applyVoucher = (data: any | {}) => {
+    const url = `${path}/apply-voucher`
+    return usePost({ url, data, requiredToken: true })
+  }
 }
 
 const usersApi = new User()

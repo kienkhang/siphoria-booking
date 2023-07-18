@@ -44,6 +44,10 @@ export default {
     },
     get_payment: {
       error: 'Cant not retrieve payment data'
+    },
+    cancel_booking: {
+      success: 'Cancellation successful',
+      error: 'Cancellation failed'
     }
   },
   form: {
