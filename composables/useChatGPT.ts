@@ -80,9 +80,9 @@ const useChatGPT = defineStore('useChatGPT', () => {
 
   // Regenerate
   async function reGenerate() {
-    if (messages.value.length - 1 <= 0) {
+    if (messages.value.length - 1 <= 0) 
       return
-    }
+    
     const role = messages.value[messages.value.length - 1].role
     // Check last chat is assistant
     // remove last chat -> and resend messages

@@ -82,9 +82,8 @@ const upgradableList = computed(() => {
   for (const key in benefits.value) {
     if (
       benefits.value[key as keyof typeof benefits.value].cashback > userCard.value.benefit.cashback
-    ) {
+    )
       available.push(key)
-    }
   }
   return available.map((rank) => generateCard(rank as TCard))
 })

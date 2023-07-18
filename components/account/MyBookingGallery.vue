@@ -89,9 +89,9 @@ const showGallery = ref(false)
 const index = ref(0)
 function show(idx: number) {
   index.value = idx
-  if (idx > props.photos.length - 1) {
+  if (idx > props.photos.length - 1) 
     index.value = props.photos.length - 1
-  }
+  
   showGallery.value = true
 }
 </script>

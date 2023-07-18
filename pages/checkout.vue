@@ -1,9 +1,12 @@
 <template lang="pug">
 .mt-6.w-full
   .w-full.flex.justify-center.gap-16
-    .max-w-752px.w-full 
+    .max-w-752px.w-full
+      div
+        span.font-semibold Phiên thanh toán kết thúc sau &nbsp
+        span.font-semibold.text-red-500(v-if='durationDown !== 0') {{ durationDown }} giây
       //- Payer & payment method
-      PaymentPayer
+      PaymentPayer.mt-6
       //- PaymentMethod.mt-6
       SharedSelectMethod.mt-6(
         :method='payForm.pay_method'
@@ -30,6 +33,7 @@ definePageMeta({
 
 // route & router composables
 const route = useRoute()
+const router = useRouter()
 
 // Get payform from usePayment
 const { payForm, checkout: lists } = storeToRefs(usePayment())
@@ -82,10 +86,41 @@ const isEnoughMoney = computed(() => {
   const totalPrice = lists.value?.reduce((sumTemp, checkout) => {
     return sumTemp + checkout.total_price
   }, 0)
-  if (totalPrice && balance.value) {
-    return balance.value >= totalPrice
-  }
+  if (totalPrice && balance.value) return balance.value >= totalPrice
+
   return false
+})
+
+// =========== COUNT DOWN ==============
+const duration = ref(0)
+let countingIntv: number
+
+function stopCountingDuration() {
+  window.clearInterval(countingIntv)
+  router.push('/account')
+}
+
+function startCountingDuration() {
+  stopCountingDuration()
+
+  countingIntv = window.setInterval(() => {
+    duration.value += 1
+  }, 1000)
+}
+
+const durationDown = computed(() => 300 - duration.value)
+
+// If durationDown is 0 => stop interval
+until(durationDown)
+  .toMatch((v) => v === 0)
+  .then(stopCountingDuration)
+
+// Start count
+onMounted(startCountingDuration)
+
+// stop interval
+onUnmounted(() => {
+  stopCountingDuration()
 })
 </script>
 
